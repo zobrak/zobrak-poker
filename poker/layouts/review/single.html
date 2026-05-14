@@ -1,0 +1,73 @@
+{{ define "main" }}
+<article class="container single-article">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+    <time class="article-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+    <div class="article-meta">
+      {{ with .Params.hero_position }}<span class="meta-chip">Hero : {{ . }}</span>{{ end }}
+      {{ with .Params.pot_type }}<span class="meta-chip">{{ . }}</span>{{ end }}
+      {{ with .Params.result_bb }}<span class="meta-chip result-chip">{{ if gt . 0.0 }}+{{ end }}{{ . }} BB</span>{{ end }}
+    </div>
+    {{ if .Params.tags }}
+    <div class="article-tags">
+      {{ range .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  {{ with .Params.video_url }}
+  {{ if . }}
+  <div class="video-panel">
+    <video controls src="{{ . }}" class="review-video" preload="metadata"></video>
+  </div>
+  {{ end }}
+  {{ end }}
+
+  {{ with .Params.hero_hand }}
+  <div class="hand-display" id="hand-display-{{ anchorize $.Title }}">
+    <span class="hand-label">Main Hero :</span>
+    <span class="hand-text">{{ . }}</span>
+    <span class="hand-cards-graphic"></span>
+  </div>
+  {{ end }}
+
+  {{ with .Params.board }}
+  <div class="board-display" id="board-display-{{ anchorize $.Title }}">
+    <span class="board-label">Board :</span>
+    <span class="board-text">{{ . }}</span>
+    <span class="board-cards-graphic"></span>
+  </div>
+  {{ end }}
+
+  <div class="article-content">
+    {{ .Content }}
+  </div>
+</article>
+
+{{ $cardsJs := resources.Get "js/cards-ui.js" }}
+{{ if $cardsJs }}
+<script src="{{ $cardsJs.RelPermalink }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof renderCards !== 'function') return;
+  document.querySelectorAll('.hand-display').forEach(function(el) {
+    var text = el.querySelector('.hand-text');
+    var graphic = el.querySelector('.hand-cards-graphic');
+    if (text && graphic) {
+      var codes = text.textContent.trim().split(/\s+/);
+      graphic.innerHTML = renderCards(codes);
+    }
+  });
+  document.querySelectorAll('.board-display').forEach(function(el) {
+    var text = el.querySelector('.board-text');
+    var graphic = el.querySelector('.board-cards-graphic');
+    if (text && graphic) {
+      var codes = text.textContent.trim().split(/\s+/);
+      graphic.innerHTML = renderCards(codes);
+    }
+  });
+});
+</script>
+{{ end }}
+{{ end }}
