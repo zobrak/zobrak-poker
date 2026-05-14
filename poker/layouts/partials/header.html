@@ -1,0 +1,11 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="{{ "/" | relURL }}">ZobraK Poker</a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a href="{{ "/" | relURL }}" class="{{ if .IsHome }}active{{ end }}">Accueil</a>
+      <a href="{{ "/ranges/" | relURL }}" class="{{ if hasPrefix .RelPermalink "/ranges" }}active{{ end }}">Ranges</a>
+      <a href="{{ "/review/" | relURL }}" class="{{ if hasPrefix .RelPermalink "/review" }}active{{ end }}">Review</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>

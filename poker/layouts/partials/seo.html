@@ -1,0 +1,14 @@
+{{ $title := cond .IsHome .Site.Title (printf "%s — %s" .Title .Site.Title) }}
+{{ $description := .Description | default .Site.Params.description | default "" }}
+{{ $canonical := .Permalink }}
+
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ $canonical }}">
+<meta name="robots" content="index, follow">
+
+<!-- OpenGraph -->
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ $canonical }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
