@@ -16,29 +16,11 @@
     {{ end }}
   </header>
 
-  {{ with .Params.video_url }}
-  {{ if . }}
+  {{ with .Params.video_url }}{{ if . }}
   <div class="video-panel">
     <video controls src="{{ . }}" class="review-video" preload="metadata"></video>
   </div>
-  {{ end }}
-  {{ end }}
-
-  {{ with .Params.hero_hand }}
-  <div class="hand-display" id="hand-display-{{ anchorize $.Title }}">
-    <span class="hand-label">Main Hero :</span>
-    <span class="hand-text">{{ . }}</span>
-    <span class="hand-cards-graphic"></span>
-  </div>
-  {{ end }}
-
-  {{ with .Params.board }}
-  <div class="board-display" id="board-display-{{ anchorize $.Title }}">
-    <span class="board-label">Board :</span>
-    <span class="board-text">{{ . }}</span>
-    <span class="board-cards-graphic"></span>
-  </div>
-  {{ end }}
+  {{ end }}{{ end }}
 
   <div class="article-content">
     {{ .Content }}
@@ -46,28 +28,12 @@
 </article>
 
 {{ $cardsJs := resources.Get "js/cards-ui.js" }}
-{{ if $cardsJs }}
+{{ $parserJs := resources.Get "js/hh-parser.js" }}
+{{ $renderJs := resources.Get "js/hh-render.js" }}
+{{ if and $cardsJs $parserJs $renderJs }}
 <script src="{{ $cardsJs.RelPermalink }}"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof renderCards !== 'function') return;
-  document.querySelectorAll('.hand-display').forEach(function(el) {
-    var text = el.querySelector('.hand-text');
-    var graphic = el.querySelector('.hand-cards-graphic');
-    if (text && graphic) {
-      var codes = text.textContent.trim().split(/\s+/);
-      graphic.innerHTML = renderCards(codes);
-    }
-  });
-  document.querySelectorAll('.board-display').forEach(function(el) {
-    var text = el.querySelector('.board-text');
-    var graphic = el.querySelector('.board-cards-graphic');
-    if (text && graphic) {
-      var codes = text.textContent.trim().split(/\s+/);
-      graphic.innerHTML = renderCards(codes);
-    }
-  });
-});
-</script>
+<script src="{{ $parserJs.RelPermalink }}"></script>
+<script src="{{ $renderJs.RelPermalink }}"></script>
+<script>document.addEventListener('DOMContentLoaded', function(){ if(typeof renderHandHistories === 'function') renderHandHistories(); });</script>
 {{ end }}
 {{ end }}

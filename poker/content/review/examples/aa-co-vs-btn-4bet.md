@@ -1,8 +1,8 @@
 ---
-title: "AA CO vs BTN 3bet pot — 4bet puis cbet flop K-high"
+title: "AA CO vs BTN — 4bet pot, cbet K-high"
 date: 2026-05-14
 draft: false
-description: "Review NL2 6-max : Hero CO avec AA face à un 3bet BTN, 4bet préflop puis cbet sur flop K-high."
+description: "Hero CO avec AA, 4bet préflop vs BTN 3bet, cbet sur flop K-high sec."
 tags:
   - holdem
   - no-limit
@@ -10,8 +10,9 @@ tags:
   - 6-max
   - NL2
   - PokerStars
-  - hand-history
-  - review
+  - 4bet
+  - value
+  - cbet
 limits:
   - NL2
 rooms:
@@ -32,76 +33,51 @@ formats:
 params:
   hero_position: "CO"
   villain_position: "BTN"
-  hero_hand: "Ac Ad"
-  board: "5s 3h Kh"
   pot_type: "4bet pot"
-  effective_stack_bb: 100
   result_bb: 48.5
   video_url: ""
-  source: "PT4 hand history"
 ---
 
-# Résumé
+```hh
+PokerStars - €0.02 NL (6 max) - Holdem - 6 players
+UTG: 97.5 BB (VPIP: 18.00, PFR: 14.00, 3Bet Preflop: 4.00, Hands: 50)
+HJ: 103.0 BB (VPIP: 22.00, PFR: 16.00, 3Bet Preflop: 5.00, Hands: 45)
+Hero (CO): 137.5 BB
+BTN: 100.0 BB (VPIP: 29.41, PFR: 23.53, 3Bet Preflop: 0.00, Hands: 17)
+SB: 68.0 BB (VPIP: 14.71, PFR: 11.76, 3Bet Preflop: 5.56, Hands: 34)
+BB: 54.0 BB (VPIP: 64.71, PFR: 17.65, 3Bet Preflop: 0.00, Hands: 17)
 
-Hero CO avec AA (137.5 BB), ouvre à 3 BB. BTN 3bet à 10.5 BB. Hero 4bet à 25 BB. BTN call. Flop 5s 3h Kh (51.5 BB). Hero cbet 28 BB. BTN fold. Hero gagne 48.5 BB.
+Pre Flop: (pot: 1.5 BB) Hero has Ac Ad
+fold, fold, Hero raises to 3 BB, BTN raises to 10.5 BB, fold, fold, Hero raises to 25 BB, BTN calls 14.5 BB
 
-# Main
+Flop: (51.5 BB) 5s 3h Kh
+Hero bets 28 BB, BTN folds
 
-## Contexte
+Hero wins 48.5 BB
+```
 
-- Room : PokerStars — €0.02 NL (6 max)
-- Date : 2026-05-14
-- Stack Hero : 137.5 BB (CO)
-- Stack BTN : 100 BB
+## Analyse
 
-## Profils détectés
+### Préflop
 
-| Joueur | VPIP | PFR | 3Bet PF | Mains |
-|--------|------|-----|---------|-------|
-| BTN    | 29.41% | 23.53% | 0.00% | 17 |
-| SB     | 14.71% | 11.76% | 5.56% | 34 |
-| BB     | 64.71% | 17.65% | 0.00% | 17 |
+Open CO standard à 3 BB avec AA. BTN 3bet à 10.5 BB — size correcte.
 
-## Préflop
+4bet à 25 BB (~2.4x le 3bet) : size standard en 4bet pot IP. On construit le pot avec la meilleure main.
 
-- UTG fold, MP fold
-- **Hero (CO) raise 3 BB**
-- **BTN raise 10.5 BB** (3bet)
-- SB fold, BB fold
-- **Hero raise 25 BB** (4bet)
-- **BTN call 14.5 BB**
+BTN call : sa range de call inclut QQ, JJ, AK, AQs — quelques mains premium qui ont du mal à fold face à un 4bet.
 
-Pot : 51.5 BB
+### Flop K♥ 5♠ 3♥
 
-## Flop
+Flop favorable à notre range de 4bet : K-high, deux couleurs basses. Notre AA bénéficie d'un high card avantage.
 
-Board : **5s 3h Kh**
+Cbet 28 BB (~55% du pot) : size correcte sur ce flop. On value contre KQ, KJ dans sa range de call. Les mains comme QQ, JJ ne peuvent pas continuer facilement face à cette taille.
 
-- **Hero bet 28 BB** (cbet ~55% du pot)
-- **BTN fold**
+BTN fold attendu — sa range de call est faible sur ce flop sec.
 
-## Résultat
+### Notes exploitantes
 
-Hero gagne **48.5 BB**
+BTN a 0% 3Bet PF sur seulement 17 mains. Sample trop petit pour conclure. Sa 3bet ici peut aussi être une main premium (QQ+, AK) qu'il appelle le 4bet avec.
 
-# Analyse stratégique
+### Conclusion
 
-## Décision préflop
-
-AA vs 3bet BTN : 4bet value standard. Size 4bet ~2.5x le 3bet est correct.
-
-## Décision flop
-
-Flop K-high sec favorable à la range 4bet Hero. Cbet pour extraire value et protéger. BTN avec range principalement composée de mains qui n'ont pas connecté — fold attendu.
-
-## Notes exploitantes
-
-BTN a 0% 3Bet PF sur 17 mains (sample limité). Sa 3bet ici peut indiquer une main premium mais sample trop faible pour conclure.
-
-## Erreurs potentielles
-
-À compléter.
-
-## Conclusion
-
-Main standard, exécution correcte.
+Main standard, exécution correcte. Pas d'erreur détectée.
