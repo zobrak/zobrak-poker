@@ -1,0 +1,85 @@
+{{ define "main" }}
+<div class="container review-container">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
+
+  <!-- Outil de parsing HH -->
+  <section class="review-tool">
+    <h2>Nouvelle review depuis HH PT4</h2>
+
+    <div class="review-input-panel">
+      <div class="form-group">
+        <label for="hh-textarea">Hand History (coller ici)</label>
+        <textarea
+          id="hh-textarea"
+          class="hh-textarea"
+          placeholder="Coller votre hand history PokerTracker 4 ici…"
+          rows="14"
+          spellcheck="false"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="video-url">URL vidéo (optionnel)</label>
+        <input type="url" id="video-url" class="video-url-input" placeholder="https://… ou chemin local /videos/…">
+      </div>
+      <button id="parse-btn" class="btn btn-primary">Analyser la main</button>
+    </div>
+
+    <div id="review-output" class="review-output" hidden>
+      <div id="review-error" class="error-msg" hidden></div>
+
+      <div class="review-panels">
+        <section class="review-panel" id="panel-summary">
+          <h3>Résumé</h3>
+          <div id="summary-content"></div>
+        </section>
+
+        <section class="review-panel" id="panel-hand">
+          <h3>Main</h3>
+          <div id="hand-hero" class="hand-hero"></div>
+          <div id="hand-actions"></div>
+        </section>
+
+        <section class="review-panel" id="panel-stats">
+          <h3>Stats adverses détectées</h3>
+          <div id="stats-content"></div>
+        </section>
+
+        <section class="review-panel" id="panel-markdown">
+          <h3>Markdown généré</h3>
+          <div class="markdown-toolbar">
+            <button id="copy-btn" class="btn btn-sm">Copier</button>
+          </div>
+          <textarea id="markdown-output" class="markdown-output" readonly></textarea>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Liste des reviews publiées -->
+  {{ if .Pages }}
+  <section class="review-list">
+    <h2>Reviews publiées</h2>
+    <ul class="page-list">
+      {{ range .Pages }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ with .Description }}<span class="item-description">— {{ . }}</span>{{ end }}
+        <time class="item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+</div>
+
+{{ $cardsJs := resources.Get "js/cards-ui.js" }}
+{{ if $cardsJs }}<script src="{{ $cardsJs.RelPermalink }}"></script>{{ end }}
+{{ $parserJs := resources.Get "js/hh-parser.js" }}
+{{ if $parserJs }}<script src="{{ $parserJs.RelPermalink }}"></script>{{ end }}
+{{ $reviewJs := resources.Get "js/review-ui.js" }}
+{{ if $reviewJs }}
+<script src="{{ $reviewJs.RelPermalink }}"></script>
+<script>document.addEventListener('DOMContentLoaded', function(){ if(typeof initReview === 'function') initReview(); });</script>
+{{ end }}
+{{ end }}

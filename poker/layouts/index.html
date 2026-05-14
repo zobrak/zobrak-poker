@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="home-container">
+  <section class="search-section">
+    <label for="search-input" class="search-label">Recherche</label>
+    <div class="search-wrapper">
+      <input
+        id="search-input"
+        type="search"
+        class="search-input"
+        placeholder="Rechercher une range, une main, une review, une position, une action…"
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <div id="search-results" class="search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
+    </div>
+  </section>
+
+  <section class="nav-cards">
+    <a class="nav-card nav-card--ranges" href="{{ "/ranges/" | relURL }}">
+      <div class="nav-card-corner" aria-hidden="true"></div>
+      <h2 class="nav-card-title">Ranges</h2>
+      <p class="nav-card-description">Consultation des ranges NL2 short-handed.</p>
+    </a>
+    <a class="nav-card nav-card--review" href="{{ "/review/" | relURL }}">
+      <div class="nav-card-corner" aria-hidden="true"></div>
+      <h2 class="nav-card-title">Review</h2>
+      <p class="nav-card-description">Review de mains, parsing de hand histories PT4, intégration vidéo et analyse stratégique.</p>
+    </a>
+  </section>
+</div>
+
+{{ $js := resources.Get "js/search-ui.js" }}
+{{ if $js }}
+<script src="{{ $js.RelPermalink }}"></script>
+<script>document.addEventListener('DOMContentLoaded', function(){ if(typeof initSearch === 'function') initSearch(); });</script>
+{{ end }}
+{{ end }}

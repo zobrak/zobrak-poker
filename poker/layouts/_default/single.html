@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="container single-article">
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+    <time class="article-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+    {{ if .Params.tags }}
+    <div class="article-tags">
+      {{ range .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
+    </div>
+    {{ end }}
+  </header>
+  {{ with .Params.video_url }}
+  {{ if . }}
+  <div class="video-panel">
+    <video controls src="{{ . }}" class="review-video"></video>
+  </div>
+  {{ end }}
+  {{ end }}
+  <div class="article-content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,48 @@
+{{- $pages := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- $entry := dict
+    "title" .Title
+    "type" "page"
+    "url" .RelPermalink
+    "description" .Description
+    "tags" .Params.tags
+  -}}
+  {{- $pages = $pages | append $entry -}}
+{{- end -}}
+{{- range .Site.Taxonomies.positions -}}
+  {{- $entry := dict
+    "title" .Page.Title
+    "type" "position"
+    "url" .Page.RelPermalink
+    "description" (printf "Position : %s" .Page.Title)
+  -}}
+  {{- $pages = $pages | append $entry -}}
+{{- end -}}
+{{- range .Site.Taxonomies.actions -}}
+  {{- $entry := dict
+    "title" .Page.Title
+    "type" "action"
+    "url" .Page.RelPermalink
+    "description" (printf "Action : %s" .Page.Title)
+  -}}
+  {{- $pages = $pages | append $entry -}}
+{{- end -}}
+{{- range .Site.Taxonomies.limits -}}
+  {{- $entry := dict
+    "title" .Page.Title
+    "type" "limit"
+    "url" .Page.RelPermalink
+    "description" (printf "Limite : %s" .Page.Title)
+  -}}
+  {{- $pages = $pages | append $entry -}}
+{{- end -}}
+{{- range .Site.Taxonomies.rooms -}}
+  {{- $entry := dict
+    "title" .Page.Title
+    "type" "room"
+    "url" .Page.RelPermalink
+    "description" (printf "Room : %s" .Page.Title)
+  -}}
+  {{- $pages = $pages | append $entry -}}
+{{- end -}}
+{{- $pages | jsonify -}}
