@@ -29,6 +29,8 @@
       }
 
       renderCategories(categories);
+      var layout = document.getElementById('ranges-layout');
+      if (layout) layout.hidden = false;
       // Sélectionner la première catégorie par défaut
       selectCategory(categories[0].id);
     }).catch(function(err) {
@@ -306,7 +308,6 @@
       btn.addEventListener('click', function() { selectCategory(cat.id); });
       container.appendChild(btn);
     });
-    container.hidden = false;
   }
 
   /** Active une catégorie. */
@@ -338,7 +339,6 @@
       btn.addEventListener('click', function() { selectTab(_currentCatId, tab.id); });
       container.appendChild(btn);
     });
-    container.hidden = tabs.length === 0;
   }
 
   /** Active un onglet. */
@@ -357,8 +357,6 @@
     renderRangeGrid(cellMap);
     renderLegend(_data, tab);
 
-    var wrapper = document.getElementById('ranges-grid-wrapper');
-    if (wrapper) wrapper.hidden = false;
   }
 
   function showRangesError(msg) {

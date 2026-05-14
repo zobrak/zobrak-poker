@@ -5,11 +5,17 @@
   <div id="ranges-app">
     <div id="ranges-loading" class="loading-msg">Chargement des ranges…</div>
     <div id="ranges-error" class="error-msg" hidden></div>
-    <div id="ranges-categories" class="ranges-categories" hidden></div>
-    <div id="ranges-tabs" class="ranges-tabs" hidden></div>
-    <div id="ranges-grid-wrapper" class="ranges-grid-wrapper" hidden>
-      <div id="ranges-grid"></div>
-      <div id="ranges-legend" class="ranges-legend"></div>
+    <div class="ranges-layout" id="ranges-layout" hidden>
+      <aside class="ranges-sidebar">
+        <div id="ranges-categories" class="ranges-categories"></div>
+      </aside>
+      <div class="ranges-main">
+        <div id="ranges-tabs" class="ranges-tabs"></div>
+        <div id="ranges-grid-wrapper" class="ranges-grid-wrapper">
+          <div id="ranges-grid"></div>
+          <div id="ranges-legend" class="ranges-legend"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
