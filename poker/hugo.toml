@@ -2,7 +2,6 @@ baseURL = "https://poker.zobrak.net/"
 languageCode = "fr-fr"
 title = "ZobraK Poker"
 enableRobotsTXT = true
-theme = ""
 
 [taxonomies]
   tag = "tags"
