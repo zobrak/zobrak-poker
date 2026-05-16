@@ -1,12 +1,10 @@
 {{ define "main" }}
-<div class="container strat-container">
+<div class="strat-page">
   <div class="strat-layout">
 
     {{/* Sidebar */}}
     <aside class="strat-sidebar">
       <div class="strat-sidebar-inner">
-
-        {{/* Section navigation */}}
         <p class="strat-sidebar-label">Navigation</p>
         <nav class="strat-nav">
           <a href="{{ "/strategie/" | relURL }}" class="strat-nav-section">Stratégie</a>
@@ -33,35 +31,52 @@
           {{ end }}
         </nav>
 
-        {{/* Table of contents */}}
         {{ if .TableOfContents }}
-        <p class="strat-sidebar-label" style="margin-top:1.75rem">Dans cet article</p>
-        <nav class="strat-toc">
-          {{ .TableOfContents }}
-        </nav>
+        <div class="strat-sidebar-divider"></div>
+        <p class="strat-sidebar-label">Dans cet article</p>
+        <nav class="strat-toc">{{ .TableOfContents }}</nav>
         {{ end }}
-
       </div>
     </aside>
 
     {{/* Article */}}
-    <article class="strat-main strat-article">
-      <header class="article-header">
-        <h1>{{ .Title }}</h1>
-        {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
-        <time class="article-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
-        {{ if .Params.tags }}
-        <div class="article-tags">
-          {{ range .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
-        </div>
-        {{ end }}
-      </header>
-
-      <div class="article-content strat-content">
-        {{ .Content }}
+    <main class="strat-main">
+      <div class="strat-panel">
+        <article class="strat-article">
+          <header class="strat-article-header">
+            <h1>{{ .Title }}</h1>
+            {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+            <time class="article-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+            {{ if .Params.tags }}
+            <div class="article-tags">
+              {{ range .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
+            </div>
+            {{ end }}
+          </header>
+          <div class="strat-content">
+            {{ .Content }}
+          </div>
+        </article>
       </div>
-    </article>
+    </main>
 
   </div>
 </div>
+
+{{/* Mobile sidebar toggle */}}
+<button class="strat-sidebar-toggle" aria-label="Menu stratégie" aria-expanded="false">
+  <span>≡</span> Sections
+</button>
+
+<script>
+(function(){
+  var btn = document.querySelector('.strat-sidebar-toggle');
+  var sidebar = document.querySelector('.strat-sidebar');
+  if (!btn || !sidebar) return;
+  btn.addEventListener('click', function(){
+    var open = sidebar.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+})();
+</script>
 {{ end }}
