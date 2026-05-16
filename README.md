@@ -31,6 +31,7 @@ zobrak-poker/
 ├── deploy.sh                  # Script de déploiement (serveur)
 ├── update-ranges.sh           # Mise à jour des fichiers de ranges
 ├── anonymize-hh.py            # Anonymisation des hand histories
+├── new-review.py              # Génération automatique d'articles review
 └── poker/                     # Racine Hugo
     ├── hugo.toml              # Configuration Hugo
     ├── archetypes/            # Modèles de contenu
@@ -322,6 +323,60 @@ Le script tente d'abord UTF-8, puis latin-1 (certains exports PokerStars sont en
 ---
 
 ## 7. Poster une review de main
+
+### Script `new-review.py` (méthode recommandée)
+
+Le script génère automatiquement un ou plusieurs fichiers `.md` depuis un fichier de hand histories brutes.
+
+```bash
+./new-review.py session.txt
+./new-review.py session.txt --hero MonPseudo
+./new-review.py session.txt --out poker/content/review/session-mai/
+./new-review.py session.txt --dry-run   # aperçu sans rien écrire
+```
+
+**Ce que le script génère automatiquement :**
+
+| Champ | Source |
+|-------|--------|
+| `title` | cartes Hero + position + action + limite |
+| `date` | timestamp extrait de la HH |
+| `hero: "Hero"` | fixe (après anonymisation) |
+| `limits`, `rooms`, `formats` | extraits de l'en-tête HH |
+| `positions` | calculée depuis le siège bouton |
+| `actions` | open / 3bet / 4bet / squeeze / call… |
+| `streets` | streets jouées (flop/turn/river présentes) |
+| `params.pot_type` | SRP / 3bet pot / 4bet pot (nb raises préflop) |
+| `params.result_bb` | calculé (approximatif — à vérifier) |
+| Bloc `hh` anonymisé | HH complète avec Villain1/2/… |
+| `## Analyse` | sections vides prêtes à rédiger |
+
+**Nommage des fichiers :** `YYYY-MM-DD-<cartes>-<position>.md`
+(ex: `2026-05-16-jd-jc-btn.md`). Suffixe `-2`, `-3`… si conflit.
+
+**Les fichiers sont toujours créés en `draft: true`** — passer à `draft: false` manuellement quand l'article est prêt à publier.
+
+**Workflow complet :**
+
+```bash
+# 1. Exporter les mains depuis PokerStars (fichier .txt)
+# 2. Générer les articles
+./new-review.py ~/PokerStars/HandHistory/session_2026-05-16.txt --hero MonPseudo
+
+# 3. Éditer les fichiers générés
+#    - Corriger title et description
+#    - Vérifier result_bb
+#    - Rédiger l'analyse
+vim poker/content/review/2026-05-16-ah-kh-bb.md
+
+# 4. Passer draft: false quand prêt
+# 5. Commit + push + deploy
+git add poker/content/review/
+git commit -m "Review: session 2026-05-16 (3 mains)"
+git push origin main && ./deploy.sh   # sur le serveur
+```
+
+### Création manuelle
 
 ### Emplacement
 

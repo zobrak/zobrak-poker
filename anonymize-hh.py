@@ -67,22 +67,6 @@ def apply_mapping(text, mapping):
     return result
 
 
-def anonymize_table_name(text):
-    """Table 'Alemannia VII' → Table 'Anonyme'"""
-    text = re.sub(r"(Table\s+)'[^']+'", r"\1'Anonyme'", text)
-    text = re.sub(r'(Table\s+)"[^"]+"', r'\1"Anonyme"', text)
-    return text
-
-
-def anonymize_hand_id(text):
-    """PokerStars Hand #260824466012 → PokerStars Hand #XXXXXXXXXXXX"""
-    return re.sub(
-        r'(PokerStars\s+(?:Hand|Game)\s+#)\d+',
-        r'\1XXXXXXXXXXXX',
-        text, flags=re.IGNORECASE
-    )
-
-
 def anonymize_ps(text, hero_name=None):
     lines = text.splitlines()
 
@@ -94,10 +78,7 @@ def anonymize_ps(text, hero_name=None):
     resolved_hero = hero_name or detected_hero
 
     mapping = build_mapping(players_by_seat, resolved_hero)
-
     result = apply_mapping(text, mapping)
-    result = anonymize_table_name(result)
-    result = anonymize_hand_id(result)
 
     return result, mapping, resolved_hero
 
