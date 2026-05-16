@@ -14,8 +14,9 @@
       'code.language-hh, code[data-lang="hh"], pre > code.language-hh, pre code[data-lang="hh"]'
     );
 
-    // Hero name optionally set by the page template from frontmatter
-    var heroName = (typeof global.REVIEW_HERO === 'string' && global.REVIEW_HERO) || null;
+    // Hero name from data-hero attribute on the article element
+    var heroEl = document.querySelector('[data-hero]');
+    var heroName = (heroEl && heroEl.getAttribute('data-hero')) || null;
 
     blocks.forEach(function(code) {
       var text = code.textContent || '';

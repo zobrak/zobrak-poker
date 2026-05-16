@@ -1,5 +1,5 @@
 {{ define "main" }}
-<article class="container single-article">
+<article class="container single-article"{{ with .Params.hero }} data-hero="{{ . }}"{{ end }}>
   <header class="article-header">
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
@@ -31,7 +31,6 @@
 {{ $parserJs := resources.Get "js/hh-parser.js" }}
 {{ $renderJs := resources.Get "js/hh-render.js" }}
 {{ if and $cardsJs $parserJs $renderJs }}
-{{ with .Params.hero }}<script>window.REVIEW_HERO = {{ . | jsonify }};</script>{{ end }}
 <script src="{{ $cardsJs.RelPermalink }}"></script>
 <script src="{{ $parserJs.RelPermalink }}"></script>
 <script src="{{ $renderJs.RelPermalink }}"></script>
