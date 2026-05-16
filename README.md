@@ -15,11 +15,12 @@ Site statique personnel de travail poker. Construit avec [Hugo](https://gohugo.i
 3. [Workflow de développement](#3-workflow-de-développement)
 4. [Déploiement en production](#4-déploiement-en-production)
 5. [Mettre à jour les ranges](#5-mettre-à-jour-les-ranges)
-6. [Poster une review de main](#6-poster-une-review-de-main)
-7. [Écrire une fiche stratégique](#7-écrire-une-fiche-stratégique)
-8. [Format Hand History (`hh`)](#8-format-hand-history-hh)
-9. [Taxonomies & frontmatter de référence](#9-taxonomies--frontmatter-de-référence)
-10. [Architecture technique avancée](#10-architecture-technique-avancée)
+6. [Anonymiser une hand history](#6-anonymiser-une-hand-history)
+7. [Poster une review de main](#7-poster-une-review-de-main)
+8. [Écrire une fiche stratégique](#8-écrire-une-fiche-stratégique)
+9. [Format Hand History (`hh`)](#9-format-hand-history-hh)
+10. [Taxonomies & frontmatter de référence](#10-taxonomies--frontmatter-de-référence)
+11. [Architecture technique avancée](#11-architecture-technique-avancée)
 
 ---
 
@@ -28,6 +29,8 @@ Site statique personnel de travail poker. Construit avec [Hugo](https://gohugo.i
 ```
 zobrak-poker/
 ├── deploy.sh                  # Script de déploiement (serveur)
+├── update-ranges.sh           # Mise à jour des fichiers de ranges
+├── anonymize-hh.py            # Anonymisation des hand histories
 └── poker/                     # Racine Hugo
     ├── hugo.toml              # Configuration Hugo
     ├── archetypes/            # Modèles de contenu
@@ -241,7 +244,84 @@ C'est du JSON avec la structure suivante :
 
 ---
 
-## 6. Poster une review de main
+## 6. Anonymiser une hand history
+
+Les hand histories exportées depuis PokerStars contiennent les pseudos réels des joueurs. Le script `anonymize-hh.py` les remplace par `Hero`, `Villain1`, `Villain2`… avant toute publication.
+
+### Prérequis
+
+Python 3 (stdlib uniquement, aucune dépendance) :
+
+```bash
+python3 --version
+```
+
+### Usage
+
+```bash
+# Depuis un fichier, hero auto-détecté (ligne "Dealt to")
+./anonymize-hh.py hh.txt
+
+# Spécifier le hero explicitement
+./anonymize-hh.py hh.txt --hero MonPseudo
+
+# Depuis stdin (pipe)
+cat hh.txt | ./anonymize-hh.py -
+
+# Rediriger la sortie vers un fichier
+./anonymize-hh.py hh.txt > anonymized.txt
+
+# Alias court
+./anonymize-hh.py hh.txt -H MonPseudo
+```
+
+### Ce que le script modifie
+
+| Élément | Avant | Après |
+|---------|-------|-------|
+| Nom du hero | `JJohnbluffpAAs` | `Hero` |
+| Adversaires | `BaboonPeedas`, `fab11230`… | `Villain1`, `Villain2`… |
+| Nom de la table | `Table 'Alemannia VII'` | `Table 'Anonyme'` |
+| Numéro de main | `Hand #260824466012` | `Hand #XXXXXXXXXXXX` |
+
+L'ordre des Villain suit les numéros de siège (Seat 1 → Villain1, Seat 2 → Villain2, etc., Hero exclu).
+
+### Sortie
+
+La HH anonymisée est affichée sur **stdout**. Les correspondances et le rappel du frontmatter sont affichés sur **stderr** (invisibles si redirigé vers un fichier).
+
+```
+── Correspondances ──────────────────────────────────
+  JJohnbluffpAAs                   → Hero  ← Hero
+  BaboonPeedas                     → Villain1
+  fab11230                         → Villain2
+  arny1994                         → Villain3
+─────────────────────────────────────────────────────
+
+Frontmatter → hero: "Hero"
+```
+
+### Workflow complet
+
+```bash
+# 1. Exporter la main depuis PokerStars (fichier .txt)
+# 2. Anonymiser
+./anonymize-hh.py ~/PokerStars/HandHistory/ma_main.txt > /tmp/hh_anon.txt
+
+# 3. Copier la sortie dans l'article Markdown
+#    Entre les balises ```hh ... ```
+
+# 4. Ajouter dans le frontmatter :
+#    hero: "Hero"
+```
+
+### Encodage
+
+Le script tente d'abord UTF-8, puis latin-1 (certains exports PokerStars sont en latin-1 sur Windows).
+
+---
+
+## 7. Poster une review de main
 
 ### Emplacement
 
@@ -361,7 +441,7 @@ git push origin main
 
 ---
 
-## 7. Écrire une fiche stratégique
+## 8. Écrire une fiche stratégique
 
 ### Emplacement
 
@@ -444,7 +524,7 @@ Aucune configuration manuelle n'est requise. Ajouter un fichier dans une sous-se
 
 ---
 
-## 8. Format Hand History (`hh`)
+## 9. Format Hand History (`hh`)
 
 Le parser supporte deux formats. Il détecte automatiquement lequel utiliser.
 
@@ -505,7 +585,7 @@ Dans ce format, le joueur nommé `Hero` est automatiquement reconnu sans avoir b
 
 ---
 
-## 9. Taxonomies & frontmatter de référence
+## 10. Taxonomies & frontmatter de référence
 
 Hugo génère des pages de taxonomie automatiquement pour chaque valeur renseignée.
 
@@ -539,7 +619,7 @@ Le badge s'affiche en vert si positif, sans couleur spéciale si nul ou négatif
 
 ---
 
-## 10. Architecture technique avancée
+## 11. Architecture technique avancée
 
 ### Génération du site
 
