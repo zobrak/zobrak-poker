@@ -161,47 +161,57 @@ Les erreurs les plus fréquentes :
 
 Les ranges sont stockées dans des fichiers `.rm` (format Range Manager — JSON propriétaire). Le lecteur JavaScript les charge côté client.
 
-### Emplacement des fichiers
+### Script `update-ranges.sh` (méthode recommandée)
+
+Un script CLI à la racine du projet automatise toute la procédure :
+
+```bash
+./update-ranges.sh <fichier.rm> <limite>
+```
+
+**Exemples :**
+
+```bash
+# Mettre à jour les ranges NL2 avec un nouveau fichier
+./update-ranges.sh ~/Downloads/Ranges_NL2_v4.rm NL2
+
+# Mettre à jour les ranges NL5
+./update-ranges.sh /tmp/my_ranges.rm NL5
+```
+
+**Ce que fait le script, dans l'ordre :**
+
+1. Vérifie que le fichier source existe et est du JSON valide
+2. Renomme l'ancien fichier actif `ranges_<limite>.rm` → `ranges_<limite>.old` (sauvegarde)
+3. Copie le nouveau fichier sous `poker/static/data/ranges/ranges_<limite>.rm`
+4. Met à jour la variable `RM_FILE_URL` dans `ranges-ui.js`
+5. Propose de committer et pousser immédiatement
+
+**Convention de nommage appliquée automatiquement :**
 
 ```
 poker/static/data/ranges/
-├── Ranges_NL2_edited_by_chatGPT_v2.rm   # ancienne version
-└── Ranges_NL2_v3.rm                     # version active
+├── ranges_NL2.rm      # fichier actif chargé par le site
+└── ranges_NL2.old     # sauvegarde de la version précédente
 ```
 
-### Changer la version active
+Quel que soit le nom du fichier source passé en argument, le fichier de destination est toujours `ranges_<limite>.rm`.
 
-Le fichier chargé est configuré en tête de `poker/assets/js/ranges-ui.js` :
-
-```js
-// poker/assets/js/ranges-ui.js — ligne ~5
-var RM_FILE_URL = '/data/ranges/Ranges_NL2_v3.rm';
-```
-
-Pour pointer vers un nouveau fichier :
-1. Copier le nouveau `.rm` dans `poker/static/data/ranges/`
-2. Modifier `RM_FILE_URL` dans `ranges-ui.js`
-3. Commit + push + `./deploy.sh`
-
-### Procédure complète de mise à jour
+### Procédure manuelle (si besoin)
 
 ```bash
-# 1. Copier le nouveau fichier de ranges
-cp /chemin/vers/Ranges_NL2_v4.rm poker/static/data/ranges/
+# 1. Copier et renommer
+cp /chemin/vers/nouveau.rm poker/static/data/ranges/ranges_NL2.rm
 
-# 2. Modifier ranges-ui.js pour pointer vers le nouveau fichier
-#    Changer la variable RM_FILE_URL
+# 2. Mettre à jour ranges-ui.js (ligne RM_FILE_URL)
+#    var RM_FILE_URL = '/data/ranges/ranges_NL2.rm';
 
-# 3. Vérifier localement
-cd poker && hugo server
-
-# 4. Commit
-cd ..
-git add poker/static/data/ranges/Ranges_NL2_v4.rm poker/assets/js/ranges-ui.js
-git commit -m "Ranges: mise à jour vers v4"
+# 3. Commit + push
+git add poker/static/data/ranges/ranges_NL2.rm poker/assets/js/ranges-ui.js
+git commit -m "Ranges: mise à jour NL2"
 git push origin main
 
-# 5. Déployer sur le serveur
+# 4. Déployer sur le serveur
 ./deploy.sh
 ```
 
