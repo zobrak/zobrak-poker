@@ -14,14 +14,14 @@
           {{ if $root }}
             {{ range $root.Sections }}
             <div class="strat-nav-group">
-              <a href="{{ .Permalink }}" class="strat-nav-sub{{ if eq $.Parent.RelPermalink .RelPermalink }} active{{ end }}">
+              <a href="{{ .RelPermalink }}" class="strat-nav-sub{{ if eq $.Parent.RelPermalink .RelPermalink }} active{{ end }}">
                 {{ .Title }}
               </a>
               {{ if .Pages }}
               <ul class="strat-nav-articles">
                 {{ range .Pages }}
                 <li>
-                  <a href="{{ .Permalink }}" class="{{ if eq $.RelPermalink .RelPermalink }}active{{ end }}">
+                  <a href="{{ .RelPermalink }}" class="{{ if eq $.RelPermalink .RelPermalink }}active{{ end }}">
                     {{ .Title }}
                   </a>
                 </li>

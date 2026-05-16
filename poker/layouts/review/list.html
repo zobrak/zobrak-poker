@@ -8,7 +8,7 @@
     {{ range .Pages.ByDate.Reverse }}
     <li class="review-list-item">
       <div class="review-list-main">
-        <a class="review-list-title" href="{{ .Permalink }}">{{ .Title }}</a>
+        <a class="review-list-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
         {{ with .Description }}<p class="review-list-desc">{{ . }}</p>{{ end }}
         <div class="review-list-meta">
           {{ with .Params.hero_position }}<span class="meta-chip">{{ . }}</span>{{ end }}
