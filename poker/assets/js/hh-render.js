@@ -1,35 +1,56 @@
 /**
  * hh-render.js — Rendu visuel des blocs hand history dans les articles.
- * Cherche tous les <code class="language-hh"> et les remplace par
- * un affichage structuré (résumé, cartes, actions, stats HUD).
- * Utilise hh-parser.js et cards-ui.js.
+ * Cherche tous les blocs <code class="language-hh"> ou <code data-lang="hh">
+ * et les remplace par un affichage structuré.
+ * Supporte les formats PT4 et PokerStars natif via hh-parser.js.
  */
 
 (function(global) {
   'use strict';
 
   function renderHandHistories() {
-    var blocks = document.querySelectorAll('code.language-hh');
+    // Support both Goldmark (class="language-hh") and Chroma (data-lang="hh") output
+    var blocks = document.querySelectorAll(
+      'code.language-hh, code[data-lang="hh"], pre > code.language-hh, pre code[data-lang="hh"]'
+    );
+
+    // Hero name optionally set by the page template from frontmatter
+    var heroName = (typeof global.REVIEW_HERO === 'string' && global.REVIEW_HERO) || null;
+
     blocks.forEach(function(code) {
       var text = code.textContent || '';
       var parsed = null;
-      try { parsed = global.parsePT4HandHistory(text); } catch(e) {}
+      try {
+        if (typeof global.parseHandHistory === 'function') {
+          parsed = global.parseHandHistory(text, heroName);
+        } else if (typeof global.parsePT4HandHistory === 'function') {
+          parsed = global.parsePT4HandHistory(text);
+        }
+      } catch(e) {
+        console.warn('[hh-render] Erreur parsing:', e);
+      }
       if (!parsed) return;
 
       var wrapper = document.createElement('div');
       wrapper.className = 'hh-block';
-      wrapper.innerHTML = buildHHHtml(parsed);
+      wrapper.innerHTML = buildHHHtml(parsed, heroName);
 
-      var pre = code.parentNode; // <pre> englobant
+      var pre = code.parentNode;
       if (pre && pre.tagName === 'PRE') {
-        pre.parentNode.replaceChild(wrapper, pre);
+        var preParent = pre.parentNode;
+        // Handle Chroma wrapper div
+        if (preParent && preParent.classList && preParent.classList.contains('highlight')) {
+          preParent.parentNode.replaceChild(wrapper, preParent);
+        } else {
+          preParent.replaceChild(wrapper, pre);
+        }
       } else {
         code.parentNode.replaceChild(wrapper, code);
       }
     });
   }
 
-  function buildHHHtml(p) {
+  function buildHHHtml(p, heroName) {
     var html = '';
 
     // ── En-tête ──────────────────────────────────────────────────
@@ -37,7 +58,12 @@
     if (p.room)   html += '<span class="hh-badge">' + esc(p.room) + '</span>';
     if (p.stake)  html += '<span class="hh-badge">' + esc(p.stake) + '</span>';
     if (p.format) html += '<span class="hh-badge">' + esc(p.format) + '</span>';
-    if (p.hero_position) html += '<span class="hh-badge hh-badge--hero">Hero : ' + esc(p.hero_position) + '</span>';
+    if (p.game)   html += '<span class="hh-badge">' + esc(p.game) + '</span>';
+    if (p.hero_position && p.hero_position !== 'Hero') {
+      html += '<span class="hh-badge hh-badge--hero">Hero : ' + esc(p.hero_position) + '</span>';
+    } else if (heroName) {
+      html += '<span class="hh-badge hh-badge--hero">Hero : ' + esc(heroName) + '</span>';
+    }
     html += '</div>';
 
     // ── Cartes Hero ───────────────────────────────────────────────
@@ -77,19 +103,22 @@
       html += buildStreet('River', p.river_actions, riverCards, p.pot_river);
     }
 
-    html += '</div>'; // hh-streets
+    html += '</div>';
 
     // ── Résultat ──────────────────────────────────────────────────
     if (p.winner) {
+      var winnerLabel = (heroName && p.winner.toLowerCase() === heroName.toLowerCase()) ? 'Hero' : p.winner;
+      winnerLabel = p.winner === 'Hero' ? 'Hero' : winnerLabel;
       html += '<div class="hh-result">'
         + '<span class="hh-street-label">Résultat</span>'
-        + '<strong>' + esc(p.winner) + '</strong> gagne <strong>' + p.amount_won + ' BB</strong>'
+        + '<strong>' + esc(winnerLabel) + '</strong> gagne'
+        + (p.amount_won ? ' <strong>' + p.amount_won + '</strong>' : '')
         + '</div>';
     }
 
     // ── Stats HUD ─────────────────────────────────────────────────
     var statsRows = Object.values(p.players).filter(function(pl) {
-      return pl.name !== 'Hero' && Object.keys(pl.stats).length > 0;
+      return pl.name !== 'Hero' && pl.stats && Object.keys(pl.stats).length > 0;
     });
     if (statsRows.length) {
       html += '<details class="hh-stats">'
@@ -99,7 +128,7 @@
         + '</tr></thead><tbody>';
       statsRows.forEach(function(pl) {
         html += '<tr>'
-          + '<td>' + esc(pl.position) + '</td>'
+          + '<td>' + esc(pl.position || pl.name) + '</td>'
           + '<td>' + fmt(pl.stats['VPIP']) + '</td>'
           + '<td>' + fmt(pl.stats['PFR']) + '</td>'
           + '<td>' + fmt(pl.stats['3Bet Preflop']) + '</td>'
@@ -120,7 +149,9 @@
     if (pot) html += '<span class="hh-street-pot">Pot : ' + pot + ' BB</span>';
     html += '</div>';
 
-    var meaningful = (actions || []).filter(function(a) { return a.player !== 'unknown'; });
+    var meaningful = (actions || []).filter(function(a) {
+      return a.player && a.player !== 'unknown';
+    });
     if (meaningful.length) {
       html += '<ul class="hh-actions">';
       meaningful.forEach(function(a) {
@@ -143,7 +174,11 @@
   }
 
   function esc(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    return String(s)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
   }
 
   global.renderHandHistories = renderHandHistories;

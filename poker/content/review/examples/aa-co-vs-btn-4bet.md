@@ -1,8 +1,9 @@
 ---
-title: "AA CO vs BTN — 4bet pot, cbet K-high"
-date: 2026-05-14
+title: "AK BB — Squeeze 4bet préflop, victoire sans showdown"
+date: 2026-05-16
 draft: false
-description: "Hero CO avec AA, 4bet préflop vs BTN 3bet, cbet sur flop K-high sec."
+description: "Hero BB avec AK, squeeze 4bet préflop, tous les adversaires couchent."
+hero: "JJohnbluffpAAs"
 tags:
   - holdem
   - no-limit
@@ -11,73 +12,78 @@ tags:
   - NL2
   - PokerStars
   - 4bet
-  - value
-  - cbet
+  - squeeze
+  - preflop
 limits:
   - NL2
 rooms:
   - PokerStars
 positions:
-  - CO
-  - BTN
+  - BB
 actions:
-  - open
-  - 3bet
   - 4bet
-  - cbet
+  - squeeze
 streets:
   - preflop
-  - flop
 formats:
   - 6-max
 params:
-  hero_position: "CO"
-  villain_position: "BTN"
-  pot_type: "4bet pot"
-  result_bb: 48.5
+  hero_position: "BB"
+  pot_type: "4bet squeeze"
+  result_bb: 8.5
   video_url: ""
 ---
 
 ```hh
-PokerStars - €0.02 NL (6 max) - Holdem - 6 players
-UTG: 97.5 BB (VPIP: 18.00, PFR: 14.00, 3Bet Preflop: 4.00, Hands: 50)
-HJ: 103.0 BB (VPIP: 22.00, PFR: 16.00, 3Bet Preflop: 5.00, Hands: 45)
-Hero (CO): 137.5 BB
-BTN: 100.0 BB (VPIP: 29.41, PFR: 23.53, 3Bet Preflop: 0.00, Hands: 17)
-SB: 68.0 BB (VPIP: 14.71, PFR: 11.76, 3Bet Preflop: 5.56, Hands: 34)
-BB: 54.0 BB (VPIP: 64.71, PFR: 17.65, 3Bet Preflop: 0.00, Hands: 17)
-
-Pre Flop: (pot: 1.5 BB) Hero has Ac Ad
-fold, fold, Hero raises to 3 BB, BTN raises to 10.5 BB, fold, fold, Hero raises to 25 BB, BTN calls 14.5 BB
-
-Flop: (51.5 BB) 5s 3h Kh
-Hero bets 28 BB, BTN folds
-
-Hero wins 48.5 BB
+PokerStars Hand #260824466012:  Hold'em No Limit (€0.01/€0.02 EUR) - 2026/05/16 11:49:31 CET [2026/05/16 5:49:31 ET]
+Table 'Alemannia VII' 6-max Seat #3 is the button
+Seat 1: BaboonPeedas (€2.09 in chips)
+Seat 2: fab11230 (€8.40 in chips)
+Seat 3: arny1994 (€1.99 in chips)
+Seat 4: keki8115 (€1.32 in chips)
+Seat 5: JJohnbluffpAAs (€2 in chips)
+Seat 6: JuanMaldonado (€1.62 in chips)
+keki8115: posts small blind €0.01
+JJohnbluffpAAs: posts big blind €0.02
+*** HOLE CARDS ***
+Dealt to JJohnbluffpAAs [Ah Kh]
+JuanMaldonado: raises €0.02 to €0.04
+BaboonPeedas: folds
+fab11230: raises €0.02 to €0.06
+arny1994: folds
+keki8115: folds
+JJohnbluffpAAs: raises €0.22 to €0.28
+JuanMaldonado: folds
+fab11230: folds
+Uncalled bet (€0.22) returned to JJohnbluffpAAs
+JJohnbluffpAAs collected €0.17 from pot
+JJohnbluffpAAs: doesn't show hand
+*** SUMMARY ***
+Total pot €0.17 | Rake €0
+Seat 1: BaboonPeedas folded before Flop (didn't bet)
+Seat 2: fab11230 folded before Flop
+Seat 3: arny1994 (button) folded before Flop (didn't bet)
+Seat 4: keki8115 (small blind) folded before Flop
+Seat 5: JJohnbluffpAAs (big blind) collected (€0.17)
+Seat 6: JuanMaldonado folded before Flop
 ```
 
 ## Analyse
 
 ### Préflop
 
-Open CO standard à 3 BB avec AA. BTN 3bet à 10.5 BB — size correcte.
+UTG fold, HJ fold. CO (JuanMaldonado) open à €0.04 (2 BB). BTN fold. BU fold. MP (fab11230) 3bet à €0.06 — sizing très petit, typique d'un rec ou d'un squeeze partiel.
 
-4bet à 25 BB (~2.4x le 3bet) : size standard en 4bet pot IP. On construit le pot avec la meilleure main.
+Hero en BB avec A♥K♥ : situation idéale pour un 4bet squeeze. fab11230 a 3bet très petit (3x l'open), indiquant souvent une main faible ou un squeeze exploitant. JuanMaldonado est l'opener initial avec une range standard CO.
 
-BTN call : sa range de call inclut QQ, JJ, AK, AQs — quelques mains premium qui ont du mal à fold face à un 4bet.
+4bet squeeze à €0.28 depuis la BB : taille correcte, ~4.7x le 3bet. Représente une range forte (QQ+, AK). Met une pression maximale sur les deux adversaires.
 
-### Flop K♥ 5♠ 3♥
-
-Flop favorable à notre range de 4bet : K-high, deux couleurs basses. Notre AA bénéficie d'un high card avantage.
-
-Cbet 28 BB (~55% du pot) : size correcte sur ce flop. On value contre KQ, KJ dans sa range de call. Les mains comme QQ, JJ ne peuvent pas continuer facilement face à cette taille.
-
-BTN fold attendu — sa range de call est faible sur ce flop sec.
+JuanMaldonado fold immédiat. fab11230 fold — confirme que son 3bet était exploitant ou qu'il n'a pas la force pour continuer face à un 4bet.
 
 ### Notes exploitantes
 
-BTN a 0% 3Bet PF sur seulement 17 mains. Sample trop petit pour conclure. Sa 3bet ici peut aussi être une main premium (QQ+, AK) qu'il appelle le 4bet avec.
+fab11230 utilise un sizing de 3bet très petit (3x seulement) depuis la BU, ce qui est souvent un signal d'une main de squeeze exploitante (souhaitant voler le pot pas cher) plutôt qu'une main premium. Contre ce profil, le 4bet squeeze avec AKs est excellent : on cible précisément cette faiblesse.
 
 ### Conclusion
 
-Main standard, exécution correcte. Pas d'erreur détectée.
+Main standard exécutée correctement. Le 4bet squeeze préflop avec AK en BB face à un open + petit 3bet est un spot de value évident. Gain rapide sans showdown.

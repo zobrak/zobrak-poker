@@ -1,0 +1,2805 @@
+{
+  "categories": {
+    "root": {
+      "children": [
+        "000c",
+        "bf85e94501e569f76430bd1fcf582131",
+        "3ff7472ec8ab45399cb6c55b2a0e52ae",
+        "d8cd88b1fdcdee3f0b2cbb0f218d4be9",
+        "176f4e17e4870dce58c14518cb79937d",
+        "sb_defense_nl2_validated_20260510",
+        "iso_raise_nl2_20260510",
+        "polar_ip_3b5b_20260510",
+        "polar_oop_3b5b_20260510",
+        "merged_squeeze_20260510"
+      ]
+    },
+    "000c": {
+      "name": "Open C3B 4B",
+      "tabList": [
+        "12575e50cc503e5615957d591c8a1a5e",
+        "c1c391f2bdcc160073f43b7ab5c6d04d",
+        "0d57afd0572a85c19814a580ef345644",
+        "cb165e1e42043aa79c3572e4d96ed4cf",
+        "52d8c17e8e95ded1cdf1f16e75287992"
+      ],
+      "tabs": {
+        "c1c391f2bdcc160073f43b7ab5c6d04d": {
+          "name": "HJ",
+          "rangeList": [
+            {
+              "id": "open_green_20260510",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "55",
+                "66",
+                "77",
+                "87s",
+                "88",
+                "A2s",
+                "A3s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "AJo",
+                "ATo",
+                "JTs",
+                "KJs",
+                "KTs",
+                "QJs",
+                "T9s",
+                "98s:0.5000"
+              ]
+            },
+            {
+              "id": "65017ea15f0bed809cfea97077b1cc85",
+              "hands": [
+                "99",
+                "AJs",
+                "AKo",
+                "AQo",
+                "AQs",
+                "ATs",
+                "JJ",
+                "KQo",
+                "KQs",
+                "QQ",
+                "TT"
+              ]
+            },
+            {
+              "id": "8165831fc405c3a69b670847a48cf681",
+              "hands": [
+                "AA",
+                "AKs",
+                "KK"
+              ]
+            },
+            {
+              "id": "8d5d79a66fa9ab1bcc7f39748b0a82f0",
+              "hands": [
+                "98s:0.5000",
+                "A4s",
+                "A5s"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        },
+        "12575e50cc503e5615957d591c8a1a5e": {
+          "name": "UTG",
+          "rangeList": [
+            {
+              "id": "open_green_20260510",
+              "hands": [
+                "77",
+                "88",
+                "99",
+                "A9s",
+                "AJo",
+                "AQo",
+                "JTs",
+                "KJs",
+                "QJs",
+                "T9s",
+                "98s:0.5000"
+              ]
+            },
+            {
+              "id": "65017ea15f0bed809cfea97077b1cc85",
+              "hands": [
+                "AJs",
+                "AKo",
+                "AQs",
+                "ATs",
+                "JJ",
+                "KQs",
+                "QQ",
+                "TT"
+              ]
+            },
+            {
+              "id": "8165831fc405c3a69b670847a48cf681",
+              "hands": [
+                "AA",
+                "AKs",
+                "KK"
+              ]
+            },
+            {
+              "id": "8d5d79a66fa9ab1bcc7f39748b0a82f0",
+              "hands": [
+                "98s:0.5000",
+                "A4s",
+                "A5s"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        },
+        "cb165e1e42043aa79c3572e4d96ed4cf": {
+          "name": "BTN",
+          "rangeList": [
+            {
+              "id": "open_green_20260510",
+              "hands": [
+                "32s",
+                "42s",
+                "43s",
+                "52s",
+                "53s",
+                "54s",
+                "63s",
+                "64s",
+                "65s",
+                "74s",
+                "75s",
+                "85s",
+                "86s",
+                "96s",
+                "97s",
+                "98o",
+                "A2o",
+                "A3o",
+                "A4o",
+                "A5o",
+                "A6o",
+                "A7o",
+                "A8o",
+                "A9o",
+                "J7s",
+                "J8s",
+                "JTo",
+                "K2s",
+                "K3s",
+                "K4s",
+                "K5s",
+                "K6s",
+                "K7o",
+                "K7s",
+                "K8o",
+                "K9o",
+                "KTo",
+                "Q2s",
+                "Q3s",
+                "Q4s",
+                "Q5s",
+                "Q6s",
+                "Q7s",
+                "Q8s",
+                "QJo",
+                "QTo",
+                "T7s",
+                "T8s",
+                "T9o",
+                "76s:0.5000",
+                "K8s:0.5000",
+                "K9s:0.5000",
+                "87s:0.5000"
+              ]
+            },
+            {
+              "id": "65017ea15f0bed809cfea97077b1cc85",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "55",
+                "66",
+                "77",
+                "88",
+                "98s",
+                "99",
+                "A2s",
+                "A3s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "AJo",
+                "AJs",
+                "AKo:0.5000",
+                "AQo",
+                "AQs",
+                "ATo",
+                "ATs",
+                "J9s",
+                "JJ",
+                "JTs",
+                "KJo",
+                "KJs",
+                "KQo",
+                "KQs",
+                "KTs",
+                "Q9s",
+                "QJs",
+                "QTs",
+                "T9s",
+                "TT"
+              ]
+            },
+            {
+              "id": "8165831fc405c3a69b670847a48cf681",
+              "hands": [
+                "AA",
+                "AKo:0.5000",
+                "AKs",
+                "KK",
+                "QQ"
+              ]
+            },
+            {
+              "id": "8d5d79a66fa9ab1bcc7f39748b0a82f0",
+              "hands": [
+                "76s:0.5000",
+                "87s:0.5000",
+                "A4s",
+                "A5s",
+                "K8s:0.5000",
+                "K9s:0.5000"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        },
+        "0d57afd0572a85c19814a580ef345644": {
+          "name": "CO",
+          "rangeList": [
+            {
+              "id": "open_green_20260510",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "54s",
+                "55",
+                "64s",
+                "65s",
+                "66",
+                "75s",
+                "77",
+                "86s",
+                "88",
+                "97s",
+                "98s",
+                "A2s",
+                "A3s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "ATo",
+                "J9s",
+                "K8s",
+                "K9s",
+                "KJo",
+                "KTo",
+                "Q9s",
+                "QJo",
+                "QTs",
+                "T8s",
+                "T9s",
+                "76s:0.5000",
+                "87s:0.5000"
+              ]
+            },
+            {
+              "id": "65017ea15f0bed809cfea97077b1cc85",
+              "hands": [
+                "99",
+                "A9s",
+                "AJo",
+                "AJs",
+                "AKo:0.5000",
+                "AQo",
+                "AQs",
+                "ATs",
+                "JJ",
+                "JTs",
+                "KJs",
+                "KQo",
+                "KQs",
+                "KTs",
+                "QJs",
+                "QQ",
+                "TT"
+              ]
+            },
+            {
+              "id": "8165831fc405c3a69b670847a48cf681",
+              "hands": [
+                "AA",
+                "AKo:0.5000",
+                "AKs",
+                "KK"
+              ]
+            },
+            {
+              "id": "8d5d79a66fa9ab1bcc7f39748b0a82f0",
+              "hands": [
+                "76s:0.5000",
+                "87s:0.5000",
+                "A4s",
+                "A5s"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        },
+        "52d8c17e8e95ded1cdf1f16e75287992": {
+          "name": "SB",
+          "rangeList": [
+            {
+              "id": "open_green_20260510",
+              "hands": [
+                "22",
+                "32s",
+                "33",
+                "43s",
+                "44",
+                "54s",
+                "55",
+                "64s",
+                "65s",
+                "75s",
+                "86s",
+                "97s",
+                "98o",
+                "A2o",
+                "A3o",
+                "A4o",
+                "A5o",
+                "A6o",
+                "A7o",
+                "A8o",
+                "A9o",
+                "J8s",
+                "JTo",
+                "K2s",
+                "K3s",
+                "K4s",
+                "K5s",
+                "K6s",
+                "K7s",
+                "K8s",
+                "K9o",
+                "KTo",
+                "Q2s",
+                "Q3s",
+                "Q4s",
+                "Q5s",
+                "Q6s",
+                "Q7s",
+                "Q8s",
+                "QJo",
+                "QTo",
+                "T8s",
+                "T9o",
+                "76s:0.5000",
+                "98s:0.5000",
+                "87s:0.5000"
+              ]
+            },
+            {
+              "id": "65017ea15f0bed809cfea97077b1cc85",
+              "hands": [
+                "66",
+                "77",
+                "88",
+                "99",
+                "A2s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "AJo",
+                "AJs",
+                "AKo",
+                "AQo",
+                "AQs",
+                "ATo",
+                "ATs",
+                "J9s",
+                "JTs",
+                "K9s",
+                "KJo",
+                "KJs",
+                "KQo",
+                "KQs",
+                "KTs",
+                "Q9s",
+                "QJs",
+                "QTs",
+                "T9s",
+                "TT"
+              ]
+            },
+            {
+              "id": "8165831fc405c3a69b670847a48cf681",
+              "hands": [
+                "AA",
+                "AKs",
+                "JJ",
+                "KK",
+                "QQ"
+              ]
+            },
+            {
+              "id": "8d5d79a66fa9ab1bcc7f39748b0a82f0",
+              "hands": [
+                "76s:0.5000",
+                "87s:0.5000",
+                "98s:0.5000",
+                "A3s",
+                "A4s",
+                "A5s"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        }
+      }
+    },
+    "bf85e94501e569f76430bd1fcf582131": {
+      "name": "3b / 5b vs UTG",
+      "tabList": [
+        "fa1ac9ce3a6eb68a831f4d45b51aef9b",
+        "a6df201d9e01dcb10d5c6c2a4d983bae",
+        "c721819d610043826e839c7593816b49"
+      ],
+      "tabs": {
+        "fa1ac9ce3a6eb68a831f4d45b51aef9b": {
+          "name": "HJ vs UTG",
+          "rangeList": [
+            {
+              "id": "000r",
+              "hands": [
+                "AJs",
+                "AKo",
+                "AQo",
+                "AQs",
+                "KQs",
+                "QQ"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "A5s",
+                "AA",
+                "AKs",
+                "KK"
+              ]
+            }
+          ]
+        },
+        "a6df201d9e01dcb10d5c6c2a4d983bae": {
+          "name": "CO vs UTG",
+          "rangeList": [
+            {
+              "id": "000r",
+              "hands": [
+                "AJs",
+                "AKo",
+                "AQo",
+                "AQs",
+                "KQs",
+                "QJs",
+                "QQ"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "A5s",
+                "AA",
+                "AKs",
+                "KK"
+              ]
+            }
+          ]
+        },
+        "c721819d610043826e839c7593816b49": {
+          "name": "BTN vs UTG",
+          "rangeList": [
+            {
+              "id": "000r",
+              "hands": [
+                "AJs",
+                "AKo",
+                "AQo",
+                "AQs",
+                "JJ",
+                "KQs",
+                "QJs",
+                "QQ"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "A5s",
+                "AA",
+                "AKs",
+                "KK"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "3ff7472ec8ab45399cb6c55b2a0e52ae": {
+      "name": "3b / 5b vs HJ",
+      "tabList": [
+        "5fa8bcea6b337a27e576cc68b5e049a1",
+        "d65cac22606b5094d4604d10bbd85357"
+      ],
+      "tabs": {
+        "5fa8bcea6b337a27e576cc68b5e049a1": {
+          "name": "CO vs HJ",
+          "rangeList": [
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "AJs",
+                "AQo",
+                "AQs",
+                "ATs",
+                "JJ",
+                "JTs",
+                "KQo",
+                "KQs",
+                "QJs"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "A5s",
+                "AA",
+                "AKo",
+                "AKs",
+                "KK",
+                "QQ"
+              ]
+            }
+          ]
+        },
+        "d65cac22606b5094d4604d10bbd85357": {
+          "name": "BTN vs HJ",
+          "rangeList": [
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "A5s",
+                "AA",
+                "AKo",
+                "AKs",
+                "KK",
+                "QQ"
+              ]
+            },
+            {
+              "id": "000r",
+              "hands": [
+                "AJo",
+                "AJs",
+                "AQo",
+                "AQs",
+                "ATs",
+                "JJ",
+                "JTs",
+                "KQo",
+                "KQs",
+                "QJs",
+                "T9s",
+                "TT"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "d8cd88b1fdcdee3f0b2cbb0f218d4be9": {
+      "name": "3b / 5b vs CO",
+      "tabList": [
+        "9ada308ec543c40c983f299013ed1943"
+      ],
+      "tabs": {
+        "9ada308ec543c40c983f299013ed1943": {
+          "name": "BTN vs CO",
+          "rangeList": [
+            {
+              "id": "000r",
+              "hands": [
+                "98s",
+                "99",
+                "AJo",
+                "AJs",
+                "AQo",
+                "AQs",
+                "ATs",
+                "JJ",
+                "JTs",
+                "KQo",
+                "KQs",
+                "QJs",
+                "T9s",
+                "TT"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "A5s",
+                "AA",
+                "AKo",
+                "AKs",
+                "KK",
+                "QQ"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "176f4e17e4870dce58c14518cb79937d": {
+      "name": "BB",
+      "tabList": [
+        "e2790e938efa20ea2d0ed826c9e0bde2",
+        "69acfff1bd43f1d9a78e091d5d0f5e3f",
+        "a997cc141841cf1c278c78a63fac7189",
+        "3ac8b1464c9878b9c4f6c94d89bbc2cd",
+        "fccbf71b14cf0ffab7062907fee3a3a1"
+      ],
+      "tabs": {
+        "e2790e938efa20ea2d0ed826c9e0bde2": {
+          "name": "vs UTG",
+          "rangeList": [
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "55",
+                "66",
+                "77",
+                "88",
+                "99",
+                "TT",
+                "JJ:0.5000",
+                "A4s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "ATs",
+                "AJs",
+                "AQo",
+                "AJo",
+                "KTs",
+                "KJs",
+                "KQs",
+                "KQo",
+                "QTs",
+                "QJs",
+                "JTs",
+                "T9s",
+                "98s",
+                "87s",
+                "76s",
+                "65s"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "54s",
+                "64s",
+                "75s",
+                "86s",
+                "97s",
+                "A2s",
+                "A3s",
+                "ATo",
+                "K9s",
+                "K8s",
+                "K7s",
+                "K6s",
+                "K5s",
+                "K4s",
+                "K3s",
+                "K2s",
+                "Q9s",
+                "Q8s",
+                "J9s",
+                "J8s",
+                "T8s",
+                "KJo",
+                "QJo"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "A5s",
+                "AA",
+                "AKo",
+                "AKs",
+                "AQs",
+                "JJ:0.5000",
+                "KK",
+                "QQ"
+              ]
+            }
+          ]
+        },
+        "69acfff1bd43f1d9a78e091d5d0f5e3f": {
+          "name": "vs HJ",
+          "rangeList": [
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "54s",
+                "55",
+                "64s",
+                "65s",
+                "66",
+                "75s",
+                "76s",
+                "77",
+                "86s",
+                "87s",
+                "88",
+                "97s",
+                "98s",
+                "99",
+                "A2s",
+                "A3s",
+                "A4s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "AJo",
+                "AJs",
+                "AQo",
+                "ATo",
+                "ATs",
+                "J8s",
+                "J9s",
+                "JJ:0.5000",
+                "JTs",
+                "K2s",
+                "K3s",
+                "K4s",
+                "K5s",
+                "K6s",
+                "K7s",
+                "K8s",
+                "K9s",
+                "KJo",
+                "KJs",
+                "KQo",
+                "KQs",
+                "KTs",
+                "Q8s",
+                "Q9s",
+                "QJo",
+                "QJs",
+                "QTs",
+                "T8s",
+                "T9s",
+                "TT"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "32s",
+                "43s",
+                "53s",
+                "63s",
+                "74s",
+                "85s",
+                "96s",
+                "J7s",
+                "Q5s",
+                "Q6s",
+                "Q7s",
+                "T7s"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "A5s",
+                "AA",
+                "AKo",
+                "AKs",
+                "AQs",
+                "JJ:0.5000",
+                "KK",
+                "QQ"
+              ]
+            }
+          ]
+        },
+        "a997cc141841cf1c278c78a63fac7189": {
+          "name": "vs CO",
+          "rangeList": [
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "22",
+                "33",
+                "43s",
+                "44",
+                "53s",
+                "54s",
+                "55",
+                "63s",
+                "64s",
+                "65s",
+                "66",
+                "74s",
+                "75s",
+                "76s",
+                "77",
+                "85s",
+                "86s",
+                "87s",
+                "88",
+                "96s",
+                "97s",
+                "98o",
+                "98s:0.5000",
+                "99",
+                "A2s",
+                "A3s",
+                "A4s",
+                "A5o",
+                "A6o",
+                "A6s",
+                "A7o",
+                "A7s",
+                "A8o",
+                "A8s",
+                "A9o",
+                "A9s",
+                "AJo",
+                "AQo:0.5000",
+                "ATo",
+                "ATs:0.5000",
+                "J7s",
+                "J8s",
+                "J9o",
+                "J9s",
+                "JTo",
+                "K2s",
+                "K3s",
+                "K4s",
+                "K5s",
+                "K6s",
+                "K7s",
+                "K8s",
+                "K9o",
+                "K9s",
+                "KJo",
+                "KJs:0.5000",
+                "KQo:0.5000",
+                "KTo",
+                "KTs",
+                "Q5s",
+                "Q6s",
+                "Q7s",
+                "Q8s",
+                "Q9o",
+                "Q9s",
+                "QJo",
+                "QJs",
+                "QTo",
+                "QTs",
+                "T7s",
+                "T8s",
+                "T9o",
+                "T9s:0.5000"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "32s",
+                "42s",
+                "43o",
+                "52s",
+                "54o",
+                "62s",
+                "64o",
+                "65o",
+                "72s",
+                "73s",
+                "75o",
+                "76o",
+                "82s",
+                "83s",
+                "84s",
+                "86o",
+                "87o",
+                "92s",
+                "93s",
+                "94s",
+                "95s",
+                "97o",
+                "A2o",
+                "A3o",
+                "A4o",
+                "J2s",
+                "J3s",
+                "J4s",
+                "J5s",
+                "J6s",
+                "J8o",
+                "K5o",
+                "K6o",
+                "K7o",
+                "K8o",
+                "Q2s",
+                "Q3s",
+                "Q4s",
+                "Q8o",
+                "T2s",
+                "T3s",
+                "T4s",
+                "T5s",
+                "T6s",
+                "T7o",
+                "T8o"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "98s:0.5000",
+                "A5s",
+                "AA",
+                "AJs",
+                "AKo",
+                "AKs",
+                "AQo:0.5000",
+                "AQs",
+                "ATs:0.5000",
+                "JJ",
+                "JTs",
+                "KJs:0.5000",
+                "KK",
+                "KQo:0.5000",
+                "KQs",
+                "QQ",
+                "T9s:0.5000",
+                "TT"
+              ]
+            }
+          ]
+        },
+        "3ac8b1464c9878b9c4f6c94d89bbc2cd": {
+          "name": "vs BTN",
+          "rangeList": [
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "22",
+                "33",
+                "43s",
+                "44",
+                "53s",
+                "54s",
+                "55",
+                "63s",
+                "64s",
+                "65o",
+                "65s",
+                "66",
+                "73s",
+                "74s",
+                "75s",
+                "76o",
+                "76s:0.5000",
+                "77",
+                "84s",
+                "85s",
+                "86s",
+                "87o",
+                "87s:0.5000",
+                "88",
+                "95s",
+                "96s",
+                "97s",
+                "98o",
+                "98s:0.5000",
+                "99:0.5000",
+                "A2o",
+                "A2s",
+                "A3o",
+                "A3s",
+                "A4o",
+                "A5o",
+                "A6o",
+                "A6s",
+                "A7o",
+                "A7s",
+                "A8o",
+                "A8s",
+                "A9o",
+                "A9s",
+                "AJo:0.5000",
+                "AQo:0.5000",
+                "ATo",
+                "J5s",
+                "J6s",
+                "J7s",
+                "J8s",
+                "J9o",
+                "J9s",
+                "JTo",
+                "K2s",
+                "K3s",
+                "K4s",
+                "K5s",
+                "K6s",
+                "K7s",
+                "K8s",
+                "K9o",
+                "K9s",
+                "KJo",
+                "KQo:0.5000",
+                "KTo",
+                "KTs:0.5000",
+                "Q2s",
+                "Q3s",
+                "Q4s",
+                "Q5s",
+                "Q6s",
+                "Q7s",
+                "Q8s",
+                "Q9o",
+                "Q9s",
+                "QJo",
+                "QJs:0.5000",
+                "QTo",
+                "QTs",
+                "T6s",
+                "T7s",
+                "T8s",
+                "T9o"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "32s",
+                "42s",
+                "43o",
+                "52s",
+                "54o",
+                "62s",
+                "64o",
+                "72s",
+                "75o",
+                "82s",
+                "83s",
+                "85o",
+                "86o",
+                "92s",
+                "93s",
+                "94s",
+                "96o",
+                "97o",
+                "J2s",
+                "J3s",
+                "J4s",
+                "J7o",
+                "J8o",
+                "K2o",
+                "K3o",
+                "K4o",
+                "K5o",
+                "K6o",
+                "K7o",
+                "K8o",
+                "Q7o",
+                "Q8o",
+                "T2s",
+                "T3s",
+                "T4s",
+                "T5s",
+                "T7o",
+                "T8o"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "76s:0.5000",
+                "87s:0.5000",
+                "98s:0.5000",
+                "99:0.5000",
+                "A4s",
+                "A5s",
+                "AA",
+                "AJo:0.5000",
+                "AJs",
+                "AKo",
+                "AKs",
+                "AQo:0.5000",
+                "AQs",
+                "ATs",
+                "JJ",
+                "JTs",
+                "KJs",
+                "KK",
+                "KQo:0.5000",
+                "KQs",
+                "KTs:0.5000",
+                "QJs:0.5000",
+                "QQ",
+                "T9s",
+                "TT"
+              ]
+            }
+          ]
+        },
+        "fccbf71b14cf0ffab7062907fee3a3a1": {
+          "name": "vs SB",
+          "rangeList": [
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "22",
+                "33",
+                "43s",
+                "44",
+                "53s",
+                "54s",
+                "55",
+                "63s",
+                "64s",
+                "65o",
+                "65s",
+                "66",
+                "73s",
+                "74s",
+                "75s",
+                "76o",
+                "76s",
+                "77",
+                "84s",
+                "85s",
+                "86s",
+                "87o",
+                "87s",
+                "88:0.5000",
+                "95s",
+                "96s",
+                "97s",
+                "98o",
+                "98s:0.5000",
+                "A2o",
+                "A2s",
+                "A3o",
+                "A3s",
+                "A4o",
+                "A5o",
+                "A6o",
+                "A6s",
+                "A7o",
+                "A7s",
+                "A8o",
+                "A8s",
+                "A9o",
+                "A9s",
+                "ATo",
+                "J5s",
+                "J6s",
+                "J7s",
+                "J8s",
+                "J9o",
+                "J9s",
+                "JTo",
+                "K2s",
+                "K3s",
+                "K4s",
+                "K5s",
+                "K6s",
+                "K7s",
+                "K8o",
+                "K8s",
+                "K9o",
+                "K9s",
+                "KJo",
+                "KQo:0.5000",
+                "KTo",
+                "KTs:0.5000",
+                "Q2s",
+                "Q3s",
+                "Q4s",
+                "Q5s",
+                "Q6s",
+                "Q7s",
+                "Q8o",
+                "Q8s",
+                "Q9o",
+                "Q9s",
+                "QJo",
+                "QJs:0.5000",
+                "QTo",
+                "QTs",
+                "T6s",
+                "T7s",
+                "T8s",
+                "T9o"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "32o",
+                "32s",
+                "42s",
+                "43o",
+                "52s",
+                "54o",
+                "62s",
+                "64o",
+                "72s",
+                "74o",
+                "75o",
+                "82s",
+                "83s",
+                "85o",
+                "86o",
+                "92s",
+                "93s",
+                "94s",
+                "96o",
+                "97o",
+                "J2s",
+                "J3s",
+                "J4s",
+                "J7o",
+                "J8o",
+                "K2o",
+                "K3o",
+                "K4o",
+                "K5o",
+                "K6o",
+                "K7o",
+                "Q7o",
+                "T2s",
+                "T3s",
+                "T4s",
+                "T5s",
+                "T7o",
+                "T8o"
+              ]
+            },
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "88:0.5000",
+                "98s:0.5000",
+                "99",
+                "A4s",
+                "A5s",
+                "AA",
+                "AJo",
+                "AJs",
+                "AKo",
+                "AKs",
+                "AQo",
+                "AQs",
+                "ATs",
+                "JJ",
+                "JTs",
+                "KJs",
+                "KK",
+                "KQo:0.5000",
+                "KQs",
+                "KTs:0.5000",
+                "QJs:0.5000",
+                "QQ",
+                "T9s",
+                "TT"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "sb_defense_nl2_validated_20260510": {
+      "name": "SB défense vs open NL2",
+      "tabList": [
+        "sb_vs_utg_validated",
+        "sb_vs_hj_validated",
+        "sb_vs_co_validated",
+        "sb_vs_btn_validated"
+      ],
+      "tabs": {
+        "sb_vs_utg_validated": {
+          "name": "vs UTG",
+          "rangeList": [
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo"
+              ]
+            },
+            {
+              "id": "sb_3bet_fold_20260510_validated",
+              "hands": [
+                "JJ",
+                "AQs",
+                "A5s",
+                "A4s"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "TT",
+                "99",
+                "88",
+                "77",
+                "66",
+                "55",
+                "44",
+                "33",
+                "22"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        },
+        "sb_vs_hj_validated": {
+          "name": "vs HJ",
+          "rangeList": [
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo"
+              ]
+            },
+            {
+              "id": "sb_3bet_fold_20260510_validated",
+              "hands": [
+                "JJ",
+                "AQs",
+                "A5s",
+                "A4s",
+                "KQs"
+              ]
+            },
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "TT",
+                "AQo"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "99",
+                "88",
+                "77",
+                "66",
+                "55",
+                "44",
+                "33",
+                "22",
+                "AJs",
+                "KJs"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        },
+        "sb_vs_co_validated": {
+          "name": "vs CO",
+          "rangeList": [
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo"
+              ]
+            },
+            {
+              "id": "sb_3bet_fold_20260510_validated",
+              "hands": [
+                "JJ",
+                "AQs",
+                "AQo",
+                "AJs",
+                "ATs",
+                "KQs",
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "KTs",
+                "QTs",
+                "JTs",
+                "T9s"
+              ]
+            },
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "TT",
+                "99",
+                "88",
+                "KJs",
+                "QJs"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "77",
+                "66",
+                "55",
+                "44",
+                "33",
+                "22",
+                "AJo",
+                "KQo",
+                "98s",
+                "87s"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        },
+        "sb_vs_btn_validated": {
+          "name": "vs BTN",
+          "rangeList": [
+            {
+              "id": "e27bd9a80ac870f3f1b68f72ee8d98d7",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo"
+              ]
+            },
+            {
+              "id": "sb_3bet_fold_20260510_validated",
+              "hands": [
+                "JJ",
+                "TT",
+                "99",
+                "AQs",
+                "ATs",
+                "AQo",
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "KQs",
+                "KTs",
+                "QTs",
+                "T9s",
+                "98s"
+              ]
+            },
+            {
+              "id": "60ee79efb39d5381bb22d4ac51911583",
+              "hands": [
+                "88",
+                "77",
+                "66",
+                "AJs",
+                "KJs",
+                "KQo",
+                "QJs",
+                "JTs"
+              ]
+            },
+            {
+              "id": "5298f5317f22a9a004f492bd6e033a77",
+              "hands": [
+                "55",
+                "44",
+                "33",
+                "22",
+                "AJo",
+                "ATo",
+                "KJo",
+                "QJo",
+                "87s",
+                "76s",
+                "A9s",
+                "A8s",
+                "A7s",
+                "A6s",
+                "K9s",
+                "Q9s",
+                "J9s"
+              ]
+            }
+          ],
+          "gridMode": "auto",
+          "labels": {}
+        }
+      }
+    },
+    "iso_raise_nl2_20260510": {
+      "name": "ISO raise NL2",
+      "tabList": [
+        "iso_hj",
+        "iso_co",
+        "iso_btn",
+        "iso_sb",
+        "iso_bb"
+      ],
+      "tabs": {
+        "iso_hj": {
+          "name": "HJ",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "iso_std_20260510",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "55",
+                "66",
+                "77",
+                "88",
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "A2s",
+                "A3s",
+                "A4s",
+                "A5s",
+                "A9s",
+                "ATs",
+                "AJs",
+                "AQs",
+                "AKs",
+                "AJo",
+                "AQo",
+                "AKo",
+                "KTs",
+                "KJs",
+                "KQs",
+                "KQo",
+                "QTs",
+                "QJs",
+                "JTs",
+                "T9s"
+              ]
+            },
+            {
+              "id": "iso_exp_20260510",
+              "hands": [
+                "A6s",
+                "A7s",
+                "A8s",
+                "ATo",
+                "K9s",
+                "KJo",
+                "Q9s",
+                "QJo",
+                "J9s",
+                "98s",
+                "87s"
+              ]
+            }
+          ]
+        },
+        "iso_co": {
+          "name": "CO",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "iso_std_20260510",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "55",
+                "66",
+                "77",
+                "88",
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "A2s",
+                "A3s",
+                "A4s",
+                "A5s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "ATs",
+                "AJs",
+                "AQs",
+                "AKs",
+                "ATo",
+                "AJo",
+                "AQo",
+                "AKo",
+                "K9s",
+                "KTs",
+                "KJs",
+                "KQs",
+                "KJo",
+                "KQo",
+                "QTs",
+                "QJs",
+                "QJo",
+                "JTs",
+                "T9s",
+                "98s"
+              ]
+            },
+            {
+              "id": "iso_exp_20260510",
+              "hands": [
+                "K8s",
+                "KTo",
+                "Q9s",
+                "J9s",
+                "T8s",
+                "87s",
+                "76s",
+                "A9o"
+              ]
+            }
+          ]
+        },
+        "iso_btn": {
+          "name": "BTN",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "iso_std_20260510",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "55",
+                "66",
+                "77",
+                "88",
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "A2s",
+                "A3s",
+                "A4s",
+                "A5s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "ATs",
+                "AJs",
+                "AQs",
+                "AKs",
+                "A8o",
+                "A9o",
+                "ATo",
+                "AJo",
+                "AQo",
+                "AKo",
+                "K8s",
+                "K9s",
+                "KTs",
+                "KJs",
+                "KQs",
+                "KTo",
+                "KJo",
+                "KQo",
+                "Q9s",
+                "QTs",
+                "QJs",
+                "QTo",
+                "QJo",
+                "J9s",
+                "JTs",
+                "JTo",
+                "T8s",
+                "T9s",
+                "98s",
+                "87s",
+                "76s"
+              ]
+            },
+            {
+              "id": "iso_exp_20260510",
+              "hands": [
+                "K2s",
+                "K3s",
+                "K4s",
+                "K5s",
+                "K6s",
+                "K7s",
+                "A2o",
+                "A3o",
+                "A4o",
+                "A5o",
+                "A6o",
+                "A7o",
+                "Q7s",
+                "Q8s",
+                "J8s",
+                "T7s",
+                "97s",
+                "86s",
+                "75s",
+                "65s",
+                "K9o",
+                "Q9o",
+                "98o"
+              ]
+            }
+          ]
+        },
+        "iso_sb": {
+          "name": "SB",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "iso_std_20260510",
+              "hands": [
+                "55",
+                "66",
+                "77",
+                "88",
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "A2s",
+                "A3s",
+                "A4s",
+                "A5s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "ATs",
+                "AJs",
+                "AQs",
+                "AKs",
+                "ATo",
+                "AJo",
+                "AQo",
+                "AKo",
+                "KTs",
+                "KJs",
+                "KQs",
+                "KQo",
+                "QTs",
+                "QJs",
+                "JTs",
+                "T9s"
+              ]
+            },
+            {
+              "id": "iso_exp_20260510",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "A6s",
+                "K9s",
+                "KJo",
+                "Q9s",
+                "QJo",
+                "J9s",
+                "98s",
+                "87s"
+              ]
+            }
+          ]
+        },
+        "iso_bb": {
+          "name": "BB vs SB limp",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "iso_std_20260510",
+              "hands": [
+                "22",
+                "33",
+                "44",
+                "55",
+                "66",
+                "77",
+                "88",
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "A2s",
+                "A3s",
+                "A4s",
+                "A5s",
+                "A6s",
+                "A7s",
+                "A8s",
+                "A9s",
+                "ATs",
+                "AJs",
+                "AQs",
+                "AKs",
+                "A8o",
+                "A9o",
+                "ATo",
+                "AJo",
+                "AQo",
+                "AKo",
+                "K8s",
+                "K9s",
+                "KTs",
+                "KJs",
+                "KQs",
+                "KTo",
+                "KJo",
+                "KQo",
+                "Q9s",
+                "QTs",
+                "QJs",
+                "QTo",
+                "QJo",
+                "J9s",
+                "JTs",
+                "JTo",
+                "T8s",
+                "T9s",
+                "98s",
+                "87s",
+                "76s"
+              ]
+            },
+            {
+              "id": "iso_exp_20260510",
+              "hands": [
+                "K2s",
+                "K3s",
+                "K4s",
+                "K5s",
+                "K6s",
+                "K7s",
+                "A2o",
+                "A3o",
+                "A4o",
+                "A5o",
+                "A6o",
+                "A7o",
+                "Q7s",
+                "Q8s",
+                "J8s",
+                "T7s",
+                "97s",
+                "86s",
+                "75s",
+                "65s",
+                "K9o",
+                "Q9o",
+                "98o"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "polar_ip_3b5b_20260510": {
+      "name": "3b/5b polarisé IP",
+      "tabList": [
+        "pip_hj_utg",
+        "pip_co_utg",
+        "pip_btn_utg",
+        "pip_co_hj",
+        "pip_btn_hj",
+        "pip_btn_co"
+      ],
+      "tabs": {
+        "pip_hj_utg": {
+          "name": "HJ vs UTG",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s"
+              ]
+            },
+            {
+              "id": "call_ip_blue_20260516",
+              "hands": [
+                "JJ",
+                "TT",
+                "AQs",
+                "AJs",
+                "KQs"
+              ]
+            }
+          ]
+        },
+        "pip_co_utg": {
+          "name": "CO vs UTG",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "KTs"
+              ]
+            },
+            {
+              "id": "call_ip_blue_20260516",
+              "hands": [
+                "JJ",
+                "TT",
+                "99",
+                "AQs",
+                "AJs",
+                "ATs",
+                "KQs",
+                "KJs",
+                "QJs",
+                "JTs"
+              ]
+            }
+          ]
+        },
+        "pip_btn_utg": {
+          "name": "BTN vs UTG",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "KTs",
+                "QTs"
+              ]
+            },
+            {
+              "id": "call_ip_blue_20260516",
+              "hands": [
+                "JJ",
+                "TT",
+                "99",
+                "88",
+                "AQs",
+                "AJs",
+                "ATs",
+                "A9s",
+                "KQs",
+                "KJs",
+                "QJs",
+                "JTs",
+                "T9s",
+                "98s"
+              ]
+            }
+          ]
+        },
+        "pip_co_hj": {
+          "name": "CO vs HJ",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "A3s",
+                "KTs",
+                "QTs",
+                "JTs"
+              ]
+            },
+            {
+              "id": "call_ip_blue_20260516",
+              "hands": [
+                "TT",
+                "99",
+                "88",
+                "AJs",
+                "ATs",
+                "A9s",
+                "KQs",
+                "KJs",
+                "QJs",
+                "T9s",
+                "98s"
+              ]
+            }
+          ]
+        },
+        "pip_btn_hj": {
+          "name": "BTN vs HJ",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "KTs",
+                "K9s",
+                "QTs",
+                "JTs",
+                "T9s"
+              ]
+            },
+            {
+              "id": "call_ip_blue_20260516",
+              "hands": [
+                "TT",
+                "99",
+                "88",
+                "77",
+                "66",
+                "AJs",
+                "ATs",
+                "A9s",
+                "A8s",
+                "KQs",
+                "KJs",
+                "QJs",
+                "98s",
+                "87s"
+              ]
+            }
+          ]
+        },
+        "pip_btn_co": {
+          "name": "BTN vs CO",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo",
+                "AJs",
+                "KQs"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "KTs",
+                "K9s",
+                "QTs",
+                "Q9s",
+                "JTs",
+                "J9s",
+                "T9s",
+                "98s"
+              ]
+            },
+            {
+              "id": "call_ip_blue_20260516",
+              "hands": [
+                "99",
+                "88",
+                "77",
+                "66",
+                "55",
+                "ATs",
+                "A9s",
+                "A8s",
+                "A7s",
+                "A6s",
+                "KJs",
+                "KQo",
+                "AJo",
+                "QJs",
+                "87s",
+                "76s"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "polar_oop_3b5b_20260510": {
+      "name": "3b/5b polarisé OOP",
+      "tabList": [
+        "poop_sb_utg",
+        "poop_sb_hj",
+        "poop_sb_co",
+        "poop_sb_btn",
+        "poop_bb_btn",
+        "poop_bb_sb"
+      ],
+      "tabs": {
+        "poop_sb_utg": {
+          "name": "SB vs UTG",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s"
+              ]
+            }
+          ]
+        },
+        "poop_sb_hj": {
+          "name": "SB vs HJ",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "KQs"
+              ]
+            }
+          ]
+        },
+        "poop_sb_co": {
+          "name": "SB vs CO",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "KTs",
+                "QTs",
+                "JTs",
+                "T9s"
+              ]
+            }
+          ]
+        },
+        "poop_sb_btn": {
+          "name": "SB vs BTN",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo",
+                "AJs",
+                "KQs"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "KTs",
+                "K9s",
+                "QTs",
+                "Q9s",
+                "JTs",
+                "J9s",
+                "T9s",
+                "98s"
+              ]
+            }
+          ]
+        },
+        "poop_bb_btn": {
+          "name": "BB vs BTN",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo",
+                "AJs",
+                "KQs"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "KTs",
+                "K9s",
+                "QTs",
+                "Q9s",
+                "JTs",
+                "J9s",
+                "T9s",
+                "98s",
+                "87s"
+              ]
+            }
+          ]
+        },
+        "poop_bb_sb": {
+          "name": "BB vs SB",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_value_20260510",
+              "hands": [
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo",
+                "AJs",
+                "KQs",
+                "KJs"
+              ]
+            },
+            {
+              "id": "threebet_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "KTs",
+                "K9s",
+                "QTs",
+                "Q9s",
+                "JTs",
+                "J9s",
+                "T9s",
+                "98s",
+                "87s",
+                "76s"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "merged_squeeze_20260510": {
+      "name": "3b merged / Squeeze",
+      "tabList": [
+        "merge_ip_loose",
+        "merge_blinds_steal",
+        "sq_ip",
+        "sq_oop",
+        "sq_vs_fish_call"
+      ],
+      "tabs": {
+        "merge_ip_loose": {
+          "name": "3bet merged IP vs loose opener",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_merged_20260510",
+              "hands": [
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo",
+                "AJs",
+                "ATs",
+                "KQs",
+                "KJs",
+                "KTs",
+                "QJs",
+                "QTs",
+                "JTs"
+              ]
+            },
+            {
+              "id": "call_ip_blue_20260516",
+              "hands": [
+                "88",
+                "77",
+                "66",
+                "55",
+                "44",
+                "33",
+                "22",
+                "A9s",
+                "A8s",
+                "A7s",
+                "A6s",
+                "A5s",
+                "A4s",
+                "A3s",
+                "A2s",
+                "K9s",
+                "Q9s",
+                "J9s",
+                "T9s",
+                "98s",
+                "87s",
+                "76s"
+              ]
+            }
+          ]
+        },
+        "merge_blinds_steal": {
+          "name": "3bet merged blinds vs steal",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "threebet_merged_20260510",
+              "hands": [
+                "88",
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo",
+                "AJs",
+                "ATs",
+                "KQs",
+                "KJs",
+                "KTs",
+                "QJs",
+                "QTs",
+                "JTs",
+                "T9s",
+                "98s"
+              ]
+            }
+          ]
+        },
+        "sq_ip": {
+          "name": "Squeeze IP",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "squeeze_value_20260510",
+              "hands": [
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo"
+              ]
+            },
+            {
+              "id": "squeeze_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "A3s",
+                "KTs",
+                "QTs",
+                "JTs",
+                "T9s"
+              ]
+            },
+            {
+              "id": "call_ip_blue_20260516",
+              "hands": [
+                "TT",
+                "99",
+                "88",
+                "77",
+                "66",
+                "55",
+                "44",
+                "33",
+                "22",
+                "AJs",
+                "ATs",
+                "KQs",
+                "KJs",
+                "QJs",
+                "98s",
+                "87s",
+                "76s"
+              ]
+            }
+          ]
+        },
+        "sq_oop": {
+          "name": "Squeeze OOP",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "squeeze_value_20260510",
+              "hands": [
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs"
+              ]
+            },
+            {
+              "id": "squeeze_bluff_20260510",
+              "hands": [
+                "A5s",
+                "A4s",
+                "KTs",
+                "QTs"
+              ]
+            }
+          ]
+        },
+        "sq_vs_fish_call": {
+          "name": "Squeeze value vs caller récréatif",
+          "gridMode": "auto",
+          "labels": {},
+          "rangeList": [
+            {
+              "id": "squeeze_value_20260510",
+              "hands": [
+                "99",
+                "TT",
+                "JJ",
+                "QQ",
+                "KK",
+                "AA",
+                "AKs",
+                "AKo",
+                "AQs",
+                "AQo",
+                "AJs",
+                "ATs",
+                "KQs",
+                "KJs",
+                "KTs",
+                "QJs"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "config": {
+    "chart": {
+      "backgroundColor": "#eac1a6",
+      "backgroundVariation": 67,
+      "fontColor": "#000000",
+      "fontSize": 1,
+      "hoverVariation": -20
+    },
+    "overview": {
+      "eachLegend": "under",
+      "globalLegend": false,
+      "chartNumber": 2
+    },
+    "defaultGridMode": "auto",
+    "print": {
+      "backgroundColor": "#808080",
+      "backgroundVariation": 68,
+      "fontColor": "#000000",
+      "fontSize": 1.45,
+      "hoverVariation": -20,
+      "tabByPage": 4,
+      "allLegends": true
+    }
+  },
+  "ranges": {
+    "000r": {
+      "color": "#33ff33",
+      "name": "3bet",
+      "type": "color"
+    },
+    "65017ea15f0bed809cfea97077b1cc85": {
+      "color": "#ffff33",
+      "name": "Call 3bet",
+      "type": "color"
+    },
+    "8165831fc405c3a69b670847a48cf681": {
+      "color": "#ff3333",
+      "name": "4Bet",
+      "type": "color"
+    },
+    "8d5d79a66fa9ab1bcc7f39748b0a82f0": {
+      "color": "#ff9933",
+      "name": "4Bet bluff",
+      "type": "color"
+    },
+    "e27bd9a80ac870f3f1b68f72ee8d98d7": {
+      "color": "#ff3333",
+      "name": "3b/5b",
+      "type": "color"
+    },
+    "60ee79efb39d5381bb22d4ac51911583": {
+      "color": "#33ff33",
+      "name": "Call",
+      "type": "color"
+    },
+    "5298f5317f22a9a004f492bd6e033a77": {
+      "color": "#ffff33",
+      "name": "Call élargi",
+      "type": "color"
+    },
+    "sb_3bet_fold_20260510_validated": {
+      "color": "#ff9933",
+      "name": "3bet/fold",
+      "type": "color"
+    },
+    "open_green_20260510": {
+      "color": "#33ff33",
+      "name": "Open",
+      "type": "color"
+    },
+    "iso_std_20260510": {
+      "color": "#33ff33",
+      "name": "ISO standard",
+      "type": "color"
+    },
+    "iso_exp_20260510": {
+      "color": "#ffff33",
+      "name": "ISO élargi / exploitant",
+      "type": "color"
+    },
+    "threebet_value_20260510": {
+      "color": "#ff3333",
+      "name": "3bet value / stack-off",
+      "type": "color"
+    },
+    "threebet_bluff_20260510": {
+      "color": "#ff9933",
+      "name": "3bet bluff / fold",
+      "type": "color"
+    },
+    "threebet_merged_20260510": {
+      "color": "#33ff33",
+      "name": "3bet merged",
+      "type": "color"
+    },
+    "squeeze_value_20260510": {
+      "color": "#ff3333",
+      "name": "Squeeze value",
+      "type": "color"
+    },
+    "squeeze_bluff_20260510": {
+      "color": "#ff9933",
+      "name": "Squeeze bluff",
+      "type": "color"
+    },
+    "call_ip_blue_20260516": {
+      "color": "#3399ff",
+      "name": "Call IP",
+      "type": "color"
+    }
+  },
+  "colors": [
+    "#808080"
+  ]
+}

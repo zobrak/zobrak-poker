@@ -3,6 +3,15 @@ languageCode = "fr-fr"
 title = "ZobraK Poker"
 enableRobotsTXT = true
 
+[markup]
+  [markup.highlight]
+    noClasses = false
+    guessSyntax = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
 [taxonomies]
   tag = "tags"
   limit = "limits"

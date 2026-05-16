@@ -1,0 +1,83 @@
+{{ define "main" }}
+<div class="container strat-container">
+  <div class="strat-layout">
+
+    {{/* Sidebar */}}
+    <aside class="strat-sidebar">
+      <div class="strat-sidebar-inner">
+        <p class="strat-sidebar-label">Sections</p>
+        <nav class="strat-nav">
+          {{/* Top-level: link to /strategie/ */}}
+          <a href="{{ "/strategie/" | relURL }}" class="strat-nav-section{{ if .IsSection }} active{{ end }}">
+            Stratégie
+          </a>
+          {{/* List subsections */}}
+          {{ $root := .Site.GetPage "/strategie" }}
+          {{ if $root }}
+            {{ range $root.Sections }}
+            <div class="strat-nav-group">
+              <a href="{{ .Permalink }}" class="strat-nav-sub{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}">
+                {{ .Title }}
+              </a>
+              {{ if .Pages }}
+              <ul class="strat-nav-articles">
+                {{ range .Pages }}
+                <li>
+                  <a href="{{ .Permalink }}" class="{{ if eq $.RelPermalink .RelPermalink }}active{{ end }}">
+                    {{ .Title }}
+                  </a>
+                </li>
+                {{ end }}
+              </ul>
+              {{ end }}
+            </div>
+            {{ end }}
+          {{ end }}
+        </nav>
+      </div>
+    </aside>
+
+    {{/* Main content */}}
+    <div class="strat-main">
+      <header class="strat-page-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
+      </header>
+
+      {{ if .Content }}
+      <div class="article-content">{{ .Content }}</div>
+      {{ end }}
+
+      {{/* Subsections */}}
+      {{ range .Sections }}
+      <section class="strat-section-card">
+        <a href="{{ .Permalink }}" class="strat-section-title">{{ .Title }}</a>
+        {{ with .Description }}<p class="strat-section-desc">{{ . }}</p>{{ end }}
+        {{ if .Pages }}
+        <ul class="strat-article-list">
+          {{ range .Pages }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ with .Description }}<span class="item-description"> — {{ . }}</span>{{ end }}</li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </section>
+      {{ end }}
+
+      {{/* Direct pages */}}
+      {{ if .Pages }}
+      <ul class="page-list" style="margin-top:1.5rem">
+        {{ range .Pages.ByDate.Reverse }}
+        <li>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ with .Description }}<span class="item-description">{{ . }}</span>{{ end }}
+          <span class="item-date">{{ .Date.Format "2 Jan 2006" }}</span>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+
+  </div>
+</div>
+{{ end }}

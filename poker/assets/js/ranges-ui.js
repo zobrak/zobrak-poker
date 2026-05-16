@@ -6,7 +6,7 @@
 (function(global) {
   'use strict';
 
-  var RM_FILE_URL = '/data/ranges/Ranges_NL2_edited_by_chatGPT_v2.rm';
+  var RM_FILE_URL = '/data/ranges/Ranges_NL2_v3.rm';
 
   var RANKS = ['A','K','Q','J','T','9','8','7','6','5','4','3','2'];
 
@@ -295,16 +295,43 @@
     });
   }
 
-  /** Affiche les boutons de catégories. */
+  /** Retourne le nombre d'onglets d'une catégorie. */
+  function getTabCount(cat) {
+    if (!cat.tabList) return 0;
+    return cat.tabList.length;
+  }
+
+  /** Affiche les boutons de catégories avec badges et icônes. */
   function renderCategories(categories) {
     var container = document.getElementById('ranges-categories');
     if (!container) return;
     container.innerHTML = '';
+
+    var header = document.createElement('div');
+    header.className = 'ranges-sidebar-title';
+    header.textContent = 'Catégories';
+    container.appendChild(header);
+
     categories.forEach(function(cat) {
       var btn = document.createElement('button');
       btn.className = 'range-cat-btn';
-      btn.textContent = cat.name;
       btn.dataset.catId = cat.id;
+
+      var nameSpan = document.createElement('span');
+      nameSpan.className = 'range-cat-name';
+      nameSpan.textContent = cat.name;
+
+      var count = getTabCount(cat.data);
+      if (count > 0) {
+        var badge = document.createElement('span');
+        badge.className = 'range-cat-badge';
+        badge.textContent = count;
+        btn.appendChild(nameSpan);
+        btn.appendChild(badge);
+      } else {
+        btn.appendChild(nameSpan);
+      }
+
       btn.addEventListener('click', function() { selectCategory(cat.id); });
       container.appendChild(btn);
     });

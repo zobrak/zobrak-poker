@@ -5,6 +5,7 @@
       <a href="{{ "/" | relURL }}" class="{{ if .IsHome }}active{{ end }}">Accueil</a>
       <a href="{{ "/ranges/" | relURL }}" class="{{ if hasPrefix .RelPermalink "/ranges" }}active{{ end }}">Ranges</a>
       <a href="{{ "/review/" | relURL }}" class="{{ if hasPrefix .RelPermalink "/review" }}active{{ end }}">Review</a>
+      <a href="{{ "/strategie/" | relURL }}" class="{{ if hasPrefix .RelPermalink "/strategie" }}active{{ end }}">Stratégie</a>
     </nav>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   </div>
