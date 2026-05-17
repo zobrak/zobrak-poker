@@ -10,13 +10,18 @@
     </div>
     {{ end }}
   </header>
-  {{ with .Params.video_url }}
-  {{ if . }}
+  {{ with .Params.video_url }}{{ if . }}
   <div class="video-panel">
-    <video controls src="{{ . }}" class="review-video"></video>
+    <video controls class="review-video" preload="metadata">
+      {{ $ext := path.Ext . }}
+      {{ if eq $ext ".webm" }}<source src="{{ . }}" type="video/webm">
+      {{ else if eq $ext ".mp4" }}<source src="{{ . }}" type="video/mp4">
+      {{ else if eq $ext ".ogg" }}<source src="{{ . }}" type="video/ogg">
+      {{ else }}<source src="{{ . }}">{{ end }}
+      Votre navigateur ne supporte pas la lecture vidéo.
+    </video>
   </div>
-  {{ end }}
-  {{ end }}
+  {{ end }}{{ end }}
   <div class="article-content">
     {{ .Content }}
   </div>

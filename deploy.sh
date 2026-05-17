@@ -53,7 +53,43 @@ chown -R www-data:www-data "$DEST"
 chmod -R 755 "$DEST"
 ok "Permissions appliquées"
 
-# ── 4. Reload Lighttpd ────────────────────────────────────────────
+# ── 4. MIME types Lighttpd (webm, wasm…) ─────────────────────────
+echo ""
+echo "▶ MIME types Lighttpd…"
+LIGHTTPD_CONF=""
+for f in /etc/lighttpd/lighttpd.conf /etc/lighttpd/conf-available/lighttpd.conf; do
+    [[ -f "$f" ]] && LIGHTTPD_CONF="$f" && break
+done
+
+if [[ -n "$LIGHTTPD_CONF" ]]; then
+    MIME_SNIPPET="/etc/lighttpd/conf-available/99-mime-extra.conf"
+    if [[ ! -f "$MIME_SNIPPET" ]]; then
+        cat > "$MIME_SNIPPET" << 'MIMEEOF'
+# Types MIME supplémentaires
+mimetype.assign += (
+  ".webm" => "video/webm",
+  ".wasm" => "application/wasm",
+  ".avif" => "image/avif",
+  ".woff2" => "font/woff2"
+)
+MIMEEOF
+        # Activer le snippet si conf-enabled existe
+        if [[ -d /etc/lighttpd/conf-enabled ]]; then
+            ln -sf "$MIME_SNIPPET" /etc/lighttpd/conf-enabled/99-mime-extra.conf 2>/dev/null || true
+        else
+            # Inclure depuis le conf principal si pas déjà présent
+            grep -q "99-mime-extra" "$LIGHTTPD_CONF" \
+                || echo 'include "/etc/lighttpd/conf-available/99-mime-extra.conf"' >> "$LIGHTTPD_CONF"
+        fi
+        ok "MIME types ajoutés (webm, wasm, avif, woff2)"
+    else
+        ok "MIME types déjà configurés"
+    fi
+else
+    warn "Fichier de conf Lighttpd non trouvé — ajouter manuellement : .webm => video/webm"
+fi
+
+# ── 5. Reload Lighttpd ────────────────────────────────────────────
 echo ""
 echo "▶ Rechargement Lighttpd…"
 if systemctl is-active --quiet lighttpd; then
