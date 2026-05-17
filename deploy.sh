@@ -19,6 +19,34 @@ warn() { echo -e "  ${YELLOW}⚠${NC}  $*"; }
 fail() { echo -e "  ${RED}✖${NC}  $*"; exit 1; }
 hdr()  { echo -e "\n${BOLD}  ▶ $*${NC}"; }
 
+# ── Environnement Python ───────────────────────────────────────────────────────
+VENV="$REPO_DIR/.venv"
+if [[ -d "$VENV" ]]; then
+    # shellcheck source=/dev/null
+    source "$VENV/bin/activate" 2>/dev/null || true
+fi
+PYTHON="${VIRTUAL_ENV:+python}"; PYTHON="${PYTHON:-python3}"
+
+# ── Vérification du fichier .hero ─────────────────────────────────────────────
+ensure_hero() {
+    local hero_file="$REPO_DIR/.hero"
+    [[ -f "$hero_file" ]] && return
+    echo ""
+    warn "Fichier .hero introuvable."
+    # En mode non-interactif (--all / pipe), on ne bloque pas
+    if [[ ! -t 0 ]]; then
+        warn "Mode non-interactif — .hero non créé. Lancez : echo 'VotrePseudo' > .hero"
+        return
+    fi
+    read -rp "  ➤  Entrez votre pseudo exact sur PokerStars : " hero_name
+    if [[ -z "$hero_name" ]]; then
+        warn "Pseudo non renseigné — .hero non créé."
+        return
+    fi
+    printf '%s\n' "$hero_name" > "$hero_file"
+    ok "Créé → .hero : $hero_name"
+}
+
 # ── ASCII Art ──────────────────────────────────────────────────────────────────
 show_banner() {
     echo -e "${RED}"
@@ -113,37 +141,13 @@ do_ranges() {
 
 do_reviews() {
     hdr "Génération reviews depuis txt/…"
-    command -v python3 &>/dev/null || { warn "python3 non trouvé"; return; }
+    command -v "$PYTHON" &>/dev/null || { warn "python3 non trouvé"; return; }
     mapfile -t txts < <(list_dir "$TXT_DIR" "txt")
     if [[ ${#txts[@]} -eq 0 ]]; then
-        warn "Aucun fichier .txt dans txt/"
+        warn "Aucun fichier .txt dans txt/ — utilisez build_review.py pour gérer les reviews"
         return
     fi
-
-    local chosen=()
-    if [[ ${#txts[@]} -eq 1 ]]; then
-        chosen=("${txts[0]}")
-        echo -e "  ${DIM}→ ${txts[0]}${NC}"
-    else
-        echo ""
-        for i in "${!txts[@]}"; do
-            echo "    $((i+1))  ${txts[$i]}"
-        done
-        echo -n "  Choix (ex: 1 3, Entrée = tout) : "
-        read -r idxs
-        if [[ -z "$idxs" ]]; then
-            chosen=("${txts[@]}")
-        else
-            for idx in $idxs; do
-                chosen+=("${txts[$((idx-1))]}")
-            done
-        fi
-    fi
-
-    for f in "${chosen[@]}"; do
-        echo ""
-        python3 "$REPO_DIR/new-review.py" "$TXT_DIR/$f"
-    done
+    "$PYTHON" "$REPO_DIR/process_review.py"
 }
 
 do_mime() {
@@ -237,6 +241,7 @@ show_menu() {
 
 # ── Point d'entrée ─────────────────────────────────────────────────────────────
 show_banner
+ensure_hero
 
 case "${1:-}" in
     --all)

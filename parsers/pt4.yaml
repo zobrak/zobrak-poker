@@ -1,0 +1,35 @@
+# Parser — PokerTracker 4 (format converti depuis PokerStars)
+# Pour ajouter un nouveau format : copier ce fichier, adapter les patterns.
+# Les groupes nommés (?P<name>) doivent rester identiques.
+
+name: "PokerTracker 4"
+detect: "Hand converted by PokerTracker 4"
+hand_delimiter: "^PokerStars - "
+
+patterns:
+  # Ligne joueur : "Name (POS): X BB" ou "Name (POS): X BB (VPIP: X, PFR: X, 3Bet Preflop: X, Hands: N)"
+  players: '^(?P<name>.+?)\s+\((?P<position>[A-Z0-9+]+)\)\s*:\s*(?P<stack_bb>[\d.]+)\s+BB(?:\s+\(VPIP:\s*(?P<vpip>[\d.]+),\s*PFR:\s*(?P<pfr>[\d.]+),\s*3Bet Preflop:\s*(?P<three_bet>[\d.]+),\s*Hands:\s*(?P<hands>\d+)\))?'
+
+  # Cartes hero : "Pre Flop: (pot: X BB) HeroName has Xx Xx"
+  hero_cards: 'Pre Flop:.*?(?P<name>[^\s\(,]+)\s+has\s+(?P<cards>[2-9TJQKAt][shdc]\s+[2-9TJQKAt][shdc])'
+
+  # Gains : "Name wins X BB"
+  wins: '(?P<name>[^\s,\n]+)\s+wins\s+(?P<amount>[\d.]+)\s+BB'
+
+  # Mise en jeu pour calcul du résultat
+  post:  '(?P<name>[^\s,\n]+)\s+posts\s+(?:SB|BB)\s+(?P<amount>[\d.]+)\s+BB'
+  call:  '(?P<name>[^\s,\n]+)\s+calls\s+(?P<amount>[\d.]+)\s+BB'
+  bet:   '(?P<name>[^\s,\n]+)\s+bets\s+(?P<amount>[\d.]+)\s+BB'
+  raise: '(?P<name>[^\s,\n]+)\s+raises\s+to\s+(?P<amount>[\d.]+)\s+BB'
+
+  # Uncalled : "Name bets X BB, fold" sur la même ligne
+  uncalled_bet: '(?P<name>[^\s,\n]+)\s+bets\s+(?P<amount>[\d.]+)\s+BB,\s*fold'
+
+  # Pour compter les raises pre-flop (pot type)
+  raise_action: 'raises to [\d.]+ BB'
+
+streets:
+  preflop: 'Pre Flop:'
+  flop:    'Flop\s+:'
+  turn:    'Turn\s+:'
+  river:   'River\s+:'

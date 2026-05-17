@@ -1,0 +1,52 @@
+---
+title: "{{ title | replace('"', '\\"') }}"
+date: {{ date }}
+draft: true
+hero: "Hero"
+hand_id: "{{ hand_id }}"
+
+tags:
+{% for tag in tags %}
+  - {{ tag }}
+{% endfor %}
+{% if limit %}
+limits:
+  - {{ limit }}
+{% endif %}
+
+rooms:
+  - PokerStars
+
+params:
+  hero_position: "{{ hero_position }}"
+  pot_type: "{{ pot_type }}"
+  result_bb: {{ result_bb }}
+  video_url: ""
+  source_archive: "{{ source_archive }}"
+  table_size: {{ table_size }}
+  players:
+{% for p in players %}
+    - label: "{{ p.label }}"
+      position: "{{ p.position }}"
+      stack_bb: {{ p.stack_bb }}
+      is_hero: {{ "true" if p.is_hero else "false" }}
+      avatar: "{{ p.avatar }}"
+      vpip: {{ p.vpip }}
+      pfr: {{ p.pfr }}
+      three_bet: {{ p.three_bet }}
+      hands: {{ p.hands }}
+{% endfor %}
+---
+
+```hh
+{{ hh_content }}
+```
+
+## Analyse
+
+### Préflop
+
+{% for street in extra_streets %}
+### {{ street | capitalize }}
+
+{% endfor %}

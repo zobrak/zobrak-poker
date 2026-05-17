@@ -4,6 +4,25 @@ poker/.hugo_build.lock
 poker/resources/_gen/
 
 # Contenu non versionné (données locales, grosses données)
-videos/
-txt/
-ranges/
+# Les dossiers sont versionnés (pour la doc), leur contenu ne l'est pas
+videos/*
+!videos/.gitkeep
+txt/*
+!txt/.gitkeep
+ranges/*
+!ranges/.gitkeep
+pictures/*
+!pictures/.gitkeep
+archive/*
+!archive/.gitkeep
+
+# Base joueurs (RGPD — pseudos réels, local uniquement)
+.player-db.json
+
+# Identité hero (optionnel, local)
+.hero
+
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc

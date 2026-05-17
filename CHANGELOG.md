@@ -6,6 +6,37 @@ Versionnage : [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.9.0] — 2026-05-17
+
+### Ajouté
+- `process_review.py` : pipeline complet de génération de reviews (remplace `new-review.py`)
+  - Support format PT4 (PokerTracker 4) via config `parsers/pt4.yaml`
+  - Architecture extensible : nouveaux formats = nouveau fichier YAML dans `parsers/`
+  - Hand ID déterministe (SHA-256 du contenu brut) — même HH → même slug
+  - Base joueurs `.player-db.json` : pseudo → UUID déterministe → avatar persistent
+  - Avatars SVG identicons 128×128 générés localement (aucun appel réseau)
+  - Photo hero : redimensionnée en 128×128 WebP circulaire via Pillow
+  - Anonymisation dans l'ordre d'action pré-flop (Villain1=UTG, Villain2=CO…)
+  - Archive automatique des sources traitées (`archive/txt/`)
+  - Templates Jinja2 (`templates/review.md.j2`) personnalisables
+- `build_review.py` : gestionnaire interactif de reviews (créer / lister / archiver / MàJ)
+- `parsers/pt4.yaml` : définition du format PokerTracker 4
+- `templates/review.md.j2` : template Jinja2 de génération MD
+- `requirements.txt` : dépendances Python (Jinja2, PyYAML, Pillow)
+- `poker/layouts/partials/poker-table.html` : table poker décorative 6-max avec positions, avatars, stats VPIP/PFR/3Bet, chip dealer sur BTN
+- `poker/static/avatars/` : avatars SVG générés
+- `poker/static/pictures/` : photo hero redimensionnée
+
+### Modifié
+- `deploy.sh` : vérification/création `.hero` au lancement, activation venv Python, appel `process_review.py`
+- `poker/layouts/review/single.html` : intégration du partial `poker-table.html`
+- `poker/assets/css/main.css` : styles table poker (felt ovale, positions absolues, chip dealer, responsive)
+- `.gitignore` : contenu des dossiers `txt/`, `videos/`, `ranges/`, `pictures/`, `archive/` ignoré (dossiers versionnés via `.gitkeep`) ; `.player-db.json` et `.hero` ignorés
+
+### Supprimé
+- `new-review.py` (remplacé par `process_review.py`)
+- `poker/content/review/2026-05-17-xx-xx-unk.md` (review invalide)
+
 ## [0.8.4] — 2026-05-17
 
 ### Modifié
