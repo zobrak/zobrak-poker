@@ -18,9 +18,16 @@
 
   {{ with .Params.video_url }}{{ if . }}
   {{ $src := . }}
-  {{/* Nom seul → chemin implicite /videos/<nom> */}}
+  {{/* Résolution du chemin vidéo :
+       "fichier.webm"            → /videos/fichier.webm
+       "videos/review/f.webm"   → /videos/review/f.webm  (évite le double préfixe)
+       "/videos/..."  ou http   → inchangé */}}
   {{ if not (or (strings.HasPrefix $src "/") (strings.HasPrefix $src "http")) }}
-    {{ $src = printf "/videos/%s" $src }}
+    {{ if strings.HasPrefix $src "videos/" }}
+      {{ $src = printf "/%s" $src }}
+    {{ else }}
+      {{ $src = printf "/videos/%s" $src }}
+    {{ end }}
   {{ end }}
   <div class="video-panel">
     <video controls class="review-video" preload="metadata">

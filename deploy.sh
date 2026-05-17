@@ -75,18 +75,14 @@ do_build() {
 
 do_videos() {
     hdr "Copie des vidéos…"
-    mapfile -t vids < <(list_dir "$VIDEOS_SRC" "webm mp4 ogg")
-    if [[ ${#vids[@]} -eq 0 ]]; then
+    if [[ ! -d "$VIDEOS_SRC" ]] || [[ -z "$(find "$VIDEOS_SRC" \( -name "*.webm" -o -name "*.mp4" -o -name "*.ogg" \) 2>/dev/null | head -1)" ]]; then
         warn "Aucune vidéo dans videos/"
         return
     fi
     mkdir -p "$DEST/videos"
-    for v in "${vids[@]}"; do
-        cp "$VIDEOS_SRC/$v" "$DEST/videos/"
-        ok "$v"
-    done
+    cp -r "$VIDEOS_SRC"/. "$DEST/videos/"
     chown -R www-data:www-data "$DEST/videos" 2>/dev/null || true
-    ok "${#vids[@]} vidéo(s) → $DEST/videos/"
+    ok "videos/ (avec sous-dossiers) → $DEST/videos/"
 }
 
 do_ranges() {

@@ -13,7 +13,11 @@
   {{ with .Params.video_url }}{{ if . }}
   {{ $src := . }}
   {{ if not (or (strings.HasPrefix $src "/") (strings.HasPrefix $src "http")) }}
-    {{ $src = printf "/videos/%s" $src }}
+    {{ if strings.HasPrefix $src "videos/" }}
+      {{ $src = printf "/%s" $src }}
+    {{ else }}
+      {{ $src = printf "/videos/%s" $src }}
+    {{ end }}
   {{ end }}
   <div class="video-panel">
     <video controls class="review-video" preload="metadata">

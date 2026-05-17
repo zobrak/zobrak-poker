@@ -6,6 +6,12 @@ Versionnage : [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.8.3] — 2026-05-17
+
+### Corrigé
+- `review/single.html`, `_default/single.html` : double préfixe `/videos/videos/...` quand `video_url` commence par `videos/`
+- `deploy.sh` : `do_videos()` copie maintenant les sous-dossiers (`cp -r`) — les vidéos organisées en `videos/review/` etc. sont correctement déployées
+
 ## [0.8.2] — 2026-05-17
 
 ### Corrigé
