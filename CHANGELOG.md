@@ -6,7 +6,7 @@ Versionnage : [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [Unreleased]
+## [0.8.0] — 2026-05-17
 
 ### Ajouté
 - Affichage des mises en Big Blinds dans les reviews (format PokerStars natif)
