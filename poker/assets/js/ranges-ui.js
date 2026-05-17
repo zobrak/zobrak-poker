@@ -150,9 +150,9 @@
     return RANKS[col] + RANKS[row] + 'o';
   }
 
-  /** Rend la grille 13x13 et l'injecte dans #ranges-grid. */
-  function renderRangeGrid(cellMap) {
-    var container = document.getElementById('ranges-grid');
+  /** Rend la grille 13x13 et l'injecte dans le conteneur (ou #ranges-grid par défaut). */
+  function renderRangeGrid(cellMap, container) {
+    if (!container) container = document.getElementById('ranges-grid');
     if (!container) return;
 
     var table = document.createElement('table');
@@ -267,8 +267,8 @@
   }
 
   /** Rend la légende des actions actives dans l'onglet courant. */
-  function renderLegend(data, tab) {
-    var container = document.getElementById('ranges-legend');
+  function renderLegend(data, tab, container) {
+    if (!container) container = document.getElementById('ranges-legend');
     if (!container) return;
 
     var seen = {};
@@ -392,6 +392,7 @@
   }
 
   // Exports
+  global.RM_FILE_URL = RM_FILE_URL;
   global.initRanges = initRanges;
   global.loadRangeManagerFile = loadRangeManagerFile;
   global.getRootCategories = getRootCategories;

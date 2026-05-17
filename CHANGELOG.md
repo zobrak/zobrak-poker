@@ -6,6 +6,13 @@ Versionnage : [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.8.2] — 2026-05-17
+
+### Corrigé
+- `ranges-ui.js` : `renderRangeGrid` et `renderLegend` acceptent maintenant un conteneur optionnel (fix popup range-ref sur pages hors /ranges/)
+- `ranges-ui.js` : `RM_FILE_URL` exporté en global (fix "fichier de ranges non configuré" sur pages review/stratégie)
+- `range-ref.js` : la légende est rendue dans un élément dédié (ne détruit plus la grille)
+
 ## [0.8.1] — 2026-05-17
 
 ### Modifié

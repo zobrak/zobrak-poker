@@ -161,7 +161,10 @@
       body.appendChild(wrapper);
       global.renderRangeGrid(cellMap, wrapper);
       if (typeof global.renderLegend === 'function') {
-        global.renderLegend(data, tab, body);
+        var legendEl = document.createElement('div');
+        legendEl.className = 'ranges-legend';
+        body.appendChild(legendEl);
+        global.renderLegend(data, tab, legendEl);
       }
     } else {
       body.innerHTML = '<p class="range-ref-error">ranges-ui.js non chargé sur cette page.</p>';
