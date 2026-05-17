@@ -35,17 +35,28 @@
       ? global.getRootCategories(data)
       : fallbackCats(data);
 
-    var cat = cats[catIdx - 1];
-    if (!cat) return null;
+    var catObj = cats[catIdx - 1];
+    if (!catObj) return null;
+
+    // getRootCategories wraps: { id, name, data: rawCat }
+    // fallbackCats returns raw cat objects directly
+    var rawCat = catObj.data || catObj;
 
     var tabs = typeof global.getTabs === 'function'
-      ? global.getTabs(cat)
-      : fallbackTabs(cat);
+      ? global.getTabs(rawCat)
+      : fallbackTabs(rawCat);
 
-    var tab = tabs[tabIdx - 1];
-    if (!tab) return null;
+    var tabObj = tabs[tabIdx - 1];
+    if (!tabObj) return null;
 
-    return { cat: cat, tab: tab };
+    // getTabs wraps: { id, name, data: rawTab }
+    var rawTab = tabObj.data || tabObj;
+
+    return {
+      catName: catObj.name || catObj.id || ('Cat ' + catIdx),
+      tabName: tabObj.name || tabObj.id || ('Tab ' + tabIdx),
+      tab: rawTab
+    };
   }
 
   function fallbackCats(data) {
@@ -141,49 +152,92 @@
     return placeholders;
   }
 
-  // ── Rendu inline ──────────────────────────────────────────────────
+  // ── Rendu compact + collapsible ───────────────────────────────────
 
   function renderInline(el, data, catIdx, tabIdx) {
     var resolved = resolveCatAndTab(data, catIdx, tabIdx);
 
     if (!resolved) {
-      var cats = typeof global.getRootCategories === 'function'
+      var allCats = typeof global.getRootCategories === 'function'
         ? global.getRootCategories(data) : fallbackCats(data);
       el.innerHTML = '<p class="range-ref-error">Range introuvable ('
-        + catIdx + '/' + tabIdx + ', max cat : ' + cats.length + ').</p>';
+        + catIdx + '/' + tabIdx + ', max cat : ' + allCats.length + ').</p>';
       el.classList.remove('range-ref-loading');
       return;
     }
 
     el.innerHTML = '';
+    el.classList.remove('range-ref-loading');
 
-    // Titre
-    var title = document.createElement('div');
-    title.className = 'range-ref-title';
-    var tabName = resolved.tab.name || ('Tab ' + tabIdx);
-    var catName = resolved.cat.name || ('Cat ' + catIdx);
-    title.textContent = tabName + ' — ' + catName;
-    el.appendChild(title);
-
-    if (typeof global.buildCellMap === 'function' && typeof global.renderRangeGrid === 'function') {
-      var cellMap = global.buildCellMap(data, resolved.tab);
-
-      var gridWrapper = document.createElement('div');
-      gridWrapper.className = 'ranges-grid-wrapper';
-      el.appendChild(gridWrapper);
-      global.renderRangeGrid(cellMap, gridWrapper);
-
-      if (typeof global.renderLegend === 'function') {
-        var legendEl = document.createElement('div');
-        legendEl.className = 'ranges-legend';
-        el.appendChild(legendEl);
-        global.renderLegend(data, resolved.tab, legendEl);
-      }
-    } else {
-      el.innerHTML += '<p class="range-ref-error">ranges-ui.js non chargé.</p>';
+    if (typeof global.buildCellMap !== 'function' || typeof global.renderRangeGrid !== 'function') {
+      el.innerHTML = '<p class="range-ref-error">ranges-ui.js non chargé.</p>';
+      return;
     }
 
-    el.classList.remove('range-ref-loading');
+    var cellMap = global.buildCellMap(data, resolved.tab);
+
+    // ── Header cliquable ──────────────────────────────────────────
+    var header = document.createElement('button');
+    header.className = 'range-ref-header';
+    header.setAttribute('aria-expanded', 'false');
+
+    var badge = document.createElement('span');
+    badge.className = 'range-ref-badge';
+    badge.textContent = '▶ Range';
+
+    var label = document.createElement('span');
+    label.className = 'range-ref-label';
+    label.textContent = resolved.tabName + ' — ' + resolved.catName;
+
+    var hint = document.createElement('span');
+    hint.className = 'range-ref-hint';
+    hint.textContent = 'Cliquer pour afficher';
+
+    header.appendChild(badge);
+    header.appendChild(label);
+    header.appendChild(hint);
+    el.appendChild(header);
+
+    // ── Contenu (grille + légende) masqué par défaut ──────────────
+    var body = document.createElement('div');
+    body.className = 'range-ref-body';
+    body.hidden = true;
+
+    var gridWrapper = document.createElement('div');
+    gridWrapper.className = 'ranges-grid-wrapper';
+    body.appendChild(gridWrapper);
+
+    if (typeof global.renderLegend === 'function') {
+      var legendEl = document.createElement('div');
+      legendEl.className = 'ranges-legend';
+      body.appendChild(legendEl);
+    }
+
+    el.appendChild(body);
+
+    // Rendu différé au premier clic (lazy)
+    var rendered = false;
+    header.addEventListener('click', function() {
+      var expanded = header.getAttribute('aria-expanded') === 'true';
+      if (!expanded) {
+        if (!rendered) {
+          global.renderRangeGrid(cellMap, gridWrapper);
+          if (typeof global.renderLegend === 'function') {
+            global.renderLegend(data, resolved.tab, legendEl);
+          }
+          rendered = true;
+        }
+        body.hidden = false;
+        header.setAttribute('aria-expanded', 'true');
+        badge.textContent = '▼ Range';
+        hint.textContent = 'Cliquer pour masquer';
+      } else {
+        body.hidden = true;
+        header.setAttribute('aria-expanded', 'false');
+        badge.textContent = '▶ Range';
+        hint.textContent = 'Cliquer pour afficher';
+      }
+    });
   }
 
   // ── Utilitaire ────────────────────────────────────────────────────
