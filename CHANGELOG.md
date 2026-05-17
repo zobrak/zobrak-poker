@@ -6,6 +6,14 @@ Versionnage : [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.8.4] — 2026-05-17
+
+### Modifié
+- `range-ref.js` : les tags `[N/M]` sont maintenant remplacés par la grille de ranges complète (tableau 13×13 + légende) directement intégrée dans l'article — plus de bouton/popup
+- `main.css` : styles `.range-ref-inline` pour le bloc grille inline (suppression styles popup)
+
+---
+
 ## [0.8.3] — 2026-05-17
 
 ### Corrigé
