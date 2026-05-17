@@ -4,7 +4,8 @@ Site statique personnel de travail poker. Construit avec [Hugo](https://gohugo.i
 
 **URL de production :** `https://poker.zobrak.net/`
 **Langue :** Français
-**Thème :** Dark poker (vert feutrine / or)
+**Thème :** Dark poker (vert feutré / néon / or)
+**Licences :** Code source — GNU GPLv3 · Contenu du site — CC-BY-NC-SA 4.0
 
 ---
 
@@ -18,9 +19,10 @@ Site statique personnel de travail poker. Construit avec [Hugo](https://gohugo.i
 6. [Anonymiser une hand history](#6-anonymiser-une-hand-history)
 7. [Poster une review de main](#7-poster-une-review-de-main)
 8. [Écrire une fiche stratégique](#8-écrire-une-fiche-stratégique)
-9. [Format Hand History (`hh`)](#9-format-hand-history-hh)
-10. [Taxonomies & frontmatter de référence](#10-taxonomies--frontmatter-de-référence)
-11. [Architecture technique avancée](#11-architecture-technique-avancée)
+9. [Tags de range inline](#9-tags-de-range-inline)
+10. [Format Hand History (`hh`)](#10-format-hand-history-hh)
+11. [Taxonomies & frontmatter de référence](#11-taxonomies--frontmatter-de-référence)
+12. [Architecture technique avancée](#12-architecture-technique-avancée)
 
 ---
 
@@ -29,9 +31,12 @@ Site statique personnel de travail poker. Construit avec [Hugo](https://gohugo.i
 ```
 zobrak-poker/
 ├── deploy.sh                  # Script de déploiement (serveur)
-├── update-ranges.sh           # Mise à jour des fichiers de ranges
+├── build_ranges.sh            # Mise à jour des fichiers de ranges
 ├── anonymize-hh.py            # Anonymisation des hand histories
 ├── new-review.py              # Génération automatique d'articles review
+├── CHANGELOG.md               # Historique des versions
+├── LICENSE                    # GNU GPLv3 (code source)
+├── LICENSE-CONTENT            # CC-BY-NC-SA 4.0 (contenu du site)
 └── poker/                     # Racine Hugo
     ├── hugo.toml              # Configuration Hugo
     ├── archetypes/            # Modèles de contenu
@@ -40,7 +45,8 @@ zobrak-poker/
     │   └── js/
     │       ├── cards-ui.js    # Rendu visuel des cartes
     │       ├── hh-parser.js   # Parser hand history (PokerStars + PT4)
-    │       ├── hh-render.js   # Injection HTML des blocs HH dans les articles
+    │       ├── hh-render.js   # Injection HTML des blocs HH (montants en BB)
+    │       ├── range-ref.js   # Tags de range inline [action/position]
     │       ├── ranges-ui.js   # Lecteur de fichiers .rm (Range Manager)
     │       ├── review-ui.js   # UI spécifique aux reviews
     │       └── search-ui.js   # Recherche plein texte client-side
@@ -66,9 +72,9 @@ zobrak-poker/
 
 | Section | URL | Description |
 |---------|-----|-------------|
-| Accueil | `/` | Recherche + cards de navigation |
+| Accueil | `/` | Recherche, 3 cartes de navigation, 5 derniers articles |
 | Ranges | `/ranges/` | Visualiseur interactif de ranges NL2 |
-| Review | `/review/` | Reviews de mains avec parsing hand history |
+| Review | `/review/` | Reviews de mains avec parsing hand history (montants en BB) |
 | Stratégie | `/strategie/` | Fiches stratégiques avec sidebar + TOC |
 
 ---
@@ -165,22 +171,29 @@ Les erreurs les plus fréquentes :
 
 Les ranges sont stockées dans des fichiers `.rm` (format Range Manager — JSON propriétaire). Le lecteur JavaScript les charge côté client.
 
-### Script `update-ranges.sh` (méthode recommandée)
+### Script `build_ranges.sh` (méthode recommandée)
 
-Un script CLI à la racine du projet automatise toute la procédure :
+Un script CLI à la racine du projet automatise toute la procédure. Placer le fichier `.rm` dans le dossier `ranges/` (ignoré par git), puis :
 
 ```bash
-./update-ranges.sh <fichier.rm> <limite>
+# Détection automatique de la limite depuis le nom de fichier
+./build_ranges.sh NL2_v4.rm        # cherche ranges/NL2_v4.rm, limite = NL2
+
+# Chemin complet
+./build_ranges.sh /tmp/my_ranges.rm NL5
+
+# Depuis le menu deploy.sh (option 4)
+./deploy.sh   # → sélectionner "4 Mettre à jour ranges"
 ```
 
 **Exemples :**
 
 ```bash
-# Mettre à jour les ranges NL2 avec un nouveau fichier
-./update-ranges.sh ~/Downloads/Ranges_NL2_v4.rm NL2
+# Copier d'abord le .rm dans ranges/
+cp ~/Downloads/Ranges_NL2_v4.rm ranges/
 
-# Mettre à jour les ranges NL5
-./update-ranges.sh /tmp/my_ranges.rm NL5
+# Puis mettre à jour
+./build_ranges.sh NL2_v4.rm
 ```
 
 **Ce que fait le script, dans l'ordre :**
@@ -282,8 +295,8 @@ cat hh.txt | ./anonymize-hh.py -
 |---------|-------|-------|
 | Nom du hero | `JJohnbluffpAAs` | `Hero` |
 | Adversaires | `BaboonPeedas`, `fab11230`… | `Villain1`, `Villain2`… |
-| Nom de la table | `Table 'Alemannia VII'` | `Table 'Anonyme'` |
-| Numéro de main | `Hand #260824466012` | `Hand #XXXXXXXXXXXX` |
+| Nom de la table | inchangé | inchangé (non pertinent) |
+| Numéro de main | inchangé | inchangé (non pertinent) |
 
 L'ordre des Villain suit les numéros de siège (Seat 1 → Villain1, Seat 2 → Villain2, etc., Hero exclu).
 
@@ -579,9 +592,36 @@ Aucune configuration manuelle n'est requise. Ajouter un fichier dans une sous-se
 
 ---
 
-## 9. Format Hand History (`hh`)
+## 9. Tags de range inline
+
+Dans le corps d'un article (review ou stratégie), vous pouvez référencer une range précise avec la syntaxe :
+
+```
+[action/position]
+```
+
+**Exemples :**
+
+```markdown
+Depuis UTG, Hero open avec [openc3b5b/utg].
+
+Sur ce flop favorable, Hero peut continuer avec sa range de [cbet/btn].
+```
+
+Le JavaScript (`range-ref.js`) détecte ces patterns et les transforme en **boutons interactifs** :
+- Un clic affiche un **popup** avec la grille de range 13×13 correspondante
+- La recherche est insensible à la casse, avec correspondance partielle en fallback
+- Nécessite que `RM_FILE_URL` soit défini (automatique sur les pages Ranges ; sur les pages review/stratégie, `ranges-ui.js` est chargé si disponible)
+
+**Matching :** `action` correspond à un tab dans le fichier `.rm` (ex: `openc3b5b`, `cbet`, `3bet`), `position` correspond à une catégorie (ex: `utg`, `btn`, `co`).
+
+---
+
+## 10. Format Hand History (`hh`)
 
 Le parser supporte deux formats. Il détecte automatiquement lequel utiliser.
+
+> **Note :** Les montants affichés dans le rendu HTML sont automatiquement convertis en **Big Blinds** (BB) pour le format PokerStars natif. Exemple : "raises 0.22 to 0.28" avec les blinds €0.01/€0.02 devient "raises 11BB to 14BB".
 
 ### Format PokerStars natif (recommandé)
 
@@ -640,7 +680,7 @@ Dans ce format, le joueur nommé `Hero` est automatiquement reconnu sans avoir b
 
 ---
 
-## 10. Taxonomies & frontmatter de référence
+## 11. Taxonomies & frontmatter de référence
 
 Hugo génère des pages de taxonomie automatiquement pour chaque valeur renseignée.
 
@@ -674,7 +714,7 @@ Le badge s'affiche en vert si positif, sans couleur spéciale si nul ou négatif
 
 ---
 
-## 11. Architecture technique avancée
+## 12. Architecture technique avancée
 
 ### Génération du site
 

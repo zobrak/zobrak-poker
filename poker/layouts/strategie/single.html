@@ -79,4 +79,12 @@
   });
 })();
 </script>
+
+{{ $rangesJs := resources.Get "js/ranges-ui.js" }}
+{{ $refJs    := resources.Get "js/range-ref.js" }}
+{{ if $refJs }}
+{{ if $rangesJs }}<script src="{{ $rangesJs.RelPermalink }}"></script>{{ end }}
+<script src="{{ $refJs.RelPermalink }}"></script>
+<script>document.addEventListener('DOMContentLoaded', function(){ if (typeof initRangeRefs === 'function') initRangeRefs(); });</script>
+{{ end }}
 {{ end }}

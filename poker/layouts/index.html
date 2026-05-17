@@ -18,15 +18,41 @@
   <section class="nav-cards">
     <a class="nav-card nav-card--ranges" href="{{ "/ranges/" | relURL }}">
       <div class="nav-card-corner" aria-hidden="true"></div>
+      <span class="nav-card-suit" aria-hidden="true">♠</span>
       <h2 class="nav-card-title">Ranges</h2>
       <p class="nav-card-description">Consultation des ranges NL2 short-handed.</p>
     </a>
     <a class="nav-card nav-card--review" href="{{ "/review/" | relURL }}">
       <div class="nav-card-corner" aria-hidden="true"></div>
+      <span class="nav-card-suit" aria-hidden="true">♥</span>
       <h2 class="nav-card-title">Review</h2>
       <p class="nav-card-description">Review de mains, parsing de hand histories PT4, intégration vidéo et analyse stratégique.</p>
     </a>
+    <a class="nav-card nav-card--strategie" href="{{ "/strategie/" | relURL }}">
+      <div class="nav-card-corner" aria-hidden="true"></div>
+      <span class="nav-card-suit" aria-hidden="true">♦</span>
+      <h2 class="nav-card-title">Stratégie</h2>
+      <p class="nav-card-description">Fiches stratégiques, concepts fondamentaux et théorie du jeu NL2/NL5.</p>
+    </a>
   </section>
+
+  {{ $recent := where .Site.RegularPages "Section" "in" (slice "review" "strategie") }}
+  {{ $recent = $recent | first 5 }}
+  {{ if $recent }}
+  <section class="home-recent">
+    <h2 class="home-recent-title">Derniers articles</h2>
+    <ul class="home-recent-list">
+      {{ range $recent }}
+      <li class="home-recent-item">
+        <span class="home-recent-section home-recent-section--{{ .Section }}">{{ if eq .Section "review" }}Review{{ else }}Stratégie{{ end }}</span>
+        <a class="home-recent-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ with .Description }}<span class="home-recent-desc">{{ . }}</span>{{ end }}
+        <time class="home-recent-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01/2006" }}</time>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
 </div>
 
 {{ $js := resources.Get "js/search-ui.js" }}
