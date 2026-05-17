@@ -6,6 +6,14 @@ Versionnage : [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.8.1] — 2026-05-17
+
+### Modifié
+- `range-ref.js` : syntaxe simplifiée `[N/M]` (index numérique) au lieu de `[action/position]` — N = catégorie (haut→bas), M = onglet (gauche→droite)
+- Le popup affiche le vrai nom catégorie/onglet une fois chargé
+
+---
+
 ## [0.8.0] — 2026-05-17
 
 ### Ajouté
