@@ -105,6 +105,19 @@ def print_mapping(mapping, hero_detected):
     print('', file=sys.stderr)
 
 
+TXT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'txt')
+
+
+def resolve_input_path(arg):
+    if arg == '-':
+        return '-'
+    if os.sep not in arg and '/' not in arg:
+        candidate = os.path.join(TXT_DIR, arg)
+        if os.path.isfile(candidate):
+            return candidate
+    return arg
+
+
 def read_input(path):
     if path == '-':
         return sys.stdin.read()
@@ -112,7 +125,6 @@ def read_input(path):
         with open(path, 'r', encoding='utf-8') as f:
             return f.read()
     except UnicodeDecodeError:
-        # Certains exports PS sont en latin-1
         with open(path, 'r', encoding='latin-1') as f:
             return f.read()
 
@@ -123,10 +135,10 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Exemples :
-  %(prog)s hh.txt
-  %(prog)s hh.txt --hero MonPseudo
+  %(prog)s session.txt            # cherche dans txt/session.txt
+  %(prog)s session.txt --hero Pseudo
   cat hh.txt | %(prog)s -
-  %(prog)s hh.txt > anonymized.txt
+  %(prog)s session.txt > anonymized.txt
         """.strip()
     )
     parser.add_argument(
@@ -140,10 +152,11 @@ Exemples :
     )
     args = parser.parse_args()
 
+    resolved = resolve_input_path(args.fichier)
     try:
-        text = read_input(args.fichier)
+        text = read_input(resolved)
     except FileNotFoundError:
-        print(f'Erreur : fichier introuvable : {args.fichier}', file=sys.stderr)
+        print(f'Erreur : fichier introuvable : {resolved}', file=sys.stderr)
         sys.exit(1)
 
     if not text.strip():

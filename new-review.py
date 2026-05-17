@@ -467,18 +467,34 @@ def process_hand(raw, hero_name, existing_slugs, out_dir):
     return filepath, content, mapping
 
 
+TXT_DIR = os.path.join(REPO_DIR, 'txt')
+
+
+def resolve_input_path(arg):
+    """
+    Si l'argument ne contient pas de séparateur, cherche dans txt/ en priorité.
+    Sinon utilise le chemin tel quel.
+    """
+    if os.sep not in arg and '/' not in arg:
+        candidate = os.path.join(TXT_DIR, arg)
+        if os.path.isfile(candidate):
+            return candidate
+    return arg
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Génère des fichiers Markdown Hugo depuis des hand histories brutes.',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Exemples :
-  %(prog)s session.txt
-  %(prog)s session.txt --hero MonPseudo
+  %(prog)s session.txt              # cherche dans txt/session.txt
+  %(prog)s session.txt --hero Pseudo
   %(prog)s session.txt --out poker/content/review/session-mai/
+  %(prog)s /chemin/complet/hh.txt  # chemin absolu ou relatif explicite
         """.strip()
     )
-    parser.add_argument('fichier', help='Fichier .txt contenant une ou plusieurs hand histories')
+    parser.add_argument('fichier', help='Fichier .txt (cherché dans txt/ si nom seul)')
     parser.add_argument('--hero', '-H', metavar='NOM',
                         help="Nom du joueur Hero (auto-détecté si absent)")
     parser.add_argument('--out', '-o', metavar='DOSSIER', default=DEFAULT_OUT,
@@ -487,14 +503,16 @@ Exemples :
                         help="Affiche ce qui serait créé sans écrire les fichiers")
     args = parser.parse_args()
 
+    filepath = resolve_input_path(args.fichier)
+
     try:
-        with open(args.fichier, 'r', encoding='utf-8') as f:
+        with open(filepath, 'r', encoding='utf-8') as f:
             text = f.read()
     except UnicodeDecodeError:
-        with open(args.fichier, 'r', encoding='latin-1') as f:
+        with open(filepath, 'r', encoding='latin-1') as f:
             text = f.read()
     except FileNotFoundError:
-        print(f'Erreur : fichier introuvable : {args.fichier}', file=sys.stderr)
+        print(f'Erreur : fichier introuvable : {filepath}', file=sys.stderr)
         sys.exit(1)
 
     hands = split_hands(text)

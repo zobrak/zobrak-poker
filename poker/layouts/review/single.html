@@ -17,13 +17,18 @@
   </header>
 
   {{ with .Params.video_url }}{{ if . }}
+  {{ $src := . }}
+  {{/* Nom seul → chemin implicite /videos/<nom> */}}
+  {{ if not (or (strings.HasPrefix $src "/") (strings.HasPrefix $src "http")) }}
+    {{ $src = printf "/videos/%s" $src }}
+  {{ end }}
   <div class="video-panel">
     <video controls class="review-video" preload="metadata">
-      {{ $ext := path.Ext . }}
-      {{ if eq $ext ".webm" }}<source src="{{ . }}" type="video/webm">
-      {{ else if eq $ext ".mp4" }}<source src="{{ . }}" type="video/mp4">
-      {{ else if eq $ext ".ogg" }}<source src="{{ . }}" type="video/ogg">
-      {{ else }}<source src="{{ . }}">{{ end }}
+      {{ $ext := path.Ext $src }}
+      {{ if eq $ext ".webm" }}<source src="{{ $src }}" type="video/webm">
+      {{ else if eq $ext ".mp4" }}<source src="{{ $src }}" type="video/mp4">
+      {{ else if eq $ext ".ogg" }}<source src="{{ $src }}" type="video/ogg">
+      {{ else }}<source src="{{ $src }}">{{ end }}
       Votre navigateur ne supporte pas la lecture vidéo.
     </video>
   </div>

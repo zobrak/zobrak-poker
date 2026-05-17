@@ -1,0 +1,9 @@
+# Dépendances Hugo
+poker/public/
+poker/.hugo_build.lock
+poker/resources/_gen/
+
+# Contenu non versionné (données locales, grosses données)
+videos/
+txt/
+ranges/
