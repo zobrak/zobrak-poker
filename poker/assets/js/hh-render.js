@@ -51,8 +51,27 @@
     });
   }
 
+  function extractBB(stake) {
+    if (!stake) return null;
+    var m = stake.match(/[\/][€$£¥]?\s*([\d]+\.[\d]+)/);
+    return m ? parseFloat(m[1]) : null;
+  }
+
+  function fmtBB(val, bb) {
+    var inBB = Math.round((val / bb) * 10) / 10;
+    return (inBB === Math.floor(inBB) ? inBB.toFixed(0) : inBB.toFixed(1)) + 'BB';
+  }
+
+  function convertActionToBB(str, bb) {
+    if (!bb) return str;
+    return str.replace(/\b(\d+\.\d+)\b/g, function(_, num) {
+      return fmtBB(parseFloat(num), bb);
+    });
+  }
+
   function buildHHHtml(p, heroName) {
     var html = '';
+    var bb = (p.room === 'PokerStars') ? extractBB(p.stake) : null;
 
     // ── En-tête ──────────────────────────────────────────────────
     html += '<div class="hh-header">';
@@ -83,25 +102,25 @@
     // ── Actions par street ────────────────────────────────────────
     html += '<div class="hh-streets">';
 
-    html += buildStreet('Préflop', p.preflop, null, p.pot_preflop);
+    html += buildStreet('Préflop', p.preflop, null, p.pot_preflop, bb);
 
     if (p.flop) {
       var flopCodes = p.flop.trim().split(/\s+/);
       var flopCards = typeof global.renderCards === 'function'
         ? global.renderCards(flopCodes) : '<span>' + esc(p.flop) + '</span>';
-      html += buildStreet('Flop', p.flop_actions, flopCards, p.pot_flop);
+      html += buildStreet('Flop', p.flop_actions, flopCards, p.pot_flop, bb);
     }
     if (p.turn) {
       var turnCodes = p.turn.trim().split(/\s+/);
       var turnCards = typeof global.renderCards === 'function'
         ? global.renderCards(turnCodes) : '<span>' + esc(p.turn) + '</span>';
-      html += buildStreet('Turn', p.turn_actions, turnCards, p.pot_turn);
+      html += buildStreet('Turn', p.turn_actions, turnCards, p.pot_turn, bb);
     }
     if (p.river) {
       var riverCodes = p.river.trim().split(/\s+/);
       var riverCards = typeof global.renderCards === 'function'
         ? global.renderCards(riverCodes) : '<span>' + esc(p.river) + '</span>';
-      html += buildStreet('River', p.river_actions, riverCards, p.pot_river);
+      html += buildStreet('River', p.river_actions, riverCards, p.pot_river, bb);
     }
 
     html += '</div>';
@@ -110,10 +129,14 @@
     if (p.winner) {
       var winnerLabel = (heroName && p.winner.toLowerCase() === heroName.toLowerCase()) ? 'Hero' : p.winner;
       winnerLabel = p.winner === 'Hero' ? 'Hero' : winnerLabel;
+      var wonDisplay = '';
+      if (p.amount_won !== null && p.amount_won !== undefined) {
+        wonDisplay = bb ? fmtBB(p.amount_won, bb) : (p.amount_won + ' BB');
+      }
       html += '<div class="hh-result">'
         + '<span class="hh-street-label">Résultat</span>'
         + '<strong>' + esc(winnerLabel) + '</strong> gagne'
-        + (p.amount_won ? ' <strong>' + p.amount_won + '</strong>' : '')
+        + (wonDisplay ? ' <strong>' + wonDisplay + '</strong>' : '')
         + '</div>';
     }
 
@@ -142,7 +165,7 @@
     return html;
   }
 
-  function buildStreet(label, actions, boardHtml, pot) {
+  function buildStreet(label, actions, boardHtml, pot, bb) {
     var html = '<div class="hh-street">';
     html += '<div class="hh-street-header">';
     html += '<span class="hh-street-label">' + label + '</span>';
@@ -159,7 +182,7 @@
         var isHero = /^hero$/i.test(a.player);
         html += '<li class="hh-action' + (isHero ? ' hh-action--hero' : '') + '">'
           + '<span class="hh-action-player">' + esc(a.player) + '</span>'
-          + '<span class="hh-action-verb">' + esc(a.action) + '</span>'
+          + '<span class="hh-action-verb">' + esc(bb ? convertActionToBB(a.action, bb) : a.action) + '</span>'
           + '</li>';
       });
       html += '</ul>';

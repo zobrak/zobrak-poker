@@ -39,13 +39,22 @@
   </div>
 </article>
 
-{{ $cardsJs := resources.Get "js/cards-ui.js" }}
+{{ $cardsJs  := resources.Get "js/cards-ui.js" }}
 {{ $parserJs := resources.Get "js/hh-parser.js" }}
 {{ $renderJs := resources.Get "js/hh-render.js" }}
+{{ $rangesJs := resources.Get "js/ranges-ui.js" }}
+{{ $refJs    := resources.Get "js/range-ref.js" }}
 {{ if and $cardsJs $parserJs $renderJs }}
 <script src="{{ $cardsJs.RelPermalink }}"></script>
 <script src="{{ $parserJs.RelPermalink }}"></script>
 <script src="{{ $renderJs.RelPermalink }}"></script>
-<script>document.addEventListener('DOMContentLoaded', function(){ if(typeof renderHandHistories === 'function') renderHandHistories(); });</script>
+{{ if $rangesJs }}<script src="{{ $rangesJs.RelPermalink }}"></script>{{ end }}
+{{ if $refJs    }}<script src="{{ $refJs.RelPermalink }}"></script>{{ end }}
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  if (typeof renderHandHistories === 'function') renderHandHistories();
+  if (typeof initRangeRefs === 'function') initRangeRefs();
+});
+</script>
 {{ end }}
 {{ end }}

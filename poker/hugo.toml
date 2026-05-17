@@ -3,6 +3,10 @@ languageCode = "fr-fr"
 title = "ZobraK Poker"
 enableRobotsTXT = true
 
+[params]
+  description = "Outil personnel de travail poker : ranges NL2, reviews de mains, fiches stratégiques. Aucun tracking."
+  author = "ZobraK"
+
 [markup]
   [markup.highlight]
     noClasses = false
