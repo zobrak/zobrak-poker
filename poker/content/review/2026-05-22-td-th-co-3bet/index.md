@@ -1,8 +1,8 @@
 ---
-title: "T♦T♥ CO en pot 3bet : quand le sizing adverse ouvre la porte au shove"
+title: "TT vs AA en pot 3bet : Goliath joue petits bras... et perd !"
 date: 2026-05-22
-draft: true
-description: "Une overpaire adversée cbet fort puis micro-bet le turn sur un board Q-J-4-9. Hero a TT, un open-ender, et une range qui domine la texture. Analyse complète du shove : equity, range advantage, cohérence narrative et seuil de fold equity."
+draft: false
+description: "Overpair OOP versus range de défense 3bet du CO sur board drawy. SB ne  cbet pas assez fort puis micro-bet et se fait raise shove sur la turn avec un board Q-J-4-9. Hero a une range qui domine la texture. Analyse complète du shove : equity, range advantage, cohérence narrative et seuil de fold equity."
 hero: "Hero"
 
 tags:
