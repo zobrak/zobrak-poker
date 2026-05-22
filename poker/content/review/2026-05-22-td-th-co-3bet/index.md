@@ -167,14 +167,14 @@ TT contre une range à 7% de 3bet, c'est **49% d'equity préflop**. À parité �
 SPR post-call : **3,5** (94 BB derrière, pot 27 BB).
 
 {{< insight >}}
-**SPR — le ratio qui dicte votre engagement.**
+**SPR: le ratio qui dicte votre engagement.**
 
 Stack-to-Pot Ratio = stack derrière ÷ pot actuel. À **3,5**, une main peut jouer plusieurs rues si elle s'améliore — mais les mains moyennes deviennent vite committées. En dessous de **1**, on est engagés sans porte de sortie. Au-dessus de **10**, on vise les nuts ou on se couche.
 
 À ce SPR, aller au showdown nécessite au minimum two pair ou un draw fort.
 {{< /insight >}}
 
-Vilain bet 1/2 bot, Hero call. Il a dans sa range pas mal de mains qui connectent parmis ses brodways suités.
+Hero call, rien de plus logique, pas de 4bet bluff avec un paire moyenne comme les dix.
 
 {{< tell >}}
 
@@ -182,13 +182,15 @@ Vilain bet 1/2 bot, Hero call. Il a dans sa range pas mal de mains qui connecten
 
 Au CO Hero a une range d'open de 23%, il call 3bet a environ 13 %, reste ses 4bets et 4bet bluff.
 
+Face à un REG sérieux, mais pas NIT, en étant IP, l'adaptation est d'élargir avec une range mergée en y intégrant des connecteurs suités. Et avouons-le ça fait toujours plaisir de faire chuter une paire d'as avec 78s. Attention sur des boards connectés avec des cartes fortes, contre ce type d'adversaire et sa range il peut parfois avoir la meilleur flush tout de même, avec ses AK, ses KQ.
+
 {{ < /tell >}}
 
 ---
 
 ## J♦4♣Q♥ — Le flop de la patience
 
-Flop objectivement mauvais. Deux overcards, zéro draw direct. La lecture paresseuse dit fold.
+Flop rainbow qui ne fait pas peur aux premiums KK, AA, plait beaucoup a QQ, écarte les flush draw mais qui flirt quand même dangereusement avec la range de défense de Hero : ses T9, ses KT, ses JJ, il parfois des 89, parfois des AKo, plus rarement des AT. On positionne villain sur une range qui domine mais connecte moins. 
 
 **La lecture correcte dit : attendez.**
 
