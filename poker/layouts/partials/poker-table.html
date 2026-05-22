@@ -14,10 +14,10 @@
         <span class="poker-seat-label{{- if .is_hero }} poker-hero-label{{- end }}">{{ .label }}</span>
         <span class="poker-seat-pos">{{ .position }}</span>
         <span class="poker-seat-stack">{{ .stack_bb }}BB</span>
-        {{- if gt .vpip 0.0 }}
+        {{- if gt .vpip 0 }}
         <span class="poker-seat-stats"
-              title="{{ printf "VPIP %.0f%% / PFR %.0f%% / 3Bet %.0f%% — %d mains" .vpip .pfr .three_bet .hands }}">
-          {{ printf "%.0f" .vpip }}/{{ printf "%.0f" .pfr }}/{{ printf "%.0f" .three_bet }}
+              title="{{ printf "VPIP %d%% / PFR %d%% / 3Bet %.1f%% — %d mains" .vpip .pfr .three_bet .hands }}">
+          {{ printf "%d" .vpip }}/{{ printf "%d" .pfr }}/{{ printf "%.1f" .three_bet }}
           <span class="poker-seat-hands">({{ .hands }})</span>
         </span>
         {{- end }}

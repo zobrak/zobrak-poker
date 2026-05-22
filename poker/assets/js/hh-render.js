@@ -95,32 +95,44 @@
       html += '<div class="hh-hero-hand">'
         + '<span class="hh-street-label">Main Hero</span>'
         + cardsHtml
-        + '<span class="hh-hand-text">' + esc(p.hero_hand) + '</span>'
         + '</div>';
+    }
+
+    // ── Preflop aggressor (last raiser PF) ────────────────────────
+    var pfAggressor = null;
+    (p.preflop || []).forEach(function(a) {
+      if (/raise/i.test(a.action || '')) pfAggressor = a.player;
+    });
+
+    // ── Pot préflop pour PS natif (somme des blindes) ─────────────
+    var potPreflop = p.pot_preflop;
+    if (!potPreflop && p.room === 'PokerStars' && bb && p.blinds && p.blinds.length) {
+      var blindSum = p.blinds.reduce(function(s, b) { return s + (b.amount || 0); }, 0);
+      if (blindSum > 0) potPreflop = Math.round((blindSum / bb) * 10) / 10;
     }
 
     // ── Actions par street ────────────────────────────────────────
     html += '<div class="hh-streets">';
 
-    html += buildStreet('Préflop', p.preflop, null, p.pot_preflop, bb);
+    html += buildStreet('Préflop', p.preflop, null, potPreflop, bb, pfAggressor);
 
     if (p.flop) {
       var flopCodes = p.flop.trim().split(/\s+/);
       var flopCards = typeof global.renderCards === 'function'
         ? global.renderCards(flopCodes) : '<span>' + esc(p.flop) + '</span>';
-      html += buildStreet('Flop', p.flop_actions, flopCards, p.pot_flop, bb);
+      html += buildStreet('Flop', p.flop_actions, flopCards, p.pot_flop, bb, pfAggressor);
     }
     if (p.turn) {
       var turnCodes = p.turn.trim().split(/\s+/);
       var turnCards = typeof global.renderCards === 'function'
         ? global.renderCards(turnCodes) : '<span>' + esc(p.turn) + '</span>';
-      html += buildStreet('Turn', p.turn_actions, turnCards, p.pot_turn, bb);
+      html += buildStreet('Turn', p.turn_actions, turnCards, p.pot_turn, bb, pfAggressor);
     }
     if (p.river) {
       var riverCodes = p.river.trim().split(/\s+/);
       var riverCards = typeof global.renderCards === 'function'
         ? global.renderCards(riverCodes) : '<span>' + esc(p.river) + '</span>';
-      html += buildStreet('River', p.river_actions, riverCards, p.pot_river, bb);
+      html += buildStreet('River', p.river_actions, riverCards, p.pot_river, bb, pfAggressor);
     }
 
     html += '</div>';
@@ -165,30 +177,75 @@
     return html;
   }
 
-  function buildStreet(label, actions, boardHtml, pot, bb) {
+  function buildStreet(label, actions, boardHtml, pot, bb, pfAggressor) {
     var html = '<div class="hh-street">';
     html += '<div class="hh-street-header">';
-    html += '<span class="hh-street-label">' + label + '</span>';
+    var potStr = pot ? ' <span class="hh-street-pot">(pot ' + pot + ' BB)</span>' : '';
+    html += '<span class="hh-street-label">' + label.toUpperCase() + potStr + '</span>';
     if (boardHtml) html += '<span class="hh-street-board">' + boardHtml + '</span>';
-    if (pot) html += '<span class="hh-street-pot">Pot : ' + pot + ' BB</span>';
     html += '</div>';
 
     var meaningful = (actions || []).filter(function(a) {
       return a.player && a.player !== 'unknown';
     });
     if (meaningful.length) {
-      html += '<ul class="hh-actions">';
-      meaningful.forEach(function(a) {
-        var isHero = /^hero$/i.test(a.player);
-        html += '<li class="hh-action' + (isHero ? ' hh-action--hero' : '') + '">'
-          + '<span class="hh-action-player">' + esc(a.player) + '</span>'
-          + '<span class="hh-action-verb">' + esc(bb ? convertActionToBB(a.action, bb) : a.action) + '</span>'
-          + '</li>';
-      });
-      html += '</ul>';
+      html += '<div class="hh-actions-compact">'
+        + buildCompactActionLine(meaningful, label, bb, pfAggressor)
+        + '</div>';
     }
     html += '</div>';
     return html;
+  }
+
+  function buildCompactActionLine(actions, streetLabel, bb, pfAggressor) {
+    var parts = [];
+    var raiseCount = 0;
+    var betCount = 0;
+    var isPF = /pr[eé]flop/i.test(streetLabel);
+
+    actions.forEach(function(a) {
+      var raw = (a.action || '').trim();
+      var player = a.player || '';
+      var isHero = /^hero$/i.test(player);
+      var pLabel = esc(player);
+
+      if (/^fold/i.test(raw)) {
+        parts.push('<span class="hh-ci-fold">fold</span>');
+      } else if (/^check/i.test(raw)) {
+        parts.push('<span class="hh-ci' + (isHero ? ' hh-ci--hero' : '') + '">'
+          + '<b>' + pLabel + '</b> check</span>');
+      } else if (/^call/i.test(raw)) {
+        var callM = raw.match(/([\d.]+)/);
+        var cAmt = callM ? parseFloat(callM[1]) : null;
+        var cStr = (cAmt && bb) ? ' ' + fmtBB(cAmt, bb) : (cAmt ? ' ' + cAmt : '');
+        parts.push('<span class="hh-ci' + (isHero ? ' hh-ci--hero' : '') + '">'
+          + '<b>' + pLabel + '</b> call' + cStr + '</span>');
+      } else if (/^(raise|bet)/i.test(raw)) {
+        var toM = raw.match(/to\s+([\d.]+)/i);
+        var betM = raw.match(/(?:raise|bet)[^0-9]*([\d.]+)/i);
+        var finalAmt = toM ? parseFloat(toM[1]) : (betM ? parseFloat(betM[1]) : null);
+        var aStr = (finalAmt && bb) ? ' ' + fmtBB(finalAmt, bb) : (finalAmt ? ' ' + finalAmt : '');
+        var qualifier;
+        if (isPF) {
+          if (raiseCount === 0) qualifier = 'open';
+          else if (raiseCount === 1) qualifier = '3bet';
+          else if (raiseCount === 2) qualifier = '4bet';
+          else qualifier = 'raise';
+          raiseCount++;
+        } else {
+          if (/^bet/i.test(raw)) {
+            qualifier = (betCount === 0 && pfAggressor && player === pfAggressor) ? 'cbet' : 'bet';
+          } else {
+            qualifier = 'raise';
+          }
+          betCount++;
+        }
+        parts.push('<span class="hh-ci' + (isHero ? ' hh-ci--hero' : '') + '">'
+          + '<b>' + pLabel + '</b> ' + qualifier + aStr + '</span>');
+      }
+    });
+
+    return parts.join('<span class="hh-ci-sep">, </span>');
   }
 
   function fmt(v) {

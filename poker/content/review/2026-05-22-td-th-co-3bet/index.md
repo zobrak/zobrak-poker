@@ -139,118 +139,137 @@ Seat 5: a69904cf folded before Flop
 Seat 6: Hero showed [Td Th] and won (€4.15) with a straight, Nine to King
 ```
 
-> **Note sur les statistiques :** les chiffres de cc3ff955 reposent sur 246 mains — suffisant pour orienter les décisions, pas pour des conclusions définitives. La review s'appuie sur ces données comme signaux directionnels, renforcés par les observations de session.
+---
+
+## cc3ff955 — Portrait du Goliath
+
+NL2 PokerStars, 6-max. Hero ouvre T♦T♥ au CO, la SB surgit avec un 3bet. Stacks effectifs : 107 BB.
+
+246 mains, c'est suffisant pour tracer un portrait fiable. **VPIP 27, PFR 16, 3bet 5,2%.** Un reg tight-agressif. Sa range de 3bet depuis la SB est étroite et orientée value : AA-JJ, AKs, AKo, AQs — peu ou pas de semi-bluffs.
+
+Ce qui le trahit, c'est la suite. **WTSD 25%, fold-to-3bet 67%.** Un joueur qui abandonne facilement sous pression postflop. Le genre à avoir les meilleures mains, à les jouer trop petites, et à se faire exploiter.
+
+Note mentale. Ça va servir.
 
 ---
 
-## Contexte
+## Ne tombez pas amoureux de TT !
 
-NL2 PokerStars, 6-max. Hero ouvre T♦T♥ au CO, se fait 3bet par la SB. Stacks effectifs : 107 BB.
+TT contre une range à 5,2% de 3bet, c'est **49% d'equity préflop** (Equilab). À parité. Pas devant, pas derrière.
 
-**cc3ff955 — SB** *(246 mains · VPIP 27 · PFR 16 · 3bet 5.2% · Fold-to-3bet 67% · Cbet flop 74% · WTSD 25%)*
+La position IP rend l'appel confortable. Le SPR post-call : **3,5** (94 BB derrière, pot 27 BB).
 
-Le profil est clair : reg tight-agressif, range 3bet étroite et orientée value. À 5.2% de 3bet, la range attendue depuis la SB est approximativement AA-JJ, AKs, AKo, AQs, AQo — peu ou pas de semi-bluffs. L'absence de mains comme A2s-A5s dans ce type de range est corroborée par le WTSD bas (25%) : un joueur qui abandonne facilement en face d'agression postflop. Le fold-to-3bet à 67% confirme qu'il peut plier sous pression.
+> **SPR — le ratio qui dicte l'engagement.** Stack-to-Pot Ratio = stack derrière ÷ pot. À 3,5, une main peut jouer plusieurs rues si elle s'améliore. En dessous de 1, on est committés. Au-dessus de 10, on joue les nuts ou on se couche.
 
----
-
-## Préflop — Défendre TT IP face à une range value
-
-Contre une range de 3bet aussi étroite, calculer l'equity de TT à la distribution des combos donne **49 % pour Hero préflop** (Equilab, range 7% hypothèse conservatrice incluant quelques bluffs AXs). TT est statistiquement à parité contre cc3ff955 — la position en fait un appel confortable.
-
-Le SPR post-call est de **3,5** (94 BB derrière, pot de 27 BB). Ce ratio est la clé de lecture pour toute la main : assez élevé pour jouer trois rues si Hero améliore fortement, assez bas pour que les paires améliorées deviennent commitées rapidement. À ce SPR, les mains qui veulent aller au showdown ont besoin d'au moins two pair ou d'un draw solide.
+Hero appelle. La main commence vraiment.
 
 ---
 
-## Flop J♦4♣Q♥ — Un call de plan, pas un call d'equity
+## J♦4♣Q♥ — Le flop de la patience
 
-Le flop est objectivement mauvais pour TT : underpair, deux overcards (Q, J), aucun draw direct. Un raisonnement limité à l'equity immédiate conclurait au fold.
+Flop objectivement mauvais pour TT. Deux overcards, zéro draw direct. La lecture paresseuse dit fold.
 
-Le raisonnement correct est différent.
+La lecture correcte dit : **attendez la suite.**
 
-**L'equity flop de TT contre la range adverse est de 40 %** (Equilab). Ce n'est pas une main crushée — c'est une main qui attend. Contre AA/KK, TT a des outs propres (brelan) et des possibilités de straight. Contre AK, TT est nettement devant. Contre QQ/JJ, TT est derrière mais ces combos sont peu nombreux dans une range 5.2%.
+**L'equity de TT contre la range adverse est de 40%** sur ce flop. Ce n'est pas une main écrasée — c'est une main qui attend une carte précise. Et cette carte, le 9, était dans l'arbre décisionnel *avant* d'agir.
 
-La raison principale du call est **structurelle** : le 9♠ au turn transforme TT en open-ended straight draw, et cette carte était prévisible avant l'action. Le call flop est un investissement de 13 BB pour contrôler la turn. Ce n'est pas un float sans plan — c'est un call avec un arbre décisionnel précis : si le 9 tombe et que cc3ff955 montre de la faiblesse, le pot appartient à Hero.
+cc3ff955 cbet **13 BB** (48% du pot). Standard en pot 3bet. Hero appelle.
 
-Par ailleurs, fold TT ici viderait la range de call IP d'une main de fréquence : les défenses en pot 3bet deviendraient limpides (uniquement sets floppés et gros draws), ce qu'un adversaire attentif exploiterait en barrellant aveuglément.
-
----
-
-## Turn 9♠ — La carte qui renverse l'avantage de range
-
-Board : Q♥J♦4♣9♠. Pot : 53 BB. Stack effectif résiduel : 81 BB. SPR : **1,5**.
-
-### Ce que le 9 change structurellement
-
-Le 9 est une carte neutre pour la range de 3bet de cc3ff955 (AA/KK ne s'améliorent pas, QQ/JJ ont déjà leur set, AK/AQ ont deux overs ou top pair). Pour la range de défense IP de Hero en revanche, c'est une explosion :
-
-- KT♦ → quinte (9-T-J-Q-K)
-- T8s → quinte (7-8-9-T-J)
-- 99 → brelan
-- QJ → two pair
-- JTs, T9s → two pair ou draws combinés
-
-Calculé sur la **range réelle de call 3bet CO de Hero** — les mains jouées concrètement dans ce spot, hors 4bet value et 4bet bluff — l'equity globale de Hero passe à **42 %** sur ce board (Equilab). La range adverse (58%) garde l'avantage de range, mais il s'est compressé. Et surtout, Hero détient maintenant le **nut advantage** : les quintes et deux-paires sont surreprésentées dans sa range, pas dans celle de cc3ff955.
-
-TT spécifiquement sur cette turn : **10 outs** (4 K + 4 huit + 2 T), soit environ **22 % d'equity contre AA** pour la carte de river.
-
-### Le micro-bet à 7 BB — L'ouverture
-
-cc3ff955 mise 7 BB dans un pot de 53 BB. C'est 13% du pot, après avoir cbetté 48% au flop.
-
-Ce sizing est incohérent avec une main de valeur. Avec AA sur Q-J-4-9, les deux lignes rationnelles sont :
-- **Gros barrel (65-75%)** : impose le prix aux draws, protège l'overpair
-- **Check-call** : renonce à la fold equity, contrôle le pot, observe la réaction IP
-
-Un bet à 13% n'accomplit ni l'un ni l'autre. Il ne nie pas l'equity des draws (Hero a besoin de seulement 10% d'equity pour appeler rentablement à ces cotes), n'extrait pas de valeur des mains moyennes, et laisse Hero avec une occasion de pression à coût minimal. C'est le pattern de cc3ff955 déjà identifié : **bet petit avec une overpair sur un board connecté quand la fold equity est perçue comme nulle**. La note est confirmée.
+> **Ce call est un investissement, pas un float.** 13 BB pour garder la main vivante jusqu'au turn. Si le 9 tombe et que villain montre de la faiblesse, le pot est à prendre. Si le board briquete... on réévalue.
 
 ---
 
-## Le shove — Déconstruction
+## 9♠ — La carte qui retourne la table
 
-Pot après le bet de cc3ff955 : **60 BB**. Hero shove : tout-in pour 130 BB.
+Board : **Q♥J♦4♣9♠.** Pot : 53 BB. Stack : 81 BB. SPR : **1,5.**
 
-### Cohérence narrative
+Ce 9 est la meilleure carte possible pour la range IP de Hero.
 
-Après call 3bet IP + call cbet sur J♦4♣Q♥ + raise jam sur 9♠, Hero représente de manière crédible : 99, KT, T8s, QJ, JTs. Ces mains existent toutes dans la range CO vs SB 3bet pot. Le shove raconte une histoire que cc3ff955 ne peut pas démonter — il ne sait pas si Hero a TT ou KT.
+| Main dans la range CO | Ce que le 9 apporte |
+|-----------------------|---------------------|
+| KT, T8s | Quinte (9-T-J-Q-K ou 7-8-9-T-J) |
+| 99 | Brelan |
+| QJ, JTs | Two pair |
+| **TT** | **10 outs vers une quinte (4K + 4×8 + 2×T)** |
 
-### Le seuil de fold equity
+L'equity globale de Hero reste à **42%** — la range de cc3ff955 garde l'avantage brut. Mais le **nut advantage bascule**. Les quintes et deux-paires sont surreprésentées dans la range IP. AA ne s'améliore pas. KK non plus.
 
-Pour que le shove soit profitable, il faut estimer à quelle fréquence cc3ff955 abandonne. En intégrant l'equity de TT (22% contre AA, mieux contre le reste de la range), la mise en jeu et le pot actuel, le seuil de fold equity nécessaire est d'environ **48%**.
-
-Est-ce atteignable ? La range de cc3ff955 contient aussi KK, AK et AQ — des mains qui, face à ce board et cette représentation, ont des arguments pour fold. KK est une overpair sans amélioration sur un board J-Q-9 où Hero représente plusieurs quintes. AK a deux overcards sans paire. AQ (top paire) est vulnérable. Si l'on estime raisonnablement que KK fold ~60%, AK fold ~65%, et AQ fold ~50%, le seuil de 48% est **atteint ou proche** — le shove est marginalement à légèrement +EV contre la range globale.
-
-Contre AA spécifiquement, le shove perd de l'argent. Mais Hero ne joue pas contre AA : il joue contre une range. Et c'est cette range qui valide la décision.
-
-### Classification
-
-**Déviation exploitative correcte.** Le shove n'est pas GTO — GTO ne shove pas TT underpair dans un pot 3bet sur ce board. Mais l'exploitation du sizing tell, combinée au nut advantage réel de la range IP sur cette texture, rend la ligne +EV en pratique.
+TT spécifiquement ? **22% d'equity contre AA** pour la river. Pas énorme. Mais ce n'est pas le seul levier.
 
 ---
 
-## Ce que cc3ff955 aurait dû faire avec AA
+## 7 BB dans un pot de 53 BB... Sérieusement ?
 
-La faute n'est pas au flop — la cbet à 48% est standard en pot 3bet.
+cc3ff955 mise **7 BB** dans un pot de 53 BB. Treize pour cent du pot. Après avoir cbet à 48% au flop. Avec une overpair sur un board J-Q-4-9 ultra-connecté.
 
-La faute est au turn. Sur Q♥J♦4♣9♠, AA est une overpair face à un board ultra-connecté qui avantage la range IP. Il y a deux lignes correctes :
+Deux lignes logiques existent avec AA dans cette situation :
 
-**Gros barrel ~70% pot (37 BB dans 53 BB).** Hero doit payer ~40 BB pour voir la river avec ses draws, ce qui n'est pas rentable pour TT. L'initiative revient à cc3ff955 et il extrait de la valeur de tout ce qui continue.
+> **→ Gros barrel (~70%, soit ~37 BB).** Impose le prix aux draws, protège l'overpair, extrait de la valeur de tout ce qui continue.  
+> **→ Check-call.** Renonce à l'initiative, contrôle le pot, voit la river à moindre coût.
 
-**Check-call.** Il accepte de voir la river sans pressure, et peut call une mise raisonnable de Hero. Coûte moins cher, contrôle mieux le pot.
+Un bet à 13% n'accomplit **ni l'un ni l'autre.** Il offre des cotes idéales aux draws (10% d'equity suffisent pour appeler rentablement), ne protège rien, et envoie un signal clair : *"j'ai une main forte, mais je n'ose pas la défendre."*
 
-En choisissant le bet à 7 BB, cc3ff955 obtient le pire des deux mondes : il investit sans protéger, offre des cotes idéales aux draws, et signale une faiblesse que Hero peut — et doit — exploiter.
+C'est le pattern cc3ff955 déjà noté en session : **bet petit avec overpair sur board connecté quand la fold equity semble nulle.** Tell confirmé.
+
+---
+
+## Le Shove — L'art du semi-bluff calibré
+
+Pot après le bet : **60 BB.** Hero pousse tout-in pour **130 BB.**
+
+### L'histoire tient la route
+
+Call 3bet IP → call cbet J♦4♣Q♥ → raise jam sur 9♠. Hero représente de manière crédible **99, KT, T8s, QJ, JTs** — toutes des mains réelles dans la range CO en pot 3bet. cc3ff955 ne peut pas démonter le récit. Il ne sait pas si Hero a TT ou KT.
+
+### Le calcul de la fold equity minimale
+
+> **Semi-bluff rentable = fold equity + equity directe.** Avec 22% d'equity de TT contre AA et les montants en jeu, le shove a besoin que villain fold environ **48% du temps** pour afficher un EV positif. C'est le seuil à valider.
+
+La range de cc3ff955 contient KK, AK et AQ en plus des As. Ces mains ont des raisons solides de se coucher :
+
+- **KK** sur Q-J-9 connecté : overpair vulnérable, Hero représente plusieurs quintes → fold ~60%
+- **AK** sans paire → fold très probable (~65%)
+- **AQ** (top pair fragilisée) → fold possible (~50%)
+
+**Le seuil de 48% est atteint.** Le shove est marginalement à légèrement **+EV** contre la range globale.
+
+Contre AA spécifiquement ? On perd de l'argent. Mais **Hero ne joue pas contre AA — il joue contre une range.** Et c'est cette range qui valide la décision.
+
+---
+
+## Non, pas un bad beat !
+
+cc3ff955 retourne A♣A♥. Le K♥ tombe au river. Quinte pour Hero. **+207 BB.**
+
+**Attention.** Le résultat ne valide pas la décision. Si le K♥ n'était pas tombé, la main aurait été perdue — et la review resterait identique. La décision correcte se juge au moment où elle est prise, pas à la fin.
+
+Appeler ça un bad beat serait faire trop d'honneur à cc3ff955. Il a joué ses As trop petits, signalé sa faiblesse, et été exploité. **La conséquence était prévisible.**
+
+---
+
+## Ce qu'il fallait faire avec AA
+
+La faute n'est pas au flop — la cbet à 48% est standard.
+
+**La faute est au turn.**
+
+Sur Q♥J♦4♣9♠, deux lignes correctes existaient :
+
+**Gros barrel ~70% pot (~37 BB dans 53 BB).** Hero doit payer ~40 BB pour voir la river — non rentable pour TT ou ses draws. cc3ff955 reprend l'initiative, protège, extrait de la valeur de tout ce qui continue.
+
+**Check-call.** Accepte la river sans pressure. Call une mise raisonnable. Moins cher, meilleur contrôle du pot.
+
+En choisissant le bet à 7 BB, cc3ff955 a obtenu le pire des deux mondes : investissement sans protection, cotes idéales aux draws, signal d'alerte pour Hero.
 
 ---
 
 ## Ce qu'il faut retenir
 
-**1. Les turns qui connectent la range IP sont des cartes d'attaque.**
-Quand une turn améliore significativement les connecteurs et suited hands de la range IP, le nut advantage bascule — même si l'equity brute du Hero reste inférieure. C'est le moment d'appliquer de la pression.
+**1. Les turns connectants sont des cartes d'attaque.**  
+Quand un turn améliore les connecteurs et suited hands IP, le nut advantage bascule — même si l'equity brute reste inférieure. C'est le moment d'appliquer de la pression.
 
-**2. Le sizing adverse est le vrai déclencheur du shove.**
-Sans le micro-bet à 7 BB, le shove n'est pas justifié. C'est l'incohérence du sizing — pas la force de la main — qui rend la ligne profitable. L'exploitation d'un tell sizing est une source d'EV tout aussi réelle que l'equity.
+**2. Le sizing adverse déclenche le shove — pas la force de la main.**  
+Sans le micro-bet à 7 BB, ce shove n'est pas justifiable. L'exploitation d'un tell sizing est une source d'EV aussi réelle que l'equity directe.
 
-**3. Tous les semi-bluffs ne se valent pas.**
-TT avec 10 outs et une range crédible n'est pas un bluff pur — c'est un semi-bluff à double source de profit : fold equity immédiate + amélioration possible. Cette combinaison est ce qui distingue un raise rentable d'un spew.
-
-**4. Le résultat ne valide pas la décision — mais la décision était bonne.**
-Hero a touché sa quinte au river. Si le K♥ n'était pas tombé, la main aurait été perdue. La review s'arrête au turn : c'est là que la décision a été prise, c'est là qu'elle doit être évaluée.
+**3. Tous les semi-bluffs ne se valent pas.**  
+TT avec 10 outs et une range crédible n'est pas un bluff pur. C'est un semi-bluff à **double source de profit** : fold equity immédiate + amélioration possible. C'est cette combinaison qui distingue un raise rentable d'un spew.

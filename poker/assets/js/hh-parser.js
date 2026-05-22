@@ -113,7 +113,7 @@
       if (!m) return;
       var pname = m[1].trim();
       var btype = m[2].toLowerCase();
-      result.blinds.push({ player: pname, type: btype });
+      result.blinds.push({ player: pname, type: btype, amount: parseFloat(m[3]) || 0 });
       if (btype === 'small blind') sbPos = pname;
       if (btype === 'big blind') bbPos = pname;
     });
