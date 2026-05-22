@@ -145,23 +145,24 @@ Seat 6: Hero showed [Td Th] and won (€4.15) with a straight, Nine to King
 
 ---
 
-## cc3ff955 — Portrait de l'adversaire
+## Portrait de l'adversaire
 
-**246 mains.** Suffisant pour tracer un profil, pas pour des conclusions définitives.
+Avec seulement **246 mains.** **VPIP 27 / PFR 16 / 3bet 5,2%.** on a un début de tendance, une intuition.
 
-**VPIP 27 / PFR 16 / 3bet 5,2%.** Reg tight-agressif. Range de 3bet depuis la SB très étroite — pensez AA-JJ, AKs, AKo, AQs. Peu de semi-bluffs. Un joueur qui a les meilleures mains... et qui parfois ne sait pas quoi en faire.
+Je l'ai pastillé en jaune : REG, joueur sérieux.
+
+Profil tight-agressif. Range de 3bet depuis la SB très étroite 7% pensez AA-JJ, AKs, AKo, AQs, avec tout de même quelques mains qu'il est capable de folder (quelques AQs, KQs, JJ+) Peu de semi-bluffs. Un joueur qui a les meilleures mains... et qui parfois ne sait pas quoi en faire.
 
 {{< tell >}}
-**Pattern noté en session :** cc3ff955 mise petit avec une overpair sur board connecté quand il perçoit sa fold equity comme nulle.
+**Pattern noté en session :** cc3ff955 3bet pt OOP FCbet 1/2 w/ overpair / board connecté, 13%pt turn (??) qui connecte + call raise shove 100bb. Pas de FE sur premiums.
 
-WTSD 25%, fold-to-3bet 67% — il abandonne facilement sous pression. Retenez ça.
 {{< /tell >}}
 
 ---
 
 ## Ne tombez pas amoureux de TT !
 
-TT contre une range à 5,2% de 3bet, c'est **49% d'equity préflop**. À parité — pas devant, pas derrière. La position IP rend l'appel confortable.
+TT contre une range à 7% de 3bet, c'est **49% d'equity préflop**. À parité — pas devant, pas derrière. La position IP rend l'appel confortable.
 
 SPR post-call : **3,5** (94 BB derrière, pot 27 BB).
 
@@ -173,7 +174,15 @@ Stack-to-Pot Ratio = stack derrière ÷ pot actuel. À **3,5**, une main peut jo
 À ce SPR, aller au showdown nécessite au minimum two pair ou un draw fort.
 {{< /insight >}}
 
-Hero appelle. La vraie main commence.
+Vilain bet 1/2 bot, Hero call. Il a dans sa range pas mal de mains qui connectent parmis ses brodways suités.
+
+{{< tell >}}
+
+**La range de Hero :** 
+
+Au CO Hero a une range d'open de 23%, il call 3bet a environ 13 %, reste ses 4bets et 4bet bluff.
+
+{{ < /tell >}}
 
 ---
 

@@ -28,7 +28,8 @@ Le but est de faire coucher une partie suffisante de la range adverse pour que l
 
 Une mise en bluff est rentable si vilain fold assez souvent.
 
-Formule minimale :
+{{< insight >}}
+**Formule minimale**
 
 ```
 Fold equity nécessaire = mise / (pot + mise)
@@ -42,9 +43,8 @@ Fold equity nécessaire = mise / (pot + mise)
 | Pot | 1 | 50 % |
 | 1.5x pot | 1 | 60 % |
 
-- Plus tu mises gros, plus vilain doit folder souvent.
-- Contre une calling station, les gros bluffs deviennent vite catastrophiques.
-- Contre un reg faible qui overfold, les petits et moyens bluffs impriment beaucoup d'EV.
+Plus tu mises gros, plus vilain doit folder souvent. Contre une calling station, les gros bluffs deviennent vite catastrophiques. Contre un reg faible qui overfold, les petits et moyens bluffs impriment beaucoup d'EV.
+{{< /insight >}}
 
 ---
 
@@ -55,7 +55,8 @@ Fold equity nécessaire = mise / (pot + mise)
 En théorie, certaines textures se bluffent naturellement.
 En NL2, le profil adverse prime souvent sur la théorie.
 
-### Bons profils à bluffer
+{{< key >}}
+**Bons profils à bluffer**
 
 - reg nit
 - joueur fit-or-fold
@@ -65,19 +66,18 @@ En NL2, le profil adverse prime souvent sur la théorie.
 - joueur qui stab peu quand tu check
 - joueur qui sait folder top paire moyenne
 - joueur qui multitable et joue mécaniquement
+{{< /key >}}
 
-### Mauvais profils à bluffer
+{{< tell >}}
+**Mauvais profils à bluffer — l'argent vient de la value, pas du bluff**
 
 - calling station
-- joueur 50/10, 60/5, 70/0
-- profil "je veux voir"
-- joueur qui call any pair
-- joueur qui call trop les tirages
+- joueur 50/10, 60/5, 70/0 — profil "je veux voir"
+- joueur qui call any pair ou trop les tirages
 - joueur en tilt passif
 - joueur short stack récréatif
 - joueur qui vient de perdre un gros pot et ne veut plus fold
-
-Contre ces profils, l'argent vient de la value, pas du bluff.
+{{< /tell >}}
 
 ---
 
@@ -361,7 +361,8 @@ Un bloqueur ne transforme pas automatiquement un mauvais bluff en bon bluff. Il 
 
 ## 17. Check-list avant de bluffer
 
-Avant de cliquer bet, répondre vite :
+{{< key >}}
+**Avant de cliquer bet, répondre vite :**
 
 1. Quelle main meilleure je veux faire folder ?
 2. Est-ce que cette main existe beaucoup chez vilain ?
@@ -372,6 +373,7 @@ Avant de cliquer bet, répondre vite :
 7. Si je suis payé, quelle est ma suite ?
 
 Si deux ou trois réponses sont floues, le bluff est souvent mauvais.
+{{< /key >}}
 
 ---
 
@@ -453,7 +455,8 @@ Conditions nécessaires :
 
 ## 22. Ligne exploitante recommandée
 
-### Contre field inconnu NL2
+{{< key >}}
+**Contre field inconnu NL2**
 
 ```
 Flop : bluffs petits et fréquents sur bons boards
@@ -461,7 +464,8 @@ Turn : bluffs filtrés, avec équité ou scare card
 River : bluffs rares, ciblés, profil-dépendants
 ```
 
-> **Value > semi-bluff > bluff pur**
+**Value > semi-bluff > bluff pur**
+{{< /key >}}
 
 ---
 
@@ -513,27 +517,21 @@ But : distinguer les bons bluffs perdants des mauvais bluffs gagnants.
 
 ## 25. Synthèse opérationnelle
 
-### À faire
+{{< key >}}
+**À faire**
 
-- bluffer surtout IP
-- bluffer avec équité
-- utiliser petits sizings flop
-- barrel les bonnes turns
-- attaquer les ranges cappées
-- choisir les profils
-- utiliser les bloqueurs river
-- abandonner sans ego
-- value thin contre les mauvais callers
+- bluffer surtout IP · bluffer avec équité · utiliser petits sizings flop
+- barrel les bonnes turns · attaquer les ranges cappées · choisir les profils
+- utiliser les bloqueurs river · abandonner sans ego · value thin contre les mauvais callers
+{{< /key >}}
 
-### À éviter
+{{< tell >}}
+**À éviter**
 
-- bluff pur sans fold equity
-- bluff river par frustration
-- bluff calling station
-- overbet sans bloqueur
-- barrel les cartes qui aident vilain
-- bluffer multiway sans équité
+- bluff pur sans fold equity · bluff river par frustration · bluff calling station
+- overbet sans bloqueur · barrel les cartes qui aident vilain · bluffer multiway sans équité
 - raconter une histoire que ta range ne peut pas avoir
+{{< /tell >}}
 
 ---
 
