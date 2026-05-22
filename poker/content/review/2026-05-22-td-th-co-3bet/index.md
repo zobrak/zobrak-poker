@@ -184,7 +184,7 @@ Au CO Hero a une range d'open de 23%, il call 3bet a environ 13 %, reste ses 4be
 
 Face à un REG sérieux, mais pas NIT, en étant IP, l'adaptation est d'élargir avec une range mergée en y intégrant des connecteurs suités. Et avouons-le ça fait toujours plaisir de faire chuter une paire d'as avec 78s. Attention sur des boards connectés avec des cartes fortes, contre ce type d'adversaire et sa range il peut parfois avoir la meilleur flush tout de même, avec ses AK, ses KQ.
 
-{{ < /tell >}}
+{{< /tell >}}
 
 ---
 
