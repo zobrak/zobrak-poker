@@ -785,6 +785,131 @@ p { margin-bottom: 0.9rem; }
 .stats-table th, .stats-table td { padding: 0.35rem 0.6rem; border: 1px solid var(--border); text-align: left; }
 .stats-table th { background: var(--panel-soft); color: var(--muted); font-weight: 600; font-size: 0.75rem; }
 
+/* ── Feutre bleu — cadre article review ─────────────────────────── */
+.poker-felt-article {
+  --text: #c4d0e8;
+  --muted: #556880;
+  --accent: #5a9fd4;
+  --border: rgba(60, 100, 160, 0.3);
+  --border-soft: rgba(60, 100, 160, 0.15);
+  --panel: rgba(255,255,255,0.04);
+  --panel-soft: rgba(255,255,255,0.06);
+  --gold: #c8a84b;
+
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(15, 35, 75, 0.8) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(3, 8, 20, 0.9) 0%, transparent 50%),
+    #080f1e;
+  border-radius: 1.25rem;
+  padding: 2.75rem 3rem;
+  margin: 2rem 0;
+  box-shadow:
+    0 0 0 1px rgba(80, 120, 200, 0.2),
+    0 0 0 4px rgba(20, 40, 80, 0.5),
+    0 24px 64px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(100, 150, 240, 0.1),
+    inset 0 0 120px rgba(0, 5, 20, 0.5);
+  color: var(--text);
+}
+
+.poker-felt-article .article-content {
+  color: var(--text);
+}
+
+.poker-felt-article .article-content h2 {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(200, 168, 75, 0.2);
+  padding-bottom: 0.35rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.poker-felt-article .article-content h3 {
+  color: rgba(196, 212, 240, 0.75);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+}
+
+.poker-felt-article .article-content p {
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 0.85rem;
+}
+
+.poker-felt-article .article-content strong {
+  color: #dde8f8;
+}
+
+.poker-felt-article .article-content blockquote {
+  background: rgba(20, 50, 110, 0.28);
+  border: none;
+  border-left: 3px solid rgba(90, 159, 212, 0.7);
+  border-radius: 0 6px 6px 0;
+  padding: 0.85rem 1.25rem;
+  margin: 1.25rem 0;
+  color: rgba(196, 215, 245, 0.85);
+  font-style: normal;
+}
+
+.poker-felt-article .article-content table th {
+  background: rgba(20, 50, 110, 0.4);
+  color: var(--gold);
+  border-color: rgba(60, 100, 160, 0.35);
+}
+
+.poker-felt-article .article-content table td {
+  border-color: rgba(60, 100, 160, 0.2);
+  color: var(--text);
+}
+
+.poker-felt-article .article-content hr {
+  border: none;
+  border-top: 1px solid rgba(60, 100, 160, 0.25);
+  margin: 2rem 0;
+}
+
+.poker-felt-article .article-content ul li,
+.poker-felt-article .article-content ol li {
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+/* ── Callout boxes ───────────────────────────────────────────────── */
+.callout {
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 0.91rem;
+  line-height: 1.7;
+}
+.callout p { margin-bottom: 0.5rem; color: inherit; }
+.callout p:last-child { margin-bottom: 0; }
+.callout strong { color: inherit; filter: brightness(1.25); }
+
+.callout--insight {
+  background: rgba(15, 50, 110, 0.35);
+  border: 1px solid rgba(70, 130, 220, 0.3);
+  border-left: 4px solid rgba(90, 159, 212, 0.85);
+  color: rgba(185, 210, 245, 0.9);
+}
+.callout--key {
+  background: rgba(70, 50, 5, 0.35);
+  border: 1px solid rgba(200, 168, 75, 0.3);
+  border-left: 4px solid rgba(200, 168, 75, 0.85);
+  color: rgba(230, 210, 160, 0.9);
+}
+.callout--tell {
+  background: rgba(90, 30, 10, 0.3);
+  border: 1px solid rgba(210, 100, 50, 0.3);
+  border-left: 4px solid rgba(210, 100, 50, 0.85);
+  color: rgba(240, 190, 160, 0.9);
+}
+
 /* ── Stratégie ───────────────────────────────────────────────────── */
 
 /* Full-width page wrapper (no .container padding/max-width) */
