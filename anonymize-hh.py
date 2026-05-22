@@ -13,6 +13,7 @@ Usage :
 """
 
 import sys
+import os
 import re
 import argparse
 
@@ -79,6 +80,9 @@ def anonymize_ps(text, hero_name=None):
 
     mapping = build_mapping(players_by_seat, resolved_hero)
     result = apply_mapping(text, mapping)
+
+    # Anonymise le nom de table (non identifiant, mais retiré par cohérence/RGPD)
+    result = re.sub(r"(Table\s+')[^']*(')", r"\1Anonyme\2", result)
 
     return result, mapping, resolved_hero
 
