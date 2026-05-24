@@ -1,7 +1,7 @@
 ---
 title: "Gagner un pot qu'on ne peut pas gagner à l'abattage"
 date: 2026-05-24
-draft: true
+draft: false
 description: "222TT au tableau : tout le monde a la même main. Hero, qui ne peut au mieux que partager le pot, transforme un min-donk turn et un check-raise river en bluff pur sur une table de regs de nuit. Anatomie d'un move qui n'a de sens que par le profil adverse — probe d'information, image fishy, story crédible et seuil de fold equity."
 hero: "Hero"
 
@@ -47,6 +47,7 @@ params:
   pot_type: "limped + iso"
   result_bb: +76
   hand_id: "260908927812"
+  video_url: "videos/review/20260524-01.webm"
   players:
     - label: "Hero"
       uuid: "4cd25db6"
