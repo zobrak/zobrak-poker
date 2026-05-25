@@ -263,6 +263,22 @@ Ils continuent à jouer *"KK"* au lieu de jouer *"une paire de Rois sur A-Q-6"*.
 
 Ce n'est pas la même main.
 
+{{< insight >}}
+**Réévaluer la force de sa main : situations typiques**
+
+La force d'une main n'est pas absolue — elle est **relative au board et à l'action**.
+
+| Situation | Main départ | Réévaluation |
+|-----------|-------------|--------------|
+| KK sur A-Q-6 après c-bet | Premium | Bluffcatcher — perd contre tout Ax |
+| AA sur K-Q-J bicolore vs check-raise | Premium | Overpair vulnérable — range adverse saturée de deux paires, sets, tirages |
+| Top pair kicker moyen face à 3-bet flop | Main forte | Potentiellement dominé — souvent derrière sets et deux paires |
+| Flush complété en rivière sur board pairé | Tirage accompli | Main forte… mais full house adverse possible |
+| Set sur board rainbow sans tirage | Très forte | Reste forte — pas de dévalorisation |
+
+**La règle** : après chaque carte, après chaque action adverse, reformuler. Non plus *"j'ai KK"*, mais *"j'ai une paire de Rois sur ce board précis, face à cette action précise."* C'est cette reformulation qui sépare les bons joueurs des joueurs qui paient river par fidélité à leur main préflop.
+{{< /insight >}}
+
 ---
 
 ## Turn — 4♣

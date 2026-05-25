@@ -944,14 +944,21 @@ p { margin-bottom: 0.9rem; }
 
 /* ── Cards — taille inline ───────────────────────────────────────── */
 .playing-card.card-sm {
-  width: 1.6rem;
-  height: 2.2rem;
-  font-size: 0.72rem;
-  gap: 0.02rem;
-  border-radius: 4px;
+  width: 1.25rem;
+  height: 1.7rem;
+  font-size: 0.62rem;
+  gap: 0.01rem;
+  border-radius: 3px;
 }
-.playing-card.card-sm .card-rank { font-size: 0.85em; }
-.playing-card.card-sm .card-suit { font-size: 0.9em; }
+.playing-card.card-sm .card-rank { font-size: 0.82em; }
+.playing-card.card-sm .card-suit { font-size: 0.85em; }
+
+/* Board display — cartes légèrement réduites */
+.board-display .playing-card {
+  width: 1.9rem;
+  height: 2.6rem;
+  font-size: 0.76rem;
+}
 
 /* ── Board display ───────────────────────────────────────────────── */
 .board-display {
