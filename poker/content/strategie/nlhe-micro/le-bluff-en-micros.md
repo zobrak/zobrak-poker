@@ -13,6 +13,8 @@ limits:
   - NL5
 ---
 
+![Cheat-sheet — La mise en bluff en NL2](/pictures/fiche-strat-bluff.png)
+
 ## Objectif
 
 En NL2, le bluff doit rester **sélectif, simple et exploitant**.
@@ -29,7 +31,7 @@ Le but est de faire coucher une partie suffisante de la range adverse pour que l
 Une mise en bluff est rentable si vilain fold assez souvent.
 
 {{< insight >}}
-**Formule minimale**
+**Formule minimale** — {{< glterm "Fold equity" >}} nécessaire
 
 ```
 Fold equity nécessaire = mise / (pot + mise)
@@ -393,7 +395,7 @@ Si deux ou trois réponses sont floues, le bluff est souvent mauvais.
 
 ### Contre LAG agressif
 - moins de bluff pur
-- plus de check/call avec bluffcatchers
+- plus de check/call avec {{< glterm "Bluffcatcher" >}}s
 - laisser spew, value plus thin
 
 ### Contre fish passif
@@ -401,7 +403,7 @@ Si deux ou trois réponses sont floues, le bluff est souvent mauvais.
 - cbet value large, 2-barrel value cher
 - check back les airs
 
-### Contre maniaque
+### Contre {{< glterm "Maniac" >}}
 - bluffer peu, trap plus
 - value plus thin, induce
 - ne pas entrer dans une guerre d'ego

@@ -40,4 +40,12 @@ SPR :: *Stack-to-Pot Ratio.* Ratio stack restant / pot actuel. Dicte le niveau d
 {{< glossary >}}
 Sticky :: Joueur qui a du mal à se défausser d'une main forte, même face à une représentation adverse très puissante. Exploiter : value bet maximal, éviter les bluffs, respecter ses raises soudains (nutted).
 Rake :: Commission prélevée par la salle sur chaque pot joué postflop. En NL2, punit sévèrement les lignes passives et les pots marginaux. Un gain préflop sans rake est souvent supérieur en EV à un gros pot postflop raked. Quantifier : à NL2 PS, rake ≈ 4.5–5 BB/100 mains en moyenne.
+Maniac :: Profil LAG-aggro extrême — VPIP très élevé (souvent >70%), 3bet wide avec n'importe quoi (42o, 97o, A2o), bet/raise multi-streets sans cohérence de range, shove sur boards scary avec ou sans équité. Exploiter : supprimer les bluffs (fold equity nulle), élargir les appels IP, value bet gras avec toute main faite, call shoves seulement avec équité réelle.
+{{< /glossary >}}
+
+## Position & notions générales
+
+{{< glossary >}}
+IP :: *In Position.* Agir en dernier au postflop — avantage informationnel majeur. Permet de réaliser davantage son équité, de contrôler le pot, de voir l'action adverse avant de décider. Contre un maniac, être IP transforme ses clics absurdes en EV capturée.
+OOP :: *Out of Position.* Agir avant l'adversaire au postflop — désavantage structurel. On réalise moins d'équité, on subit les overbets sans information. OOP contre un maniac : resserrer les défenses, éviter de construire des pots énormes avec des mains marginales.
 {{< /glossary >}}
