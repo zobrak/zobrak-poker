@@ -13,7 +13,7 @@ limits:
   - NL5
 ---
 
-![Cheat-sheet — La mise en bluff en NL2](/pictures/fiche-strat-bluff.png)
+{{< strat-img src="/pictures/fiche-strat-bluff.png" alt="Cheat-sheet — La mise en bluff en NL2" >}}
 
 ## Objectif
 

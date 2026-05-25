@@ -1,7 +1,7 @@
 ---
 title: "Adaptation aux maniacs — 5 mains contre un profil LAG-aggro"
 date: 2026-05-25
-draft: false
+draft: true
 tags: ["maniac", "adaptation", "3bet", "barrel", "call-down"]
 theme: "profil"
 description: "Comment adapter son jeu face à un profil maniac : 3bet wide, barrel chaque street, jam n'importe quoi sur boards scary. Analyse de 5 mains dont 3 duels directs."

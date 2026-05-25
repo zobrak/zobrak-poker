@@ -1,11 +1,89 @@
 {{ define "main" }}
-<article class="container single-article">
-  <header class="article-header">
-    <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
-  </header>
-  <div class="article-content">
-    {{ .Content }}
-  </div>
-</article>
+<div class="glossaire-page">
+
+  <aside class="glossaire-sidebar" id="glossaire-sidebar">
+    <div class="glossaire-sidebar-inner">
+      <p class="glossaire-sidebar-label">Index</p>
+      <nav class="glossaire-alpha-nav" id="glossaire-alpha-nav">
+        {{/* Généré par JS au chargement */}}
+      </nav>
+    </div>
+  </aside>
+
+  <main class="glossaire-main">
+    <div class="glossaire-panel">
+      <header class="glossaire-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+      </header>
+      <div class="glossaire-content article-content">
+        {{ .Content }}
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<button class="glossaire-sidebar-toggle" aria-label="Index alphabétique" aria-expanded="false">
+  <span>A–Z</span>
+</button>
+
+<script>
+(function () {
+  /* Construit la nav alphabétique depuis les entrées du glossaire */
+  function buildAlphaNav() {
+    var nav = document.getElementById('glossaire-alpha-nav');
+    if (!nav) return;
+
+    var entries = document.querySelectorAll('[id^="gl-"]');
+    if (!entries.length) return;
+
+    /* Regrouper par première lettre */
+    var groups = {};
+    entries.forEach(function (el) {
+      /* Le label visible est le .glossary-term dans l'entrée */
+      var termEl = el.querySelector('.glossary-term');
+      var label = termEl ? termEl.textContent.trim() : el.id.replace('gl-', '');
+      var letter = label[0].toUpperCase();
+      if (!groups[letter]) groups[letter] = [];
+      groups[letter].push({ id: el.id, label: label });
+    });
+
+    var letters = Object.keys(groups).sort();
+    var html = '';
+    letters.forEach(function (letter) {
+      html += '<div class="alpha-group">';
+      html += '<span class="alpha-letter">' + letter + '</span>';
+      html += '<ul class="alpha-terms">';
+      groups[letter].forEach(function (t) {
+        html += '<li><a href="#' + t.id + '">' + t.label + '</a></li>';
+      });
+      html += '</ul></div>';
+    });
+    nav.innerHTML = html;
+  }
+
+  /* Toggle mobile */
+  var btn = document.querySelector('.glossaire-sidebar-toggle');
+  var sidebar = document.getElementById('glossaire-sidebar');
+  if (btn && sidebar) {
+    btn.addEventListener('click', function () {
+      var open = sidebar.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  }
+
+  /* Smooth scroll + ferme mobile sidebar */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('.alpha-terms a');
+    if (!a) return;
+    if (sidebar && sidebar.classList.contains('open')) {
+      sidebar.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', false);
+    }
+  });
+
+  buildAlphaNav();
+})();
+</script>
 {{ end }}

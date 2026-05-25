@@ -44,10 +44,12 @@
     <ul class="home-recent-list">
       {{ range $recent }}
       <li class="home-recent-item">
-        <span class="home-recent-section home-recent-section--{{ .Section }}">{{ if eq .Section "review" }}Review{{ else }}Stratégie{{ end }}</span>
+        <div class="home-recent-meta">
+          <span class="home-recent-section home-recent-section--{{ .Section }}">{{ if eq .Section "review" }}Review{{ else }}Stratégie{{ end }}</span>
+          <time class="home-recent-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01/2006" }}</time>
+        </div>
         <a class="home-recent-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ with .Description }}<span class="home-recent-desc">{{ . }}</span>{{ end }}
-        <time class="home-recent-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02/01/2006" }}</time>
+        {{ with .Description }}<p class="home-recent-desc">{{ . }}</p>{{ end }}
       </li>
       {{ end }}
     </ul>

@@ -1,0 +1,13 @@
+{{/* strat-img — image pleine largeur + bouton télécharger
+     Usage : {{< strat-img src="/pictures/file.png" alt="Description" >}} */}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $filename := path.Base $src -}}
+<div class="strat-img-wrap">
+  <img src="{{ $src }}" alt="{{ $alt }}" class="strat-img-full" loading="lazy">
+  <div class="strat-img-toolbar">
+    <a href="{{ $src }}" download="{{ $filename }}" class="strat-img-dl" title="Télécharger">
+      ↓ Télécharger
+    </a>
+  </div>
+</div>

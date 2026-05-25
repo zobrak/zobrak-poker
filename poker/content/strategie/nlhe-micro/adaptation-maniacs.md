@@ -1,7 +1,7 @@
 ---
 title: "Adapter son jeu aux maniacs en NL2"
 date: 2026-05-25
-description: "Quatre mains contre un profil LAG-aggro pour comprendre comment élargir sans se suicider : call-down, sizing, position, gestion mentale."
+description: "Je vous présente le Maniac, mon joueur preféré aux tables. Encore mieux si il est assis à ma droite, son profil gauche est de loin le meilleur des deux ! Quatre mains contre un profil LAG-aggro pour comprendre comment élargir sans se suicider : call-down, sizing, position, gestion mentale."
 tags:
   - NL2
   - maniac
@@ -13,7 +13,7 @@ limits:
   - NL2
 ---
 
-![Adapter son jeu aux maniacs en NL2](/pictures/poker-adaptation-maniacs.png)
+{{< strat-img src="/pictures/poker-adaptation-maniacs.png" alt="Adapter son jeu aux maniacs en NL2" >}}
 
 Il y a des profils qu'on ne rencontre pas tous les jours, mais qu'on aimerait croiser plus souvent. Pas parce qu'ils sont faciles à jouer à chaque décision. Au contraire : ils mettent de la variance partout, ils cassent les repères standards, ils transforment des pots de 11 blindes en élections présidentielles sous amphétamines.
 

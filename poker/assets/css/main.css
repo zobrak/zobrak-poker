@@ -295,22 +295,26 @@ p { margin-bottom: 0.9rem; }
   overflow: hidden;
 }
 .home-recent-item {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--border-soft);
   transition: background var(--transition);
 }
 .home-recent-item:last-child { border-bottom: none; }
 .home-recent-item:hover { background: var(--panel-soft); }
+.home-recent-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .home-recent-section {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.15rem 0.5rem;
+  padding: 0.12rem 0.45rem;
   border-radius: 999px;
   border: 1px solid currentColor;
   white-space: nowrap;
@@ -318,10 +322,22 @@ p { margin-bottom: 0.9rem; }
 }
 .home-recent-section--review   { color: #e07070; }
 .home-recent-section--strategie { color: var(--gold); }
-.home-recent-link { font-weight: 600; color: var(--text); font-size: 0.95rem; }
-.home-recent-link:hover { color: var(--accent); text-decoration: none; }
-.home-recent-desc { color: var(--muted); font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.home-recent-date { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+.home-recent-link {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.35;
+  text-decoration: none;
+  display: block;
+}
+.home-recent-link:hover { color: var(--accent); }
+.home-recent-desc {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.home-recent-date { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
 
 /* ── Buttons ─────────────────────────────────────────────────────── */
 .btn {
@@ -1016,7 +1032,148 @@ p { margin-bottom: 0.9rem; }
   line-height: 1.55;
 }
 
-/* Lien inline vers entrée glossaire */
+/* ── Image stratégie — pleine largeur + bouton dl ───────────────── */
+.strat-img-wrap {
+  margin: 0 0 2rem 0;
+}
+.strat-img-full {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-soft);
+}
+.strat-img-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.4rem;
+}
+.strat-img-dl {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: color var(--transition), border-color var(--transition);
+}
+.strat-img-dl:hover {
+  color: var(--text);
+  border-color: var(--border-soft);
+  text-decoration: none;
+}
+
+/* ── Glossaire — layout sidebar + contenu ────────────────────────── */
+.glossaire-page {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  align-items: start;
+}
+.glossaire-sidebar {
+  position: sticky;
+  top: 5rem;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding-right: 1.25rem;
+  border-right: 1px solid var(--border-soft);
+}
+.glossaire-sidebar-inner { padding: 0.5rem 0; }
+.glossaire-sidebar-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.75rem 0;
+}
+.alpha-group { margin-bottom: 1rem; }
+.alpha-letter {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(200, 168, 75, 0.7);
+  margin-bottom: 0.25rem;
+}
+.alpha-terms {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.alpha-terms li { margin: 0; }
+.alpha-terms a {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.18rem 0;
+  line-height: 1.35;
+  transition: color var(--transition);
+}
+.alpha-terms a:hover { color: var(--text); }
+
+.glossaire-main { padding-left: 2rem; }
+.glossaire-panel { max-width: 780px; }
+.glossaire-header { margin-bottom: 1.75rem; }
+.glossaire-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+.glossaire-content { line-height: 1.8; }
+
+/* Bouton toggle mobile */
+.glossaire-sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1rem;
+  z-index: 200;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .glossaire-page { grid-template-columns: 1fr; padding: 1.5rem 1rem; }
+  .glossaire-sidebar {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 220px;
+    height: 100vh;
+    max-height: 100vh;
+    background: var(--bg-deep);
+    border-right: 1px solid var(--border);
+    padding: 4rem 1.25rem 1.25rem;
+    z-index: 150;
+    overflow-y: auto;
+  }
+  .glossaire-sidebar.open { display: block; }
+  .glossaire-main { padding-left: 0; }
+  .glossaire-sidebar-toggle { display: flex; align-items: center; gap: 0.4rem; }
+}
+
+/* ── Lien inline vers entrée glossaire ───────────────────────────── */
 .gl-term {
   color: rgba(200, 168, 75, 0.85);
   text-decoration: underline;
