@@ -982,36 +982,54 @@ p { margin-bottom: 0.9rem; }
 
 /* ── Glossaire ───────────────────────────────────────────────────── */
 .glossary-block {
-  margin: 2rem 0;
-  padding: 1.25rem 1.5rem;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  margin: 3.5rem 0 1.5rem 0;
+  border-top: 2px solid rgba(200, 168, 75, 0.45);
+  padding-top: 1.1rem;
 }
 .glossary-block h3 {
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 1rem 0;
+  color: rgba(200, 168, 75, 0.75);
+  margin: 0 0 1.1rem 0;
 }
 .glossary-item {
   display: grid;
-  grid-template-columns: 9rem 1fr;
-  gap: 0.4rem 1rem;
-  padding: 0.5rem 0;
-  border-top: 1px solid var(--border-soft);
-  font-size: 0.88rem;
-  line-height: 1.6;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 0 1.25rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  align-items: baseline;
 }
-.glossary-item:first-of-type { border-top: none; }
+.glossary-item:last-of-type { border-bottom: none; }
 .glossary-term {
+  font-family: var(--font-mono);
   font-weight: 700;
-  color: var(--gold);
-  padding-top: 0.05rem;
+  font-size: 0.82rem;
+  color: var(--text);
+  letter-spacing: 0.01em;
 }
-.glossary-def { color: var(--muted); }
+.glossary-def {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Lien inline vers entrée glossaire */
+.gl-term {
+  color: rgba(200, 168, 75, 0.85);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  font-weight: inherit;
+  cursor: help;
+}
+.gl-term:hover {
+  color: var(--gold);
+  text-decoration-style: solid;
+}
 
 /* ── Tableau récap street ────────────────────────────────────────── */
 .hand-recap {

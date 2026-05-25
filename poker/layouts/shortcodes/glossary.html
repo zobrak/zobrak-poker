@@ -1,6 +1,5 @@
 {{/* {{< glossary >}}
 term :: définition
-term :: définition
 {{< /glossary >}} */}}
 <div class="glossary-block">
   <h3>Glossaire</h3>
@@ -9,7 +8,8 @@ term :: définition
     {{- if $line -}}
       {{- $parts := split $line " :: " -}}
       {{- if ge (len $parts) 2 -}}
-        <div class="glossary-item">
+        {{- $slug := urlize (index $parts 0) -}}
+        <div class="glossary-item" id="gl-{{ $slug }}">
           <span class="glossary-term">{{ index $parts 0 }}</span>
           <span class="glossary-def">{{ index $parts 1 | markdownify }}</span>
         </div>

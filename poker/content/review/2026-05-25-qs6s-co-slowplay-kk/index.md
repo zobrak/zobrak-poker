@@ -113,17 +113,17 @@ Seat 5: Villain4 (button) mucked [Kc Kh]
 
 Celle-ci est un cas d'école : vilain reçoit {{< cards "Kc Kh" >}} au bouton, face à mon open CO. Il choisit de payer simplement. Pas de 3bet. Pas de pression. Pas de pot construit.
 
-Quelques streets plus tard, il paie un **overbet river** sur un board As-high avec une simple paire de Rois.
+Quelques streets plus tard, il paie un {{< glterm "Overbet" >}} river sur un board As-high avec une simple paire de Rois.
 
 Ce n'est pas juste *"il a mal joué KK"*. C'est plus intéressant que ça.
 
 Cette main illustre **trois erreurs fréquentes** en micro-limites :
 
-1. **Slowplay** une premium préflop sans raison stratégique
+1. {{< glterm "Slowplay" >}} une premium préflop sans raison stratégique
 2. Laisser l'adversaire **réaliser son équité** trop bon marché
 3. Rester amoureux de la force préflop d'une main qui a **perdu sa valeur postflop**
 
-Et en NL2, avec le rake, ces erreurs coûtent très cher.
+Et en NL2, avec le {{< glterm "Rake" >}}, ces erreurs coûtent très cher.
 
 ---
 
@@ -204,7 +204,7 @@ Cette équité ne vaut quelque chose que si elle est **monétisée**. En flat, v
 
 ## Le piège mental — "je slowplay pour ne pas faire fold"
 
-Le **slowplay préflop** n'est pas toujours mauvais. Flat AA ou KK peut avoir du sens dans certains contextes :
+Le {{< glterm "Slowplay" >}} préflop n'est pas toujours mauvais. Flat AA ou KK peut avoir du sens dans certains contextes :
 
 - Un joueur derrière **squeeze trop**
 - L'open raiser **4bet énormément**
@@ -221,7 +221,7 @@ Il fait juste ce que beaucoup de joueurs passifs font : il paie avec une grosse 
 
 Sauf que cette passivité a un **coût**.
 
-Quand il 3bet KK, il m'oblige à prendre une décision inconfortable avec le bas de ma range. {{< cards "Qs 6s" >}} devient une main fragile, chère à continuer, dominée, avec **reverse implied odds**.
+Quand il 3bet KK, il m'oblige à prendre une décision inconfortable avec le bas de ma range. {{< cards "Qs 6s" >}} devient une main fragile, chère à continuer, dominée, avec {{< glterm "Reverse implied odds" >}}.
 
 Quand il flat, il transforme mon erreur potentielle en opportunité.
 
@@ -241,7 +241,7 @@ J'ai **deux paires** avec {{< cards "Qs 6s" >}}.
 
 Ce flop touche énormément la range de call bouton : Ax, Qx, broadways, pockets qui n'ont pas 3bet, parfois des mains suited faibles, quelques slowplays.
 
-Contre un reg solide, je pourrais choisir un sizing plus cher immédiatement. Mais contre ce profil précis, le **petit c-bet** a une utilité : garder toutes ses mains intermédiaires accrochées.
+Contre un reg solide, je pourrais choisir un sizing plus cher immédiatement. Mais contre ce profil précis, le petit {{< glterm "C-bet" >}} a une utilité : garder toutes ses mains intermédiaires accrochées.
 
 {{< insight >}}
 **C-bet small (1/3 pot) contre un profil large-passif**
@@ -253,7 +253,7 @@ Je ne cherche pas à le faire fold. Je cherche à lui faire **commencer une erre
 
 Son call flop avec {{< cards "Kc Kh" >}} n'est pas encore catastrophique isolément. Face à un petit sizing, avec KK, il peut encore se dire que je c-bet trop large, que je peux avoir une dame, des pockets, des airs.
 
-Mais sa main est déjà devenue une main de **bluffcatch**.
+Mais sa main est déjà devenue un {{< glterm "Bluffcatcher" >}}.
 
 Préflop, KK était une premium. Sur A-Q-6 après c-bet, KK n'est plus une premium. C'est **une paire sous l'As**, battue par tous mes Ax et par mes deux paires.
 
@@ -353,7 +353,7 @@ Ce profil peut payer avec AK, AJ, AT, A9, Ax quelconque, KK, parfois Qx, parfois
 
 Contre un joueur sans fold equity (**50/0**, aucun historique de fold postflop), l'overbet river n'est pas un sizing *équilibré* — c'est un sizing **exploitant**. Il paie trop souvent avec des mains battues. Plus on mise gros, plus l'EV augmente contre ce profil.
 
-L'équilibre GTO ne s'applique pas ici. On maximise face à quelqu'un qui **ne fold pas**.
+Un profil {{< glterm "Sticky" >}} réduit la fold equity à zéro. L'équilibre GTO ne s'applique pas ici. On maximise face à quelqu'un qui **ne fold pas**.
 {{< /equity >}}
 
 Le call avec {{< cards "Kc Kh" >}} révèle une information énorme : vilain n'arrive pas à folder une grosse main préflop, même quand le board et l'action lui **hurlent** qu'elle a perdu sa valeur.
