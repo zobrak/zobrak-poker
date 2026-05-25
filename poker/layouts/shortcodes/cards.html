@@ -1,0 +1,5 @@
+{{/* {{< cards "Qs 6s" >}}  — inline, taille sm par défaut
+   {{< cards "Qs 6s" "lg" >}} — grande taille */}}
+{{- $codes := .Get 0 | default "" -}}
+{{- $size  := .Get 1 | default "sm" -}}
+{{ partial "render-cards.html" (dict "codes" $codes "size" $size) }}

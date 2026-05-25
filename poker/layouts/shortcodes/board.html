@@ -1,0 +1,9 @@
+{{/* {{< board "Flop" "Qc Ad 6h" >}}
+   {{< board "Turn" "4c" >}}
+   {{< board "River" "3h" >}} */}}
+{{- $street := .Get 0 | default "" -}}
+{{- $codes  := .Get 1 | default "" -}}
+<div class="board-display">
+  {{- if $street -}}<span class="board-street-label">{{ $street }}</span>{{- end -}}
+  {{ partial "render-cards.html" (dict "codes" $codes "size" "") }}
+</div>

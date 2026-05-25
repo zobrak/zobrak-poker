@@ -1,0 +1,29 @@
+{{/*
+  Partial render-cards.html
+  Params: codes (string, space-separated card codes), size (string: "sm"|""|"lg")
+  Usage: {{ partial "render-cards.html" (dict "codes" "Qs 6s" "size" "sm") }}
+*/}}
+{{- $codes := split (.codes | default "") " " -}}
+{{- $size  := .size | default "" -}}
+{{- $cls   := "playing-card" -}}
+{{- if eq $size "sm"  -}}{{- $cls = "playing-card card-sm"  -}}{{- end -}}
+{{- if eq $size "lg"  -}}{{- $cls = "playing-card card-lg"  -}}{{- end -}}
+<span class="cards-row">
+{{- range $codes -}}
+  {{- $c := trim . " " -}}
+  {{- if $c -}}
+    {{- $suit := lower (substr $c 1 1) -}}
+    {{- $rank := upper (substr $c 0 1) -}}
+    {{- $suitClass := "" -}}{{- $suitSym := "" -}}
+    {{- if eq $suit "s" -}}{{- $suitClass = "suit-spade"   -}}{{- $suitSym = "♠" -}}{{- end -}}
+    {{- if eq $suit "h" -}}{{- $suitClass = "suit-heart"   -}}{{- $suitSym = "♥" -}}{{- end -}}
+    {{- if eq $suit "d" -}}{{- $suitClass = "suit-diamond" -}}{{- $suitSym = "♦" -}}{{- end -}}
+    {{- if eq $suit "c" -}}{{- $suitClass = "suit-club"    -}}{{- $suitSym = "♣" -}}{{- end -}}
+    {{- $rankDisp := $rank -}}{{- if eq $rank "T" -}}{{- $rankDisp = "10" -}}{{- end -}}
+    <span class="{{ $cls }} {{ $suitClass }}" title="{{ $c }}" aria-label="{{ $rankDisp }}{{ $suitSym }}">
+      <span class="card-rank">{{ $rankDisp }}</span>
+      <span class="card-suit" aria-hidden="true">{{ $suitSym }}</span>
+    </span>
+  {{- end -}}
+{{- end -}}
+</span>

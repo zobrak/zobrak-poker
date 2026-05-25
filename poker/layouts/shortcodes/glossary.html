@@ -1,0 +1,19 @@
+{{/* {{< glossary >}}
+term :: définition
+term :: définition
+{{< /glossary >}} */}}
+<div class="glossary-block">
+  <h3>Glossaire</h3>
+  {{- range split (trim .Inner "\n") "\n" -}}
+    {{- $line := trim . " " -}}
+    {{- if $line -}}
+      {{- $parts := split $line " :: " -}}
+      {{- if ge (len $parts) 2 -}}
+        <div class="glossary-item">
+          <span class="glossary-term">{{ index $parts 0 }}</span>
+          <span class="glossary-def">{{ index $parts 1 | markdownify }}</span>
+        </div>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+</div>
