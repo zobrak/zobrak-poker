@@ -1,7 +1,7 @@
 ---
 title: "Glossaire"
 date: 2026-05-25
-draft: true
+draft: false
 description: "Termes techniques poker utilisés dans les reviews. Section en construction — sera rendue publique quand suffisamment étoffée."
 ---
 
