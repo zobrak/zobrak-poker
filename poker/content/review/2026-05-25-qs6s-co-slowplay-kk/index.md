@@ -1,7 +1,7 @@
 ---
 title: "NL2 — Le piège du slowplay : quand KK se transforme en bluffcatcher hors de prix"
 date: 2026-05-25
-draft: true
+draft: false
 description: "Un calling station flat KK BTN versus open CO. Hero touche deux paires sur AQ6. Trois rues de value culminant sur un overbet river 1.5x pot. Anatomie d'un slowplay préflop qui coûte très cher."
 hero: "Hero"
 
