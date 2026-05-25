@@ -1,0 +1,28 @@
+{{/* handsynth — bloc synthèse compact pour review multi-mains */}}
+{{- $id     := .Get "id" | default "" -}}
+{{- $pos    := .Get "pos" | default "" -}}
+{{- $hand   := .Get "hand" | default "" -}}
+{{- $board  := .Get "board" | default "" -}}
+{{- $result := .Get "result" | default "" -}}
+{{- $tag    := .Get "tag" | default "neutral" -}}
+<div class="handsynth handsynth--{{ $tag }}">
+  <div class="handsynth-header">
+    <div class="handsynth-meta">
+      {{- if $id -}}<span class="handsynth-id">{{ $id }}</span>{{- end -}}
+      {{- if $pos -}}<span class="handsynth-pos">{{ $pos }}</span>{{- end -}}
+    </div>
+    <div class="handsynth-cards-row">
+      {{- if $hand -}}
+      <span class="handsynth-hero-cards">{{ partial "render-cards.html" (dict "codes" $hand "size" "sm") }}</span>
+      {{- end -}}
+      {{- if $board -}}
+      <span class="handsynth-sep">vs</span>
+      <span class="handsynth-board-cards">{{ partial "render-cards.html" (dict "codes" $board "size" "sm") }}</span>
+      {{- end -}}
+    </div>
+    {{- if $result -}}
+    <div class="handsynth-result handsynth-result--{{ $tag }}">{{ $result }}</div>
+    {{- end -}}
+  </div>
+  <div class="handsynth-body">{{- .Inner | markdownify -}}</div>
+</div>

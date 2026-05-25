@@ -1031,6 +1031,91 @@ p { margin-bottom: 0.9rem; }
   text-decoration-style: solid;
 }
 
+/* ── Handsynth — bloc synthèse multi-mains ───────────────────────── */
+.handsynth {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  background: rgba(255,255,255,0.02);
+}
+.handsynth--win   { border-left-color: rgba(46, 204, 113, 0.75); }
+.handsynth--loss  { border-left-color: rgba(231, 76, 60, 0.65); }
+.handsynth--neutral { border-left-color: rgba(100, 160, 220, 0.55); }
+
+.handsynth-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+.handsynth-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.handsynth-id {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: rgba(255,255,255,0.05);
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+}
+.handsynth-pos {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(200, 168, 75, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.handsynth-cards-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.handsynth-sep {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.handsynth-hero-cards,
+.handsynth-board-cards {
+  display: flex;
+  gap: 0.2rem;
+}
+.handsynth-result {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-left: auto;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+.handsynth-result--win  { color: #2ecc71; background: rgba(46,204,113,0.12); }
+.handsynth-result--loss { color: #e74c3c; background: rgba(231,76,60,0.12); }
+.handsynth-result--neutral { color: var(--muted); }
+
+.handsynth-body {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-secondary, var(--text));
+}
+.handsynth-body p { margin-bottom: 0.4rem; }
+.handsynth-body p:last-child { margin-bottom: 0; }
+.handsynth-body strong { color: var(--text); }
+
 /* ── Tableau récap street ────────────────────────────────────────── */
 .hand-recap {
   width: 100%;
