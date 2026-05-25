@@ -1032,6 +1032,43 @@ p { margin-bottom: 0.9rem; }
   line-height: 1.55;
 }
 
+/* ── Glossaire en bas des fiches stratégie ───────────────────────── */
+.strat-glossaire-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(200, 168, 75, 0.25);
+}
+.strat-glossaire-footer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+.strat-glossaire-footer-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200, 168, 75, 0.7);
+}
+.strat-glossaire-footer-link {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.strat-glossaire-footer-link:hover { color: var(--gold); }
+.gl-more {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 0.3rem;
+  opacity: 0.6;
+  transition: opacity var(--transition);
+}
+.gl-more:hover { opacity: 1; color: var(--gold); }
+
 /* ── Image stratégie — pleine largeur + bouton dl ───────────────── */
 .strat-img-wrap {
   margin: 0 0 2rem 0;

@@ -56,6 +56,15 @@
           <div class="strat-content">
             {{ .Content }}
           </div>
+
+          {{/* Mini-glossaire — termes référencés dans l'article uniquement */}}
+          {{ $gl := .Site.GetPage "/glossaire" }}
+          {{ if $gl }}
+          <div id="page-glossaire-container" class="strat-glossaire-footer"
+               data-glossaire-url="{{ "/glossaire/" | relURL }}" hidden></div>
+          <div id="glossaire-source" hidden aria-hidden="true">{{ $gl.Content }}</div>
+          {{ end }}
+
         </article>
       </div>
     </main>
@@ -76,6 +85,69 @@
   btn.addEventListener('click', function(){
     var open = sidebar.classList.toggle('open');
     btn.setAttribute('aria-expanded', open);
+  });
+})();
+</script>
+
+<script>
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var container = document.getElementById('page-glossaire-container');
+    var source    = document.getElementById('glossaire-source');
+    if (!container || !source) return;
+
+    /* Renommer les IDs source → data-glid pour éviter les doublons */
+    source.querySelectorAll('[id^="gl-"]').forEach(function (el) {
+      el.dataset.glid = el.id;
+      el.removeAttribute('id');
+    });
+
+    /* Collecter les termes référencés dans l'article (déduplication) */
+    var links = Array.from(document.querySelectorAll('.strat-content .gl-term'));
+    var seen  = new Set();
+    var entries = [];
+
+    links.forEach(function (el) {
+      var id = (el.getAttribute('href') || '').replace('#', '');
+      if (!id || seen.has(id)) return;
+      seen.add(id);
+
+      var item   = source.querySelector('[data-glid="' + id + '"]');
+      if (!item) return;
+      var termEl = item.querySelector('.glossary-term');
+      var defEl  = item.querySelector('.glossary-def');
+      if (!termEl || !defEl) return;
+
+      entries.push({
+        id:   id,
+        term: termEl.textContent.trim(),
+        def:  defEl.innerHTML.trim()
+      });
+    });
+
+    if (!entries.length) return;
+
+    var glossaireUrl = container.dataset.glossaireUrl || '/glossaire/';
+
+    /* Construction du mini-glossaire */
+    var html = '<div class="strat-glossaire-footer-header">'
+      + '<span class="strat-glossaire-footer-title">Glossaire</span>'
+      + '<a href="' + glossaireUrl + '" class="strat-glossaire-footer-link">Glossaire complet →</a>'
+      + '</div>'
+      + '<div class="glossary-block"><div>';
+
+    entries.forEach(function (e) {
+      html += '<div class="glossary-item" id="' + e.id + '">'
+        + '<span class="glossary-term">' + e.term + '</span>'
+        + '<span class="glossary-def">' + e.def
+        + ' <a href="' + glossaireUrl + '#' + e.id + '" class="gl-more" title="Voir dans le glossaire complet">↗</a>'
+        + '</span>'
+        + '</div>';
+    });
+
+    html += '</div></div>';
+    container.innerHTML = html;
+    container.removeAttribute('hidden');
   });
 })();
 </script>
